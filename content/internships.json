@@ -1,0 +1,38 @@
+[
+  {
+    "id": 3,
+    "created_at": "2026-04-20 05:41:17.323937",
+    "updated_at": "2026-04-20 05:41:17.323937",
+    "role": "Project Assistant",
+    "company": "Jawaharlal Nehru Centre For Advanced Scientific Research",
+    "start_date": "2025-08-01",
+    "end_date": null,
+    "description": "I joined JNCASR as a Project Assistant under Prof. Shobhana Narasimhan, where I work on first-principles simulations of nanoscale materials using VASP. In collaboration with researchers at IISER Thiruvananthapuram and a PhD researcher in the group, I am investigating the Ge/SiGe semiconductor interface to understand the formation of two-dimensional electron and hole gases at the junction. This work has strengthened my understanding of how atomic-scale variations influence emergent electronic properties relevant to next-generation device applications.",
+    "sort_order": 0,
+    "slug": "project-assistant-jawaharlal-nehru-centre-for-advanced-scientific-research"
+  },
+  {
+    "id": 1,
+    "created_at": "2026-04-20 05:41:17.323937",
+    "updated_at": "2026-04-20 05:41:17.323937",
+    "role": "Robotics Intern",
+    "company": "Teachnook",
+    "start_date": "2023-06-01",
+    "end_date": "2023-08-01",
+    "description": "Worked on robotics-focused practical learning and prototyping as part of the internship program.",
+    "sort_order": 0,
+    "slug": "robotics-intern-teachnook"
+  },
+  {
+    "id": 2,
+    "created_at": "2026-04-20 05:41:17.323937",
+    "updated_at": "2026-04-20 05:41:17.323937",
+    "role": "Summer Research Fellow (SURC)",
+    "company": "Jawaharlal Nehru Centre For Advanced Scientific Research",
+    "start_date": "2025-06-01",
+    "end_date": "2025-07-31",
+    "description": "During my SURC internship at JNCASR, I worked with VASP to perform Density Functional Theory (DFT) simulations. My main project focused on reproducing published results for CsPbBr₃ and CsPbCl₃, ensuring consistency in structural and electronic properties. Alongside this, I explored WSe₂ systems, where I gained experience in SCF convergence, band structure calculations, density of states, and charge density analysis.",
+    "sort_order": 0,
+    "slug": "summer-research-fellow-surc-jawaharlal-nehru-centre-for-advanced-scientific-research"
+  }
+]

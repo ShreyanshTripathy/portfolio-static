@@ -1,0 +1,483 @@
+[
+  {
+    "id": 1,
+    "created_at": "2026-04-20 05:41:17.324936",
+    "updated_at": "2026-04-20 05:41:17.324936",
+    "title": "Building Michelson Interferometer",
+    "summary": "Built a Michelson interferometer to observe interference due to controlled path differences.",
+    "description": "The aim of the project was to build a Michelson Interferometer in which a beamsplitter divides light into two perpendicular beams that reflect off mirrors and recombine, producing interference from the path difference between the two arms.",
+    "tech_stack": "Optics, Experimental Physics, Interferometry",
+    "github_link": null,
+    "featured": true,
+    "start_date": "2023-03-01",
+    "end_date": null,
+    "sort_order": 1,
+    "slug": "building-michelson-interferometer",
+    "images": [
+      {
+        "id": 1,
+        "created_at": "2026-04-20 05:41:17.332939",
+        "updated_at": "2026-04-20 05:41:17.332939",
+        "image": null,
+        "caption": "Experimental Setup",
+        "sort_order": 1,
+        "project": "building-michelson-interferometer",
+        "static_image_path": "img/Michelson_interferometer_setup.png",
+        "slug": "experimental-setup-1"
+      },
+      {
+        "id": 2,
+        "created_at": "2026-04-20 05:41:17.332939",
+        "updated_at": "2026-04-20 05:41:17.332939",
+        "image": null,
+        "caption": "Interference Pattern",
+        "sort_order": 2,
+        "project": "building-michelson-interferometer",
+        "static_image_path": "img/Michelson fringes.png",
+        "slug": "interference-pattern-2"
+      }
+    ],
+    "team_members": [
+      {
+        "id": 3,
+        "created_at": "2026-04-20 05:41:17.331941",
+        "updated_at": "2026-04-20 05:41:17.331941",
+        "name": "Darshan Rajesh",
+        "role": "",
+        "sort_order": 3,
+        "project": "building-michelson-interferometer",
+        "slug": "darshan-rajesh-3"
+      },
+      {
+        "id": 1,
+        "created_at": "2026-04-20 05:41:17.330939",
+        "updated_at": "2026-04-20 05:41:17.331941",
+        "name": "Shreyansh Tripathy",
+        "role": "",
+        "sort_order": 1,
+        "project": "building-michelson-interferometer",
+        "slug": "shreyansh-tripathy-1"
+      },
+      {
+        "id": 2,
+        "created_at": "2026-04-20 05:41:17.331941",
+        "updated_at": "2026-04-20 05:41:17.331941",
+        "name": "Sourabh Subhasish Panda",
+        "role": "",
+        "sort_order": 2,
+        "project": "building-michelson-interferometer",
+        "slug": "sourabh-subhasish-panda-2"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "created_at": "2026-04-20 05:41:17.324936",
+    "updated_at": "2026-04-20 05:41:17.324936",
+    "title": "Constructing Cloud Chamber with Peltier Disks",
+    "summary": "Built a cloud chamber for observing ionizing radiation using Peltier-based cooling.",
+    "description": "This project focused on designing and testing a compact cloud chamber using Peltier disks to achieve the temperature gradient needed for particle track visualization.",
+    "tech_stack": "Experimental Physics, Radiation Detection, Thermals",
+    "github_link": null,
+    "featured": false,
+    "start_date": "2023-09-01",
+    "end_date": null,
+    "sort_order": 4,
+    "slug": "constructing-cloud-chamber-with-peltier-disks",
+    "images": [
+      {
+        "id": 15,
+        "created_at": "2026-04-20 05:41:17.332939",
+        "updated_at": "2026-04-20 05:41:17.332939",
+        "image": null,
+        "caption": "Cloud Chamber Temperature",
+        "sort_order": 2,
+        "project": "constructing-cloud-chamber-with-peltier-disks",
+        "static_image_path": "img/cloud chamber temperature.png",
+        "slug": "cloud-chamber-temperature-15"
+      },
+      {
+        "id": 14,
+        "created_at": "2026-04-20 05:41:17.332939",
+        "updated_at": "2026-04-20 05:41:17.332939",
+        "image": null,
+        "caption": "Cloud Chamber Top",
+        "sort_order": 1,
+        "project": "constructing-cloud-chamber-with-peltier-disks",
+        "static_image_path": "img/cloud chamber top.jpg",
+        "slug": "cloud-chamber-top-14"
+      }
+    ],
+    "team_members": [
+      {
+        "id": 10,
+        "created_at": "2026-04-20 05:41:17.331941",
+        "updated_at": "2026-04-20 05:41:17.331941",
+        "name": "Shreyansh Tripathy",
+        "role": "",
+        "sort_order": 1,
+        "project": "constructing-cloud-chamber-with-peltier-disks",
+        "slug": "shreyansh-tripathy-10"
+      },
+      {
+        "id": 11,
+        "created_at": "2026-04-20 05:41:17.331941",
+        "updated_at": "2026-04-20 05:41:17.331941",
+        "name": "Sourabh Subhasish Panda",
+        "role": "",
+        "sort_order": 2,
+        "project": "constructing-cloud-chamber-with-peltier-disks",
+        "slug": "sourabh-subhasish-panda-11"
+      },
+      {
+        "id": 12,
+        "created_at": "2026-04-20 05:41:17.331941",
+        "updated_at": "2026-04-20 05:41:17.331941",
+        "name": "Suktija",
+        "role": "",
+        "sort_order": 3,
+        "project": "constructing-cloud-chamber-with-peltier-disks",
+        "slug": "suktija-12"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "created_at": "2026-04-20 05:41:17.324936",
+    "updated_at": "2026-04-20 05:41:17.324936",
+    "title": "Developing Soft Robotic Actuators",
+    "summary": "Explored electrically, magnetically, hydraulically, and osmotically responsive soft actuators.",
+    "description": "This project focused on designing and building soft robotic actuators including dielectric elastomer actuators, electrochemical actuators, magnetic actuators, hydraulic systems, and water-sensitive actuation mechanisms.",
+    "tech_stack": "Soft Robotics, Materials, Actuation, Experimental Physics",
+    "github_link": null,
+    "featured": true,
+    "start_date": "2024-10-01",
+    "end_date": null,
+    "sort_order": 3,
+    "slug": "developing-soft-robotic-actuators",
+    "images": [
+      {
+        "id": 10,
+        "created_at": "2026-04-20 05:41:17.332939",
+        "updated_at": "2026-04-20 05:41:17.332939",
+        "image": null,
+        "caption": "DEA",
+        "sort_order": 4,
+        "project": "developing-soft-robotic-actuators",
+        "static_image_path": "img/DEA.png",
+        "slug": "dea-10"
+      },
+      {
+        "id": 8,
+        "created_at": "2026-04-20 05:41:17.332939",
+        "updated_at": "2026-04-20 05:41:17.332939",
+        "image": null,
+        "caption": "ECA Sandwich",
+        "sort_order": 2,
+        "project": "developing-soft-robotic-actuators",
+        "static_image_path": "img/ECA sandwitch.png",
+        "slug": "eca-sandwich-8"
+      },
+      {
+        "id": 12,
+        "created_at": "2026-04-20 05:41:17.332939",
+        "updated_at": "2026-04-20 05:41:17.332939",
+        "image": null,
+        "caption": "Hydraulic Pressure Actuator",
+        "sort_order": 6,
+        "project": "developing-soft-robotic-actuators",
+        "static_image_path": "img/hydraulic.png",
+        "slug": "hydraulic-pressure-actuator-12"
+      },
+      {
+        "id": 9,
+        "created_at": "2026-04-20 05:41:17.332939",
+        "updated_at": "2026-04-20 05:41:17.332939",
+        "image": null,
+        "caption": "Hydrogel Samples",
+        "sort_order": 3,
+        "project": "developing-soft-robotic-actuators",
+        "static_image_path": "img/Hydrogel(h2so4).png",
+        "slug": "hydrogel-samples-9"
+      },
+      {
+        "id": 11,
+        "created_at": "2026-04-20 05:41:17.332939",
+        "updated_at": "2026-04-20 05:41:17.332939",
+        "image": null,
+        "caption": "Magnetic Actuator",
+        "sort_order": 5,
+        "project": "developing-soft-robotic-actuators",
+        "static_image_path": "img/magnetic_actuator.png",
+        "slug": "magnetic-actuator-11"
+      },
+      {
+        "id": 13,
+        "created_at": "2026-04-20 05:41:17.332939",
+        "updated_at": "2026-04-20 05:41:17.332939",
+        "image": null,
+        "caption": "Osmotic Actuator",
+        "sort_order": 7,
+        "project": "developing-soft-robotic-actuators",
+        "static_image_path": "img/osmotic.png",
+        "slug": "osmotic-actuator-13"
+      },
+      {
+        "id": 7,
+        "created_at": "2026-04-20 05:41:17.332939",
+        "updated_at": "2026-04-20 05:41:17.332939",
+        "image": null,
+        "caption": "Poster",
+        "sort_order": 1,
+        "project": "developing-soft-robotic-actuators",
+        "static_image_path": "img/project combined-1.png",
+        "slug": "poster-7"
+      }
+    ],
+    "team_members": [
+      {
+        "id": 9,
+        "created_at": "2026-04-20 05:41:17.331941",
+        "updated_at": "2026-04-20 05:41:17.331941",
+        "name": "Darshan Rajesh",
+        "role": "",
+        "sort_order": 3,
+        "project": "developing-soft-robotic-actuators",
+        "slug": "darshan-rajesh-9"
+      },
+      {
+        "id": 7,
+        "created_at": "2026-04-20 05:41:17.331941",
+        "updated_at": "2026-04-20 05:41:17.331941",
+        "name": "Shreyansh Tripathy",
+        "role": "",
+        "sort_order": 1,
+        "project": "developing-soft-robotic-actuators",
+        "slug": "shreyansh-tripathy-7"
+      },
+      {
+        "id": 8,
+        "created_at": "2026-04-20 05:41:17.331941",
+        "updated_at": "2026-04-20 05:41:17.331941",
+        "name": "Sourabh Subhasish Panda",
+        "role": "",
+        "sort_order": 2,
+        "project": "developing-soft-robotic-actuators",
+        "slug": "sourabh-subhasish-panda-8"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "created_at": "2026-04-20 05:41:17.324936",
+    "updated_at": "2026-04-20 05:41:17.324936",
+    "title": "Star Tracker",
+    "summary": "A microcontroller-based motorized star tracker designed to locate and follow celestial objects using equatorial coordinates. The system combines real-time sensor data, time synchronization, and stepper motor control to achieve automated astronomical track",
+    "description": "This project involves designing and building a two-stage star tracking system: a prototype and a full-scale motorized telescope mount. The ESP32 collects orientation data from sensors (MPU6050/MPU9250), synchronizes time using NTP, and computes astronomical coordinates such as Right Ascension and Declination. These values are transmitted to an Arduino Mega, which controls stepper motors to physically align the system with target celestial objects. The project integrates concepts from embedded systems, sensor fusion, celestial mechanics, and mechanical design, while addressing challenges like sensor noise, motor torque limitations, and system stability.\r\n\r\nDespite a working prototype, the final implementation faced unresolved challenges and could not be completed within the project timeline.",
+    "tech_stack": "micro-controllers, Rapid Prototyping, Coding",
+    "github_link": "https://bloggers.pythonanywhere.com/",
+    "featured": false,
+    "start_date": "2025-04-01",
+    "end_date": "2025-03-31",
+    "sort_order": 0,
+    "slug": "star-tracker",
+    "images": [
+      {
+        "id": 17,
+        "created_at": "2026-04-20 05:41:17.332939",
+        "updated_at": "2026-04-20 05:41:17.332939",
+        "image": null,
+        "caption": "final outcome",
+        "sort_order": 0,
+        "project": "star-tracker",
+        "static_image_path": "",
+        "slug": "final-outcome-17"
+      },
+      {
+        "id": 16,
+        "created_at": "2026-04-20 05:41:17.332939",
+        "updated_at": "2026-04-20 05:41:17.332939",
+        "image": null,
+        "caption": "Prototype",
+        "sort_order": 0,
+        "project": "star-tracker",
+        "static_image_path": "",
+        "slug": "prototype-16"
+      }
+    ],
+    "team_members": [
+      {
+        "id": 15,
+        "created_at": "2026-04-20 05:41:17.331941",
+        "updated_at": "2026-04-20 05:41:17.331941",
+        "name": "Shreyansh Tripathy",
+        "role": "",
+        "sort_order": 0,
+        "project": "star-tracker",
+        "slug": "shreyansh-tripathy-15"
+      },
+      {
+        "id": 16,
+        "created_at": "2026-04-20 05:41:17.331941",
+        "updated_at": "2026-04-20 05:41:17.331941",
+        "name": "Sourabh Subhasish Panda",
+        "role": "",
+        "sort_order": 0,
+        "project": "star-tracker",
+        "slug": "sourabh-subhasish-panda-16"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "created_at": "2026-04-20 05:41:17.324936",
+    "updated_at": "2026-04-20 05:41:17.324936",
+    "title": "Stochastic Modeling for Elevator Systems Efficiency",
+    "summary": "Used stochastic modeling in Python to study and improve elevator efficiency in large buildings.",
+    "description": "This project used Python-based stochastic modeling to optimize elevator-system efficiency. It remains an evolving project with continuous improvements and updates.",
+    "tech_stack": "Python, Stochastic Modeling, Simulation",
+    "github_link": "https://github.com/ShreyanshTripathy/Honours_completed",
+    "featured": false,
+    "start_date": "2025-01-01",
+    "end_date": null,
+    "sort_order": 5,
+    "slug": "stochastic-modeling-for-elevator-systems-efficiency",
+    "images": [],
+    "team_members": [
+      {
+        "id": 17,
+        "created_at": "2026-04-20 05:41:17.331941",
+        "updated_at": "2026-04-20 05:41:17.331941",
+        "name": "Honours Mentor",
+        "role": "Murthy OVSN",
+        "sort_order": 2,
+        "project": "stochastic-modeling-for-elevator-systems-efficiency",
+        "slug": "honours-mentor-17"
+      },
+      {
+        "id": 14,
+        "created_at": "2026-04-20 05:41:17.331941",
+        "updated_at": "2026-04-20 05:41:17.331941",
+        "name": "Murthy OVSN",
+        "role": "Honours mentor",
+        "sort_order": 2,
+        "project": "stochastic-modeling-for-elevator-systems-efficiency",
+        "slug": "murthy-ovsn-14"
+      },
+      {
+        "id": 13,
+        "created_at": "2026-04-20 05:41:17.331941",
+        "updated_at": "2026-04-20 05:41:17.331941",
+        "name": "Shreyansh Tripathy",
+        "role": "",
+        "sort_order": 1,
+        "project": "stochastic-modeling-for-elevator-systems-efficiency",
+        "slug": "shreyansh-tripathy-13"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "created_at": "2026-04-20 05:41:17.324936",
+    "updated_at": "2026-04-20 05:41:17.324936",
+    "title": "Studying Standing Sound Waves using Schlieren Imaging",
+    "summary": "Used schlieren imaging to visualize sound waves, heat, smoke, and related density changes in air.",
+    "description": "Schlieren imaging is an optical method that reveals refractive-index fluctuations in transparent media such as air. This project focused on using that method to visualize standing sound waves and related flow and temperature phenomena.",
+    "tech_stack": "Optics, Imaging, Wave Physics, Python",
+    "github_link": null,
+    "featured": true,
+    "start_date": "2024-03-01",
+    "end_date": null,
+    "sort_order": 2,
+    "slug": "studying-standing-sound-waves-using-schlieren-imaging",
+    "images": [
+      {
+        "id": 6,
+        "created_at": "2026-04-20 05:41:17.332939",
+        "updated_at": "2026-04-20 05:41:17.332939",
+        "image": null,
+        "caption": "Observation of Blowtorch",
+        "sort_order": 5,
+        "project": "studying-standing-sound-waves-using-schlieren-imaging",
+        "static_image_path": "img/blowtorch.gif",
+        "slug": "observation-of-blowtorch-6"
+      },
+      {
+        "id": 4,
+        "created_at": "2026-04-20 05:41:17.332939",
+        "updated_at": "2026-04-20 05:41:17.332939",
+        "image": null,
+        "caption": "Observation of Candle",
+        "sort_order": 3,
+        "project": "studying-standing-sound-waves-using-schlieren-imaging",
+        "static_image_path": "img/candle.gif",
+        "slug": "observation-of-candle-4"
+      },
+      {
+        "id": 5,
+        "created_at": "2026-04-20 05:41:17.332939",
+        "updated_at": "2026-04-20 05:41:17.332939",
+        "image": null,
+        "caption": "Observation of Smoke",
+        "sort_order": 4,
+        "project": "studying-standing-sound-waves-using-schlieren-imaging",
+        "static_image_path": "img/smoke.gif",
+        "slug": "observation-of-smoke-5"
+      },
+      {
+        "id": 18,
+        "created_at": "2026-04-20 05:41:17.332939",
+        "updated_at": "2026-04-20 05:41:17.332939",
+        "image": null,
+        "caption": "Setup",
+        "sort_order": 1,
+        "project": "studying-standing-sound-waves-using-schlieren-imaging",
+        "static_image_path": "img/Schilieren_setup.png",
+        "slug": "setup-18"
+      },
+      {
+        "id": 3,
+        "created_at": "2026-04-20 05:41:17.332939",
+        "updated_at": "2026-04-20 05:41:17.332939",
+        "image": null,
+        "caption": "Standing Wave Observation",
+        "sort_order": 2,
+        "project": "studying-standing-sound-waves-using-schlieren-imaging",
+        "static_image_path": "img/sound wave.png",
+        "slug": "standing-wave-observation-3"
+      }
+    ],
+    "team_members": [
+      {
+        "id": 6,
+        "created_at": "2026-04-20 05:41:17.331941",
+        "updated_at": "2026-04-20 05:41:17.331941",
+        "name": "Kinshuk Ghosh",
+        "role": "",
+        "sort_order": 3,
+        "project": "studying-standing-sound-waves-using-schlieren-imaging",
+        "slug": "kinshuk-ghosh-6"
+      },
+      {
+        "id": 4,
+        "created_at": "2026-04-20 05:41:17.331941",
+        "updated_at": "2026-04-20 05:41:17.331941",
+        "name": "Shreyansh Tripathy",
+        "role": "",
+        "sort_order": 1,
+        "project": "studying-standing-sound-waves-using-schlieren-imaging",
+        "slug": "shreyansh-tripathy-4"
+      },
+      {
+        "id": 5,
+        "created_at": "2026-04-20 05:41:17.331941",
+        "updated_at": "2026-04-20 05:41:17.331941",
+        "name": "Sourabh Subhasish Panda",
+        "role": "",
+        "sort_order": 2,
+        "project": "studying-standing-sound-waves-using-schlieren-imaging",
+        "slug": "sourabh-subhasish-panda-5"
+      }
+    ]
+  }
+]

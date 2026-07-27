@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Used schlieren imaging to visualize sound waves, heat, smoke, and related density changes in air.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Shreyansh Tripathy">
+  <meta property="og:title" content="Studying Standing Sound Waves using Schlieren Imaging | Shreyansh Tripathy">
+  <meta property="og:description" content="Used schlieren imaging to visualize sound waves, heat, smoke, and related density changes in air.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Studying Standing Sound Waves using Schlieren Imaging | Shreyansh Tripathy">
+  <meta name="twitter:description" content="Used schlieren imaging to visualize sound waves, heat, smoke, and related density changes in air.">
+  <title>Studying Standing Sound Waves using Schlieren Imaging</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap">
+  <script>
+    (() => {
+      try {
+        const savedTheme = localStorage.getItem("portfolio-theme");
+        const theme = savedTheme === "dark" ? "dark" : "light";
+        const root = document.documentElement;
+        root.dataset.theme = theme;
+        root.classList.toggle("dark", theme === "dark");
+        root.style.colorScheme = theme;
+      } catch (error) {
+        document.documentElement.dataset.theme = "light";
+      }
+    })();
+  </script>
+  <script src="https://cdn.tailwindcss.com?plugins=typography,forms"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: { extend: { colors: { sand: { 50: "#f8f4ee", 100: "#efe7db", 200: "#dcc5aa", 700: "#6e4e2e", 900: "#221c18" } }, boxShadow: { warm: "0 24px 60px rgba(67, 47, 27, 0.08)" } } }
+    }
+  </script>
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+</head>
+<body class="shell antialiased">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <header class="border-b border-sand-900/10 py-6">
+      <div class="flex flex-col gap-5 xl:flex-row xl:items-end xl:justify-between">
+        <a href="../../" class="max-w-xl">
+          <p class="eyebrow">Portfolio</p>
+          <h1 class="font-display text-2xl font-semibold text-sand-900">Shreyansh Tripathy</h1>
+          <p class="mt-2 text-sm text-sand-900/70">Physics graduate with an interest in applied physics and efficient systems</p>
+        </a>
+        <div class="flex flex-col gap-4 xl:max-w-3xl xl:items-end">
+          <nav class="nav-scroll nav-scroll--enhanced -mx-1 flex flex-nowrap items-center gap-2 overflow-x-auto px-1 pb-2 text-sm text-sand-900/80 sm:mx-0 sm:px-0 sm:pb-0 xl:justify-end">
+            <a href="../../#about" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link>About</a>
+            <a href="../../skills/" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link>Skills</a>
+            <a href="../../certificates/" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link>Certificates</a>
+            <a href="../../projects/" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link data-active="true" aria-current="page">Projects</a>
+            <a href="../../experience/" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link>Experience</a>
+            <a href="../../#education" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link>Education</a>
+            <a href="../../#timeline" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link>Timeline</a>
+            <a href="../../contact/" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link>Contact</a>
+          </nav>
+          <button type="button" class="theme-toggle self-start xl:self-end" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
+            <span class="theme-toggle__option">Light</span>
+            <span class="theme-toggle__option">Dark</span>
+            <span class="theme-toggle__thumb" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+  </div>
+  <main><section class="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8"><nav class="flex flex-wrap items-center gap-y-2 text-sm text-sand-900/55"><a href="../../" class="hover:text-sand-900">Home</a><span class="mx-2">/</span><a href="../" class="hover:text-sand-900">Projects</a><span class="mx-2">/</span><span>Studying Standing Sound Waves using Schlieren Imaging</span></nav><div class="mt-6 glass rounded-[2rem] p-8 sm:p-10"><div class="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between"><div class="max-w-4xl"><p class="eyebrow">Project</p><h2 class="section-title mt-4 max-w-4xl">Studying Standing Sound Waves using Schlieren Imaging</h2></div></div><p class="mt-6 max-w-3xl text-lg leading-8 text-sand-900/70">Used schlieren imaging to visualize sound waves, heat, smoke, and related density changes in air.</p><div class="prose prose-stone prose-portfolio mt-8 max-w-none"><p>Schlieren imaging is an optical method that reveals refractive-index fluctuations in transparent media such as air. This project focused on using that method to visualize standing sound waves and related flow and temperature phenomena.</p></div><div class="mt-8 flex flex-wrap gap-2"><span class="rounded-full bg-sand-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-sand-700">Optics</span><span class="rounded-full bg-sand-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-sand-700">Imaging</span><span class="rounded-full bg-sand-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-sand-700">Wave Physics</span><span class="rounded-full bg-sand-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-sand-700">Python</span></div></div><div class="mt-8 grid gap-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(18rem,0.8fr)]"><section class="glass rounded-[1.8rem] p-6"><div class="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between"><div><p class="eyebrow">Gallery</p><h3 class="mt-2 text-xl font-semibold text-sand-900">Project images</h3></div><p class="text-sm text-sand-900/55">Tap or click to enlarge.</p></div><div class="mt-6 grid gap-5 sm:grid-cols-2"><button type="button" class="project-image overflow-hidden rounded-[1.5rem] border border-sand-900/10 bg-white/35 text-left" data-gallery-item data-image-src="../../assets/images/blowtorch.gif" data-image-caption="Observation of Blowtorch"><img src="../../assets/images/blowtorch.gif" alt="Observation of Blowtorch" loading="lazy" decoding="async"></button><button type="button" class="project-image overflow-hidden rounded-[1.5rem] border border-sand-900/10 bg-white/35 text-left" data-gallery-item data-image-src="../../assets/images/candle.gif" data-image-caption="Observation of Candle"><img src="../../assets/images/candle.gif" alt="Observation of Candle" loading="lazy" decoding="async"></button><button type="button" class="project-image overflow-hidden rounded-[1.5rem] border border-sand-900/10 bg-white/35 text-left" data-gallery-item data-image-src="../../assets/images/smoke.gif" data-image-caption="Observation of Smoke"><img src="../../assets/images/smoke.gif" alt="Observation of Smoke" loading="lazy" decoding="async"></button><button type="button" class="project-image overflow-hidden rounded-[1.5rem] border border-sand-900/10 bg-white/35 text-left" data-gallery-item data-image-src="../../assets/images/Schilieren_setup.png" data-image-caption="Setup"><img src="../../assets/images/Schilieren_setup.png" alt="Setup" loading="lazy" decoding="async"></button><button type="button" class="project-image overflow-hidden rounded-[1.5rem] border border-sand-900/10 bg-white/35 text-left" data-gallery-item data-image-src="../../assets/images/sound wave.png" data-image-caption="Standing Wave Observation"><img src="../../assets/images/sound wave.png" alt="Standing Wave Observation" loading="lazy" decoding="async"></button></div></section><section class="glass rounded-[1.8rem] p-6"><p class="eyebrow">Team</p><h3 class="mt-2 text-xl font-semibold text-sand-900">Team members</h3><div class="mt-6 space-y-4"><article class="rounded-[1.2rem] border border-sand-900/10 bg-white/35 px-4 py-4"><p class="font-semibold text-sand-900">Kinshuk Ghosh</p></article><article class="rounded-[1.2rem] border border-sand-900/10 bg-white/35 px-4 py-4"><p class="font-semibold text-sand-900">Shreyansh Tripathy</p></article><article class="rounded-[1.2rem] border border-sand-900/10 bg-white/35 px-4 py-4"><p class="font-semibold text-sand-900">Sourabh Subhasish Panda</p></article></div></section></div></section></main>
+  <footer class="mx-auto mt-16 max-w-7xl px-4 pb-10 sm:px-6 lg:px-8">
+    <div class="glass flex flex-col gap-4 rounded-[2rem] px-6 py-8 text-sm text-sand-900/70 md:flex-row md:items-center md:justify-between">
+      <div>
+        <p class="font-display text-xl text-sand-900">Shreyansh Tripathy</p>
+        <p class="mt-1">Thank you for visiting!</p>
+      </div>
+      <div class="flex flex-wrap gap-4">
+        <a href="../../skills/" class="hover:text-sand-900">Skills</a>
+        <a href="../../certificates/" class="hover:text-sand-900">Certificates</a>
+        <a href="../../projects/" class="hover:text-sand-900">Projects</a>
+        <a href="../../experience/" class="hover:text-sand-900">Experience</a>
+        <a href="../../#education" class="hover:text-sand-900">Education</a>
+        <a href="../../#timeline" class="hover:text-sand-900">Timeline</a>
+        <a href="../../contact/" class="hover:text-sand-900">Contact</a>
+      </div>
+    </div>
+  </footer>
+  <div class="lightbox fixed inset-0 z-50 bg-sand-900/85 px-4 py-6 sm:py-8" data-lightbox role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="lightbox-title" hidden>
+    <h2 id="lightbox-title" class="sr-only">Project image viewer</h2>
+    <div class="mx-auto flex h-full max-w-6xl flex-col gap-4 lg:flex-row lg:items-center" data-lightbox-dialog>
+      <div class="order-2 flex justify-center gap-3 lg:order-1 lg:flex-col">
+        <button class="rounded-full border border-white/20 px-4 py-3 text-white" data-lightbox-prev aria-label="Previous image">Prev</button>
+        <button class="rounded-full border border-white/20 px-4 py-3 text-white" data-lightbox-next aria-label="Next image">Next</button>
+        <button class="rounded-full border border-white/20 px-4 py-3 text-white" data-lightbox-close aria-label="Close lightbox">Close</button>
+      </div>
+      <div class="order-1 flex-1 overflow-hidden rounded-[2rem] bg-black/20 p-3 sm:p-4">
+        <img class="mx-auto max-h-[80vh] w-auto rounded-[1.5rem] object-contain" src="" alt="" data-lightbox-image>
+        <p class="mt-4 text-center text-sm text-white/80" data-lightbox-caption></p>
+      </div>
+    </div>
+  </div>
+  <script src="../../assets/js/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+document.addEventListener("DOMContentLoaded", () => {
+  const root = document.documentElement;
+  const themeToggle = document.querySelector("[data-theme-toggle]");
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const persistTheme = (theme) => {
+    try {
+      localStorage.setItem("portfolio-theme", theme);
+    } catch (error) {
+      // Ignore storage failures and continue with the in-memory theme state.
+    }
+  };
+
+  const applyTheme = (theme, shouldPersist = false) => {
+    const isDark = theme === "dark";
+    root.dataset.theme = isDark ? "dark" : "light";
+    root.classList.toggle("dark", isDark);
+    root.style.colorScheme = isDark ? "dark" : "light";
+
+    if (themeToggle) {
+      themeToggle.setAttribute("aria-pressed", String(isDark));
+      themeToggle.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
+    }
+
+    if (shouldPersist) {
+      persistTheme(isDark ? "dark" : "light");
+    }
+  };
+
+  applyTheme(root.dataset.theme === "dark" ? "dark" : "light");
+  themeToggle?.addEventListener("click", () => {
+    applyTheme(root.dataset.theme === "dark" ? "light" : "dark", true);
+  });
+
+  const syncScrollableFade = (shell) => {
+    const scrollable = shell.querySelector("[data-timeline-scroll]");
+    if (!scrollable) return;
+
+    const atTop = scrollable.scrollTop <= 2;
+    const atBottom = scrollable.scrollTop + scrollable.clientHeight >= scrollable.scrollHeight - 2;
+    shell.classList.toggle("is-at-top", atTop);
+    shell.classList.toggle("is-at-bottom", atBottom);
+  };
+
+  document.querySelectorAll("[data-expandable-trigger]").forEach((trigger) => {
+    trigger.addEventListener("click", () => {
+      const content = trigger.parentElement.querySelector("[data-expandable-content]");
+      const ellipsis = trigger.parentElement.querySelector("[data-expandable-ellipsis]");
+      if (!content) return;
+      const isHidden = content.classList.contains("hidden");
+      content.classList.toggle("hidden");
+      ellipsis?.classList.toggle("hidden", isHidden);
+      trigger.textContent = isHidden ? trigger.dataset.collapseLabel : trigger.dataset.expandLabel;
+    });
+  });
+
+  document.querySelectorAll("[data-scroll-fade]").forEach((shell) => {
+    const scrollable = shell.querySelector("[data-timeline-scroll]");
+    if (!scrollable) return;
+
+    syncScrollableFade(shell);
+    scrollable.addEventListener("scroll", () => syncScrollableFade(shell), { passive: true });
+
+    const focusEntry = scrollable.querySelector("[data-timeline-focus]");
+    if (focusEntry) {
+      requestAnimationFrame(() => {
+        focusEntry.scrollIntoView({ block: "nearest", behavior: prefersReducedMotion ? "auto" : "smooth" });
+        syncScrollableFade(shell);
+      });
+    }
+  });
+
+  document.querySelectorAll("tr[data-row-link]").forEach((row) => {
+    row.addEventListener("click", (event) => {
+      if (event.target.closest("a, button, input, select, textarea, label")) {
+        return;
+      }
+      window.location.href = row.dataset.rowLink;
+    });
+  });
+
+  const lightbox = document.querySelector("[data-lightbox]");
+  const lightboxDialog = document.querySelector("[data-lightbox-dialog]");
+  const lightboxImage = document.querySelector("[data-lightbox-image]");
+  const lightboxCaption = document.querySelector("[data-lightbox-caption]");
+  const lightboxClose = document.querySelector("[data-lightbox-close]");
+  const galleryItems = [...document.querySelectorAll("[data-gallery-item]")];
+  let currentIndex = 0;
+  let lastFocusedElement = null;
+
+  const getFocusableElements = () => {
+    if (!lightboxDialog) return [];
+    return [...lightboxDialog.querySelectorAll('a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])')];
+  };
+
+  const openLightbox = (index) => {
+    if (!lightbox || !galleryItems[index]) return;
+    currentIndex = index;
+    const trigger = galleryItems[index];
+    lastFocusedElement = document.activeElement;
+    lightboxImage.src = trigger.dataset.imageSrc;
+    lightboxImage.alt = trigger.dataset.imageCaption || "Project image";
+    lightboxCaption.textContent = trigger.dataset.imageCaption || "";
+    lightbox.hidden = false;
+    lightbox.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+
+    const focusable = getFocusableElements();
+    if (focusable[0]) {
+      focusable[0].focus();
+    }
+  };
+
+  const closeLightbox = () => {
+    if (!lightbox) return;
+    lightbox.hidden = true;
+    lightbox.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+    if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
+      lastFocusedElement.focus();
+    }
+  };
+
+  const stepLightbox = (delta) => {
+    if (!galleryItems.length) return;
+    currentIndex = (currentIndex + delta + galleryItems.length) % galleryItems.length;
+    openLightbox(currentIndex);
+  };
+
+  galleryItems.forEach((item, index) => {
+    item.addEventListener("click", () => openLightbox(index));
+  });
+
+  lightboxClose?.addEventListener("click", closeLightbox);
+  lightbox?.addEventListener("click", (event) => {
+    if (event.target === lightbox) closeLightbox();
+  });
+
+  document.querySelector("[data-lightbox-prev]")?.addEventListener("click", () => stepLightbox(-1));
+  document.querySelector("[data-lightbox-next]")?.addEventListener("click", () => stepLightbox(1));
+
+  document.addEventListener("keydown", (event) => {
+    if (!lightbox || lightbox.hidden) return;
+    if (event.key === "Escape") closeLightbox();
+    if (event.key === "ArrowLeft") stepLightbox(-1);
+    if (event.key === "ArrowRight") stepLightbox(1);
+    if (event.key === "Tab") {
+      const focusable = getFocusableElements();
+      if (!focusable.length) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    }
+  });
+});

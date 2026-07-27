@@ -1,0 +1,86 @@
+[
+  {
+    "id": 4,
+    "created_at": "2026-04-20 05:41:17.323937",
+    "updated_at": "2026-04-20 05:41:17.323937",
+    "title": "CRX Mela Volunteering",
+    "issuer": "Azim Premji University",
+    "date": "2024-02-01",
+    "credential_link": null,
+    "sort_order": 4,
+    "image": null,
+    "slug": "crx-mela-volunteering"
+  },
+  {
+    "id": 3,
+    "created_at": "2026-04-20 05:41:17.323937",
+    "updated_at": "2026-04-20 05:41:17.323937",
+    "title": "IAPT Computational Thinking (Python for Physics)",
+    "issuer": "Indian Association of Physics Teachers",
+    "date": "2023-06-01",
+    "credential_link": null,
+    "sort_order": 3,
+    "image": null,
+    "slug": "iapt-computational-thinking-python-for-physics"
+  },
+  {
+    "id": 7,
+    "created_at": "2026-04-20 05:41:17.323937",
+    "updated_at": "2026-04-20 05:41:17.323937",
+    "title": "Junior NBA Hyderabad State Skill Competition",
+    "issuer": "Junior NBA Hyderabad",
+    "date": "2019-09-01",
+    "credential_link": null,
+    "sort_order": 7,
+    "image": null,
+    "slug": "junior-nba-hyderabad-state-skill-competition"
+  },
+  {
+    "id": 1,
+    "created_at": "2026-04-20 05:41:17.323937",
+    "updated_at": "2026-04-20 05:41:17.323937",
+    "title": "Summer Research Fellowship Program",
+    "issuer": "JNCASR",
+    "date": "2024-06-01",
+    "credential_link": null,
+    "sort_order": 1,
+    "image": null,
+    "slug": "summer-research-fellowship-program"
+  },
+  {
+    "id": 5,
+    "created_at": "2026-04-20 05:41:17.323937",
+    "updated_at": "2026-04-20 05:41:17.323937",
+    "title": "SURC Participation",
+    "issuer": "Azim Premji University",
+    "date": "2024-03-01",
+    "credential_link": null,
+    "sort_order": 5,
+    "image": null,
+    "slug": "surc-participation"
+  },
+  {
+    "id": 2,
+    "created_at": "2026-04-20 05:41:17.323937",
+    "updated_at": "2026-04-20 05:41:17.323937",
+    "title": "Teachnook Internship: Robotics",
+    "issuer": "Teachnook",
+    "date": "2023-08-01",
+    "credential_link": null,
+    "sort_order": 2,
+    "image": null,
+    "slug": "teachnook-internship-robotics"
+  },
+  {
+    "id": 6,
+    "created_at": "2026-04-20 05:41:17.323937",
+    "updated_at": "2026-04-20 05:41:17.323937",
+    "title": "Vigyantram National Level Championship Finalist",
+    "issuer": "Vigyantram",
+    "date": "2022-12-01",
+    "credential_link": null,
+    "sort_order": 6,
+    "image": null,
+    "slug": "vigyantram-national-level-championship-finalist"
+  }
+]

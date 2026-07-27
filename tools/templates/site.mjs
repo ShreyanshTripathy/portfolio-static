@@ -1,0 +1,344 @@
+export const skillCategoryLabels = {
+  programming: "Programming",
+  tools: "Tools",
+  research: "Research",
+  communication: "Communication",
+  other: "Other",
+};
+
+const skillCategoryOrder = ["programming", "tools", "research", "communication", "other"];
+
+export function escapeHtml(value = "") {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;");
+}
+
+export function escapeAttr(value = "") {
+  return escapeHtml(value).replaceAll("'", "&#39;");
+}
+
+export function formatMonthYear(value) {
+  if (!value) return "";
+  return new Intl.DateTimeFormat("en-US", {
+    month: "short",
+    year: "numeric",
+    timeZone: "UTC",
+  }).format(new Date(`${value}T00:00:00Z`));
+}
+
+export function formatDateRange(start, end) {
+  const startLabel = formatMonthYear(start);
+  const endLabel = end ? formatMonthYear(end) : "Present";
+  return startLabel ? `${startLabel} - ${endLabel}` : endLabel;
+}
+
+export function truncate(value = "", limit = 160) {
+  const copy = String(value).replace(/\s+/g, " ").trim();
+  if (copy.length <= limit) return copy;
+  const shortened = copy.slice(0, limit).replace(/\s+\S*$/, "").trim();
+  return `${shortened || copy.slice(0, limit).trim()}...`;
+}
+
+export function paragraphs(value = "", className = "") {
+  return String(value)
+    .split(/\r?\n\s*\r?\n/)
+    .map((item) => item.trim())
+    .filter(Boolean)
+    .map((item) => `<p${className ? ` class="${className}"` : ""}>${escapeHtml(item)}</p>`)
+    .join("");
+}
+
+export function techStackList(project) {
+  return String(project.tech_stack || "")
+    .split(",")
+    .map((item) => item.trim())
+    .filter(Boolean);
+}
+
+export function buildColumns(items, columnCount = 2) {
+  if (!items.length) return [];
+  const columns = Array.from({ length: Math.min(columnCount, items.length) }, () => []);
+  items.forEach((item, index) => columns[index % columns.length].push(item));
+  return columns.filter((column) => column.length);
+}
+
+export function buildSkillGroups(skills) {
+  return skillCategoryOrder
+    .map((key) => ({
+      key,
+      label: skillCategoryLabels[key],
+      items: skills.filter((skill) => skill.category === key),
+    }))
+    .filter((group) => group.items.length);
+}
+
+export function buildSkillSummaryGroups(groups, limit = 2) {
+  return groups.map((group) => ({
+    ...group,
+    items: group.items.slice(0, limit),
+    remaining_count: Math.max(group.items.length - limit, 0),
+  }));
+}
+
+export function buildSkillColumns(groups) {
+  if (!groups.length) return [];
+  const columns = Array.from({ length: groups.length > 1 ? 2 : 1 }, () => ({ groups: [], weight: 0 }));
+  [...groups]
+    .sort((a, b) => b.items.length - a.items.length)
+    .forEach((group) => {
+      const column = columns.reduce((lightest, item) => (item.weight < lightest.weight ? item : lightest));
+      column.groups.push(group);
+      column.weight += Math.max(group.items.length, 1);
+    });
+  return columns.map((column) => column.groups).filter((column) => column.length);
+}
+
+export function imageUrl(image, depth) {
+  const value = image?.image || image?.static_image_path || "";
+  if (!value) return "";
+  if (/^https?:\/\//.test(value)) return value;
+  const clean = value.replaceAll("\\", "/").replace(/^static\/img\//, "").replace(/^img\//, "").replace(/^public\/images\//, "");
+  return `${assetPrefix(depth)}/images/${clean}`;
+}
+
+export function assetPrefix(depth) {
+  return depth === 0 ? "assets" : `${"../".repeat(depth)}assets`;
+}
+
+export function pagePrefix(depth) {
+  return depth === 0 ? "./" : "../".repeat(depth);
+}
+
+function activeAttr(active, key) {
+  return active === key ? ' data-active="true" aria-current="page"' : "";
+}
+
+export function layout({ title, metaTitle, metaDescription, profile, active = "", depth = 0, content }) {
+  const assets = assetPrefix(depth);
+  const root = pagePrefix(depth);
+  const siteName = profile?.name || "Portfolio";
+  const headline = profile?.headline || "Academic and professional portfolio";
+  return `<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="${escapeAttr(metaDescription || headline)}">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="${escapeAttr(siteName)}">
+  <meta property="og:title" content="${escapeAttr(metaTitle || title || siteName)}">
+  <meta property="og:description" content="${escapeAttr(metaDescription || headline)}">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="${escapeAttr(metaTitle || title || siteName)}">
+  <meta name="twitter:description" content="${escapeAttr(metaDescription || headline)}">
+  <title>${escapeHtml(title || "Portfolio")}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap">
+  <script>
+    (() => {
+      try {
+        const savedTheme = localStorage.getItem("portfolio-theme");
+        const theme = savedTheme === "dark" ? "dark" : "light";
+        const root = document.documentElement;
+        root.dataset.theme = theme;
+        root.classList.toggle("dark", theme === "dark");
+        root.style.colorScheme = theme;
+      } catch (error) {
+        document.documentElement.dataset.theme = "light";
+      }
+    })();
+  </script>
+  <script src="https://cdn.tailwindcss.com?plugins=typography,forms"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: { extend: { colors: { sand: { 50: "#f8f4ee", 100: "#efe7db", 200: "#dcc5aa", 700: "#6e4e2e", 900: "#221c18" } }, boxShadow: { warm: "0 24px 60px rgba(67, 47, 27, 0.08)" } } }
+    }
+  </script>
+  <link rel="stylesheet" href="${assets}/css/styles.css">
+</head>
+<body class="shell antialiased">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <header class="border-b border-sand-900/10 py-6">
+      <div class="flex flex-col gap-5 xl:flex-row xl:items-end xl:justify-between">
+        <a href="${root}" class="max-w-xl">
+          <p class="eyebrow">Portfolio</p>
+          <h1 class="font-display text-2xl font-semibold text-sand-900">${escapeHtml(siteName)}</h1>
+          <p class="mt-2 text-sm text-sand-900/70">${escapeHtml(headline)}</p>
+        </a>
+        <div class="flex flex-col gap-4 xl:max-w-3xl xl:items-end">
+          <nav class="nav-scroll nav-scroll--enhanced -mx-1 flex flex-nowrap items-center gap-2 overflow-x-auto px-1 pb-2 text-sm text-sand-900/80 sm:mx-0 sm:px-0 sm:pb-0 xl:justify-end">
+            <a href="${root}#about" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link>About</a>
+            <a href="${root}skills/" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link${activeAttr(active, "skills")}>Skills</a>
+            <a href="${root}certificates/" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link${activeAttr(active, "certificates")}>Certificates</a>
+            <a href="${root}projects/" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link${activeAttr(active, "projects")}>Projects</a>
+            <a href="${root}experience/" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link${activeAttr(active, "experience")}>Experience</a>
+            <a href="${root}#education" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link>Education</a>
+            <a href="${root}#timeline" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link>Timeline</a>
+            <a href="${root}contact/" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link${activeAttr(active, "contact")}>Contact</a>
+          </nav>
+          <button type="button" class="theme-toggle self-start xl:self-end" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
+            <span class="theme-toggle__option">Light</span>
+            <span class="theme-toggle__option">Dark</span>
+            <span class="theme-toggle__thumb" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+  </div>
+  <main>${content}</main>
+  <footer class="mx-auto mt-16 max-w-7xl px-4 pb-10 sm:px-6 lg:px-8">
+    <div class="glass flex flex-col gap-4 rounded-[2rem] px-6 py-8 text-sm text-sand-900/70 md:flex-row md:items-center md:justify-between">
+      <div>
+        <p class="font-display text-xl text-sand-900">${escapeHtml(siteName)}</p>
+        <p class="mt-1">Thank you for visiting!</p>
+      </div>
+      <div class="flex flex-wrap gap-4">
+        <a href="${root}skills/" class="hover:text-sand-900">Skills</a>
+        <a href="${root}certificates/" class="hover:text-sand-900">Certificates</a>
+        <a href="${root}projects/" class="hover:text-sand-900">Projects</a>
+        <a href="${root}experience/" class="hover:text-sand-900">Experience</a>
+        <a href="${root}#education" class="hover:text-sand-900">Education</a>
+        <a href="${root}#timeline" class="hover:text-sand-900">Timeline</a>
+        <a href="${root}contact/" class="hover:text-sand-900">Contact</a>
+      </div>
+    </div>
+  </footer>
+  <div class="lightbox fixed inset-0 z-50 bg-sand-900/85 px-4 py-6 sm:py-8" data-lightbox role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="lightbox-title" hidden>
+    <h2 id="lightbox-title" class="sr-only">Project image viewer</h2>
+    <div class="mx-auto flex h-full max-w-6xl flex-col gap-4 lg:flex-row lg:items-center" data-lightbox-dialog>
+      <div class="order-2 flex justify-center gap-3 lg:order-1 lg:flex-col">
+        <button class="rounded-full border border-white/20 px-4 py-3 text-white" data-lightbox-prev aria-label="Previous image">Prev</button>
+        <button class="rounded-full border border-white/20 px-4 py-3 text-white" data-lightbox-next aria-label="Next image">Next</button>
+        <button class="rounded-full border border-white/20 px-4 py-3 text-white" data-lightbox-close aria-label="Close lightbox">Close</button>
+      </div>
+      <div class="order-1 flex-1 overflow-hidden rounded-[2rem] bg-black/20 p-3 sm:p-4">
+        <img class="mx-auto max-h-[80vh] w-auto rounded-[1.5rem] object-contain" src="" alt="" data-lightbox-image>
+        <p class="mt-4 text-center text-sm text-white/80" data-lightbox-caption></p>
+      </div>
+    </div>
+  </div>
+  <script src="${assets}/js/site.js"></script>
+</body>
+</html>
+`;
+}
+
+export function skillItem(skill) {
+  return `<article class="skill-line-item rounded-[1.1rem] px-1 py-1">
+  <div class="flex items-start justify-between gap-2.5">
+    <h4 class="text-sm font-semibold tracking-[0.01em] text-sand-900 sm:text-base">${escapeHtml(skill.name)}</h4>
+    <span class="shrink-0 pt-0.5 text-xs font-semibold uppercase tracking-[0.18em] text-sand-700/80">${escapeHtml(skill.proficiency_level)}%</span>
+  </div>
+  ${skill.highlight ? `<p class="mt-1 text-sm leading-5 text-sand-900/62">${escapeHtml(skill.highlight)}</p>` : ""}
+</article>`;
+}
+
+export function skillCategory(group, summary = false) {
+  return `<section class="skill-category-block">
+  <p class="skill-group-label">${escapeHtml(group.label)}</p>
+  <div class="${summary ? "mt-3.5 space-y-3" : "mt-4 space-y-4"}">${group.items.map(skillItem).join("")}</div>
+  ${summary && group.remaining_count ? `<p class="mt-3 text-xs font-medium uppercase tracking-[0.12em] text-sand-900/48">+ ${group.remaining_count} more in this category</p>` : ""}
+</section>`;
+}
+
+export function certificateItem(certificate) {
+  return `<article class="skill-line-item rounded-[1.1rem] px-1 py-1.5">
+  <div class="flex items-start justify-between gap-4">
+    <div>
+      <h4 class="text-sm font-semibold tracking-[0.01em] text-sand-900 sm:text-base">${escapeHtml(certificate.title)}</h4>
+      <p class="mt-1.5 text-sm leading-6 text-sand-900/62">${escapeHtml(certificate.issuer)}</p>
+      ${certificate.credential_link ? `<a href="${escapeAttr(certificate.credential_link)}" target="_blank" rel="noreferrer" class="mt-2 inline-block text-sm font-medium text-sand-700">View credential</a>` : ""}
+    </div>
+    ${certificate.date ? `<span class="shrink-0 pt-0.5 text-xs font-semibold uppercase tracking-[0.18em] text-sand-700/80">${formatMonthYear(certificate.date)}</span>` : ""}
+  </div>
+</article>`;
+}
+
+export function projectCard(project, depth, reveal = false, searchable = false) {
+  const firstImage = (project.images || []).map((image) => ({ ...image, display_url: imageUrl(image, depth) })).find((image) => image.display_url);
+  const tech = techStackList(project);
+  const root = pagePrefix(depth);
+  const searchText = [project.title, project.summary, project.description].join(" ").toLowerCase();
+  return `<article class="glass overflow-hidden rounded-[2rem]${reveal ? " reveal" : ""}"${searchable ? ` data-project-card data-project-text="${escapeAttr(searchText)}" data-project-tech="${escapeAttr(tech.join("|").toLowerCase())}"` : ""}>
+  <a href="${root}projects/${escapeAttr(project.slug)}/" class="project-image block">
+    ${firstImage ? `<img src="${escapeAttr(firstImage.display_url)}" alt="${escapeAttr(firstImage.caption || project.title)}" loading="lazy" decoding="async">` : `<div class="flex h-full items-end bg-gradient-to-br from-sand-200 via-white to-sand-100 p-5"><p class="font-display text-2xl text-sand-900/70">${escapeHtml(project.title)}</p></div>`}
+  </a>
+  <div class="p-6">
+    <div class="flex flex-wrap gap-2">${tech.map((item) => `<span class="rounded-full bg-sand-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-sand-700">${escapeHtml(item)}</span>`).join("")}</div>
+    <h3 class="mt-4 text-xl font-semibold">${escapeHtml(project.title)}</h3>
+    ${project.summary ? `<p class="mt-3 text-sm leading-7 text-sand-900/72">${escapeHtml(project.summary)}</p>` : ""}
+    <div class="mt-5 flex items-center justify-between gap-3">
+      <a href="${root}projects/${escapeAttr(project.slug)}/" class="text-sm font-semibold text-sand-700">${searchable ? "Open project" : "View project"}</a>
+      ${project.github_link ? `<a href="${escapeAttr(project.github_link)}" target="_blank" rel="noreferrer" class="text-sm text-sand-900/65">GitHub</a>` : ""}
+    </div>
+  </div>
+</article>`;
+}
+
+function splitTimelineCopy(value = "", limit = 155) {
+  const copy = String(value).replace(/\s+/g, " ").trim();
+  if (copy.length <= limit) return { preview: copy, remainder: "", hasLongSummary: false };
+  const preview = copy.slice(0, limit).replace(/\s+\S*$/, "").trim() || copy.slice(0, limit).trim();
+  return { preview, remainder: copy.slice(preview.length).trim(), hasLongSummary: true };
+}
+
+function timelineDate(item) {
+  return item.end_date || item.completion_date || item.start_date || "";
+}
+
+export function buildExperienceEntries(experience) {
+  const entries = experience
+    .map((item) => {
+      const split = splitTimelineCopy(item.description);
+      return {
+        kind_label: "Internship",
+        date: item.end_date || item.start_date,
+        title: item.role,
+        organization: item.company,
+        summary_preview: split.preview,
+        summary_remainder: split.remainder,
+        has_long_summary: split.hasLongSummary,
+        is_current: Boolean(item.start_date) && !item.end_date,
+        detail_url: `experience/${item.slug}/`,
+        is_focus: false,
+      };
+    })
+    .sort((a, b) => new Date(`${b.date}T00:00:00Z`) - new Date(`${a.date}T00:00:00Z`));
+  const focus = entries.find((entry) => entry.is_current) || entries[0];
+  if (focus) focus.is_focus = true;
+  return entries;
+}
+
+export function experienceEntry(entry, depth, heading = "h3") {
+  const root = pagePrefix(depth);
+  return `<article class="experience-entry group relative rounded-[1.5rem] border border-sand-900/10 bg-white/50 p-5 transition"${entry.is_current ? ' data-current="true"' : ""}${entry.is_focus ? " data-timeline-focus" : ""}>
+  <div class="flex flex-wrap items-start justify-between gap-4">
+    <div class="min-w-0">
+      <p class="text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-sand-700/70">${escapeHtml(entry.kind_label)}</p>
+      <${heading} class="mt-2 text-lg font-semibold text-sand-900"><a href="${root}${escapeAttr(entry.detail_url)}" class="hover:text-sand-700">${escapeHtml(entry.title)}</a></${heading}>
+      <p class="mt-1 text-sm text-sand-900/62">${escapeHtml(entry.organization)}</p>
+    </div>
+    <div class="flex items-center gap-2">
+      ${entry.is_current ? `<span class="rounded-full border border-sky-400/30 bg-sky-400/12 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-sky-700">Current</span>` : ""}
+      <span class="text-sm font-medium text-sand-900/48">${formatMonthYear(entry.date)}</span>
+    </div>
+  </div>
+  ${entry.summary_preview ? `<div class="mt-4 text-sm leading-7 text-sand-900/72"><p>${escapeHtml(entry.summary_preview)}${entry.has_long_summary ? `<span data-expandable-ellipsis>...</span><span class="hidden" data-expandable-content> ${escapeHtml(entry.summary_remainder)}</span>` : ""}</p>${entry.has_long_summary ? `<button type="button" class="mt-3 text-sm font-semibold text-sand-700 transition hover:text-sand-900" data-expandable-trigger data-expand-label="Read more" data-collapse-label="Show less">Read more</button>` : ""}</div>` : ""}
+  <div class="mt-4"><a href="${root}${escapeAttr(entry.detail_url)}" class="text-sm font-semibold text-sand-700 transition hover:text-sand-900">Open experience</a></div>
+</article>`;
+}
+
+export function buildTimelineEntries(education, experience, projects) {
+  const entries = [
+    ...education.map((item) => ({ kind_label: "Education", date: timelineDate(item), title: item.degree, is_current: Boolean(item.start_date) && !item.end_date })),
+    ...experience.map((item) => ({ kind_label: "Internship", date: item.end_date || item.start_date, title: item.role, is_current: Boolean(item.start_date) && !item.end_date })),
+    ...projects.filter((item) => timelineDate(item)).map((item) => ({ kind_label: "Project", date: timelineDate(item), title: item.title, is_current: false })),
+  ].sort((a, b) => new Date(`${b.date}T00:00:00Z`) - new Date(`${a.date}T00:00:00Z`));
+  return entries;
+}
