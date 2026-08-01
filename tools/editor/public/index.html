@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portfolio Editor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Recursive:CASL,CRSV,MONO,slnt,wght@0..1,0..1,0..1,-15..0,300..1000&display=swap">
+  <link rel="stylesheet" href="/editor/styles.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand">
+      <span>Local Only</span>
+      <strong>Portfolio Editor</strong>
+    </div>
+    <nav id="typeNav" class="type-nav" aria-label="Content types"></nav>
+    <div class="sidebar-actions">
+      <button id="generateButton" class="primary-button" type="button">Regenerate site</button>
+      <a class="ghost-button" href="/preview/" target="_blank" rel="noreferrer">Open preview</a>
+    </div>
+  </aside>
+  <main class="workspace">
+    <header class="topbar">
+      <div>
+        <p id="eyebrow" class="eyebrow">Content Source</p>
+        <h1 id="pageTitle">Loading</h1>
+      </div>
+      <div class="status" id="status">Ready</div>
+    </header>
+    <section class="content-shell">
+      <div id="listPane" class="list-pane"></div>
+      <form id="editorForm" class="editor-form"></form>
+    </section>
+    <section class="log-shell">
+      <div class="log-head">
+        <span>Generator Log</span>
+        <button id="clearLogButton" type="button">Clear</button>
+      </div>
+      <pre id="logPanel">Save content, regenerate, then preview the local site.</pre>
+    </section>
+  </main>
+  <script src="/editor/app.js"></script>
+</body>
+</html>

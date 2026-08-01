@@ -26,6 +26,26 @@ Edit the relevant file in `content/`:
 
 Keep field names unchanged because the generator expects the migrated Django model fields.
 
+## Local Content Editor
+
+You can also edit portfolio content through a local-only web editor. It does not run on GitHub Pages and is not linked from the public site.
+
+Start it from this repository root:
+
+```powershell
+node tools/editor/server.mjs
+```
+
+Then open:
+
+```text
+http://localhost:4321
+```
+
+Use the sidebar to edit Profile, Skills, Education, Experience, Projects, Coursework, Certificates, Resume, and Timeline. Click **Save JSON** after changing a section. Use **Regenerate site** to run `tools/generate-site.mjs`, then open **Preview** to check the generated pages at `/preview/`.
+
+Image upload fields copy selected files into `assets/images/` with a hash in the filename, then store the generated filename/path in the matching JSON field. After you are happy with the preview, commit the changed `content/*.json`, `assets/images/*`, and regenerated HTML files.
+
 ## Regenerate HTML
 
 Run from the repository root:
