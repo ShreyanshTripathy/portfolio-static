@@ -78,11 +78,11 @@
     <button type="button" class="filter-chip rounded-full border border-sand-900/10 px-4 py-2 text-xs uppercase tracking-[0.16em]" data-filter-value="">All</button>
     <button type="button" class="filter-chip rounded-full border border-sand-900/10 px-4 py-2 text-xs uppercase tracking-[0.16em]" data-filter-value="Academic">Academic</button><button type="button" class="filter-chip rounded-full border border-sand-900/10 px-4 py-2 text-xs uppercase tracking-[0.16em]" data-filter-value="Milestone">Milestone</button><button type="button" class="filter-chip rounded-full border border-sand-900/10 px-4 py-2 text-xs uppercase tracking-[0.16em]" data-filter-value="Project">Project</button><button type="button" class="filter-chip rounded-full border border-sand-900/10 px-4 py-2 text-xs uppercase tracking-[0.16em]" data-filter-value="Research">Research</button>
   </div>
-  <div class="timeline-axis mt-12" data-timeline-axis>
-    <span class="timeline-marker" data-timeline-marker aria-hidden="true"></span>
+  <div class="timeline-strip-shell timeline-strip-shell--page mt-12" data-horizontal-timeline>
+    <div class="timeline-strip timeline-strip--page" data-horizontal-timeline-strip>
     <article class="timeline-log-entry" data-timeline-category="Academic">
       <time class="timeline-date" datetime="2026-09-01">Sep 2026</time>
-      <div class="paper-entry border-l border-sand-900/10 pl-6">
+      <div class="paper-entry">
         <p class="eyebrow">Academic</p>
         <h2 class="mt-2 text-3xl font-semibold text-sand-900">Incoming M.Sc. Physics at University of Stuttgart</h2>
         <p class="mt-4 max-w-3xl text-base leading-8 text-sand-900/72">Beginning graduate study in Physics at the University of Stuttgart, continuing a path through applied physics, materials, simulation, and experimental systems.</p>
@@ -90,7 +90,7 @@
       </div>
     </article><article class="timeline-log-entry" data-timeline-category="Project">
       <time class="timeline-date" datetime="2026-04-01">Apr 2026</time>
-      <div class="paper-entry border-l border-sand-900/10 pl-6">
+      <div class="paper-entry">
         <p class="eyebrow">Project</p>
         <h2 class="mt-2 text-3xl font-semibold text-sand-900">Portfolio migration to static hosting</h2>
         <p class="mt-4 max-w-3xl text-base leading-8 text-sand-900/72">Moved the portfolio away from a backend-heavy Django and database deployment toward plain static hosting on GitHub Pages.</p>
@@ -98,7 +98,7 @@
       </div>
     </article><article class="timeline-log-entry" data-timeline-category="Research">
       <time class="timeline-date" datetime="2024-06-01">Jun 2024</time>
-      <div class="paper-entry border-l border-sand-900/10 pl-6">
+      <div class="paper-entry">
         <p class="eyebrow">Research</p>
         <h2 class="mt-2 text-3xl font-semibold text-sand-900">Summer Research Fellowship Program</h2>
         <p class="mt-4 max-w-3xl text-base leading-8 text-sand-900/72">Research experience at JNCASR focused on practical scientific work, experimental judgment, and communicating technical results.</p>
@@ -106,7 +106,7 @@
       </div>
     </article><article class="timeline-log-entry" data-timeline-category="Academic">
       <time class="timeline-date" datetime="2023-06-01">Jun 2023</time>
-      <div class="paper-entry border-l border-sand-900/10 pl-6">
+      <div class="paper-entry">
         <p class="eyebrow">Academic</p>
         <h2 class="mt-2 text-3xl font-semibold text-sand-900">B.Sc. Honours in Physics</h2>
         <p class="mt-4 max-w-3xl text-base leading-8 text-sand-900/72">Built an academic foundation in physics at Azim Premji University through coursework, experiments, computation, and research-oriented projects.</p>
@@ -114,7 +114,7 @@
       </div>
     </article><article class="timeline-log-entry" data-timeline-category="Project">
       <time class="timeline-date" datetime="2023-03-01">Mar 2023</time>
-      <div class="paper-entry border-l border-sand-900/10 pl-6">
+      <div class="paper-entry">
         <p class="eyebrow">Project</p>
         <h2 class="mt-2 text-3xl font-semibold text-sand-900">Michelson interferometer build</h2>
         <p class="mt-4 max-w-3xl text-base leading-8 text-sand-900/72">Constructed a Michelson interferometer to observe interference due to controlled path differences.</p>
@@ -122,13 +122,15 @@
       </div>
     </article><article class="timeline-log-entry" data-timeline-category="Milestone">
       <time class="timeline-date" datetime="2022-12-01">Dec 2022</time>
-      <div class="paper-entry border-l border-sand-900/10 pl-6">
+      <div class="paper-entry">
         <p class="eyebrow">Milestone</p>
         <h2 class="mt-2 text-3xl font-semibold text-sand-900">National level championship finalist</h2>
         <p class="mt-4 max-w-3xl text-base leading-8 text-sand-900/72">Reached finalist standing in the Vigyantram National Level Championship.</p>
         
       </div>
     </article>
+    </div>
+    <div class="timeline-position" aria-hidden="true"><span data-horizontal-timeline-marker></span></div>
   </div>
 </section>
 <script>
@@ -142,7 +144,7 @@
       entries.forEach((entry) => {
         entry.hidden = Boolean(value) && entry.dataset.timelineCategory !== value;
       });
-      window.dispatchEvent(new Event("resize"));
+      window.dispatchEvent(new Event("timeline:update"));
     });
   });
   buttons[0]?.setAttribute("data-active", "");

@@ -176,4 +176,63 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("scroll", updateTimelineMarker, { passive: true });
     window.addEventListener("resize", updateTimelineMarker);
   }
+
+  document.querySelectorAll("[data-horizontal-timeline]").forEach((shell) => {
+    const strip = shell.querySelector("[data-horizontal-timeline-strip]");
+    const marker = shell.querySelector("[data-horizontal-timeline-marker]");
+    if (!strip || !marker) return;
+
+    let direction = 1;
+    let isInteracting = false;
+    let idleTimer = 0;
+    let lastFrame = performance.now();
+
+    const maxScroll = () => Math.max(strip.scrollWidth - strip.clientWidth, 1);
+    const updateMarker = () => {
+      const progress = strip.scrollLeft / maxScroll();
+      marker.style.left = `${Math.max(0, Math.min(progress, 1)) * 100}%`;
+    };
+    const pause = () => {
+      isInteracting = true;
+      window.clearTimeout(idleTimer);
+    };
+    const resumeSoon = () => {
+      window.clearTimeout(idleTimer);
+      idleTimer = window.setTimeout(() => {
+        isInteracting = false;
+        lastFrame = performance.now();
+      }, 900);
+    };
+    const tick = (now) => {
+      const delta = Math.min(now - lastFrame, 48);
+      lastFrame = now;
+      if (!prefersReducedMotion && !isInteracting && strip.scrollWidth > strip.clientWidth) {
+        strip.scrollLeft += direction * delta * 0.045;
+        if (strip.scrollLeft >= maxScroll() - 1) direction = -1;
+        if (strip.scrollLeft <= 1) direction = 1;
+        updateMarker();
+      }
+      requestAnimationFrame(tick);
+    };
+
+    strip.addEventListener("scroll", updateMarker, { passive: true });
+    shell.addEventListener("wheel", (event) => {
+      if (strip.scrollWidth <= strip.clientWidth) return;
+      const delta = Math.abs(event.deltaX) > Math.abs(event.deltaY) ? event.deltaX : event.deltaY;
+      if (!delta) return;
+      event.preventDefault();
+      pause();
+      strip.scrollLeft += delta;
+      direction = delta >= 0 ? 1 : -1;
+      updateMarker();
+      resumeSoon();
+    }, { passive: false });
+    strip.addEventListener("touchstart", pause, { passive: true });
+    strip.addEventListener("touchend", resumeSoon, { passive: true });
+    window.addEventListener("resize", updateMarker);
+    window.addEventListener("timeline:update", () => requestAnimationFrame(updateMarker));
+
+    updateMarker();
+    requestAnimationFrame(tick);
+  });
 });

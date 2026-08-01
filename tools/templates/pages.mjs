@@ -102,9 +102,9 @@ export function homePage(data) {
   <div class="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">${featuredProjects.length ? featuredProjects.map((project) => projectCard(project, 0, true)).join("") : `<div class="glass col-span-full rounded-[2rem] p-8 text-sand-900/70">Add featured projects in admin to populate this section.</div>`}</div>
 </section>
 <section id="timeline" class="mx-auto max-w-7xl px-4 pb-8 pt-8 sm:px-6 lg:px-8">
-  <div class="glass reveal rounded-[1.8rem] px-5 py-5 sm:px-6 sm:py-6">
+  <div class="timeline-panel glass reveal px-5 py-5 sm:px-6 sm:py-6">
     <div class="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between"><p class="eyebrow">Journey</p><p class="text-xs uppercase tracking-[0.18em] text-sand-900/45">A chronological view of my academic and professional growth.</p></div>
-    ${timeline.length ? `<div class="timeline-strip mt-4 flex gap-3 overflow-x-auto pb-1">${timeline.map((entry) => `<article class="timeline-chip shrink-0 rounded-[1.1rem] border border-sand-900/10 bg-white/55 px-3.5 py-3 transition hover:-translate-y-0.5 hover:border-sand-900/18 hover:bg-white/75${entry.is_current ? " is-current" : ""}"><p class="text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-sand-700/68">${escapeHtml(entry.kind_label)}</p><p class="mt-1.5 text-xs font-medium text-sand-900/46">${formatMonthYear(entry.date)}</p><h4 class="mt-1.5 max-w-[11rem] text-sm font-semibold leading-5 text-sand-900">${escapeHtml(entry.title)}</h4></article>`).join("")}</div>` : `<div class="mt-4 rounded-[1.1rem] border border-dashed border-sand-900/10 p-4 text-sm text-sand-900/68">Timeline items appear automatically when education, internships, or featured projects are added.</div>`}
+    ${timeline.length ? `<div class="timeline-strip-shell" data-horizontal-timeline><div class="timeline-strip" data-horizontal-timeline-strip>${timeline.map((entry) => `<article class="timeline-chip${entry.is_current ? " is-current" : ""}"><p>${escapeHtml(entry.kind_label)}</p><time datetime="${escapeAttr(entry.date)}">${formatMonthYear(entry.date)}</time><h4>${escapeHtml(entry.title)}</h4></article>`).join("")}</div><div class="timeline-position" aria-hidden="true"><span data-horizontal-timeline-marker></span></div></div>` : `<div class="mt-4 border border-dashed border-sand-900/10 p-4 text-sm text-sand-900/68">Timeline items appear automatically when education, internships, or featured projects are added.</div>`}
   </div>
 </section></div>`,
   });
@@ -182,17 +182,19 @@ export function timelinePage(data) {
     <button type="button" class="filter-chip rounded-full border border-sand-900/10 px-4 py-2 text-xs uppercase tracking-[0.16em]" data-filter-value="">All</button>
     ${categories.map((category) => `<button type="button" class="filter-chip rounded-full border border-sand-900/10 px-4 py-2 text-xs uppercase tracking-[0.16em]" data-filter-value="${escapeAttr(category)}">${escapeHtml(category)}</button>`).join("")}
   </div>
-  <div class="timeline-axis mt-12" data-timeline-axis>
-    <span class="timeline-marker" data-timeline-marker aria-hidden="true"></span>
+  <div class="timeline-strip-shell timeline-strip-shell--page mt-12" data-horizontal-timeline>
+    <div class="timeline-strip timeline-strip--page" data-horizontal-timeline-strip>
     ${data.timeline.map((entry, index) => `<article class="timeline-log-entry" data-timeline-category="${escapeAttr(entry.category || "")}">
       <time class="timeline-date" datetime="${escapeAttr(entry.date)}">${formatMonthYear(entry.date)}</time>
-      <div class="paper-entry border-l border-sand-900/10 pl-6">
+      <div class="paper-entry">
         <p class="eyebrow">${escapeHtml(entry.category || "Milestone")}</p>
         <h2 class="mt-2 text-3xl font-semibold text-sand-900">${escapeHtml(entry.title)}</h2>
         <p class="mt-4 max-w-3xl text-base leading-8 text-sand-900/72">${escapeHtml(entry.body || "")}</p>
         ${figure({ ...entry, figure_number: index + 1 })}
       </div>
     </article>`).join("")}
+    </div>
+    <div class="timeline-position" aria-hidden="true"><span data-horizontal-timeline-marker></span></div>
   </div>
 </section>
 <script>
@@ -206,7 +208,7 @@ export function timelinePage(data) {
       entries.forEach((entry) => {
         entry.hidden = Boolean(value) && entry.dataset.timelineCategory !== value;
       });
-      window.dispatchEvent(new Event("resize"));
+      window.dispatchEvent(new Event("timeline:update"));
     });
   });
   buttons[0]?.setAttribute("data-active", "");

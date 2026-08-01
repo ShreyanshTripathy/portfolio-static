@@ -329,8 +329,8 @@ export function experienceEntry(entry, depth, heading = "h3") {
       <span class="text-sm font-medium text-sand-900/48">${formatMonthYear(entry.date)}</span>
     </div>
   </div>
-  ${entry.summary_preview ? `<div class="mt-4 text-sm leading-7 text-sand-900/72"><p>${escapeHtml(entry.summary_preview)}${entry.has_long_summary ? `<span data-expandable-ellipsis>...</span><span class="hidden" data-expandable-content> ${escapeHtml(entry.summary_remainder)}</span>` : ""}</p>${entry.has_long_summary ? `<button type="button" class="mt-3 text-sm font-semibold text-sand-700 transition hover:text-sand-900" data-expandable-trigger data-expand-label="Read more" data-collapse-label="Show less">Read more</button>` : ""}</div>` : ""}
-  <div class="mt-4"><a href="${root}${escapeAttr(entry.detail_url)}" class="text-sm font-semibold text-sand-700 transition hover:text-sand-900">Open experience</a></div>
+  ${entry.summary_preview ? `<div class="mt-4 text-sm leading-7 text-sand-900/72"><p>${escapeHtml(entry.summary_preview)}${entry.has_long_summary ? "..." : ""}</p></div>` : ""}
+  <div class="mt-4"><a href="${root}${escapeAttr(entry.detail_url)}" class="text-sm font-semibold text-sand-700 transition hover:text-sand-900">Open experience -></a></div>
 </article>`;
 }
 
