@@ -1,5 +1,14 @@
 [
   {
+    "date": "2026-09-01",
+    "title": "Incoming M.Sc. Physics at University of Stuttgart",
+    "category": "Academic",
+    "body": "Beginning graduate study in Physics at the University of Stuttgart, continuing a path through applied physics, materials, simulation, and experimental systems.",
+    "image": "",
+    "caption": "",
+    "slug": "incoming-msc-physics-university-of-stuttgart"
+  },
+  {
     "date": "2026-04-01",
     "title": "Portfolio migration to static hosting",
     "category": "Project",

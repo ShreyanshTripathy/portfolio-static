@@ -1,5 +1,19 @@
 [
   {
+    "id": 2,
+    "created_at": "2026-08-01T07:09:38.251Z",
+    "updated_at": "2026-08-01T07:09:38.251Z",
+    "degree": "M.Sc. Physics",
+    "institution": "University of Stuttgart",
+    "start_date": "2026-09-01",
+    "end_date": null,
+    "description": "Incoming M.Sc. Physics student at the University of Stuttgart, with interests in applied physics, materials, simulation, and experimental systems.",
+    "type": "masters",
+    "sort_order": 0,
+    "slug": "msc-physics-university-of-stuttgart",
+    "courses": []
+  },
+  {
     "id": 1,
     "created_at": "2026-04-20 05:41:17.322928",
     "updated_at": "2026-04-20 05:41:17.322928",
