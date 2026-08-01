@@ -26,7 +26,7 @@ function existsRoute(route) {
 
 walk(root);
 
-[".", "projects", "experience", "skills", "certificates", "contact", "timeline", "404.html"].forEach(existsRoute);
+[".", "projects", "experience", "skills", "certificates", "contact", "404.html"].forEach(existsRoute);
 
 for (const file of htmlFiles) {
   const html = fs.readFileSync(file, "utf8");

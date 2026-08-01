@@ -13,7 +13,6 @@ import {
   projectDetailPage,
   projectsPage,
   skillsPage,
-  timelinePage,
 } from "./templates/pages.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -81,7 +80,6 @@ function allRoutes(data) {
     "contact/",
     "projects/",
     "experience/",
-    "timeline/",
     ...data.projects.map((project) => `projects/${project.slug}/`),
     ...data.internships.map((experience) => `experience/${experience.slug}/`),
     ...data.education.map((education) => `education/${education.slug}/`),
@@ -106,7 +104,6 @@ writePage("certificates/index.html", certificatesPage(data));
 writePage("contact/index.html", contactPage(data));
 writePage("projects/index.html", projectsPage(data));
 writePage("experience/index.html", experiencePage(data));
-writePage("timeline/index.html", timelinePage(data));
 writePage("404.html", notFoundPage(data));
 
 for (const project of data.projects) {

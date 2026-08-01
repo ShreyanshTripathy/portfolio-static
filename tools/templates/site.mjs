@@ -7,6 +7,7 @@ export const skillCategoryLabels = {
 };
 
 const skillCategoryOrder = ["programming", "tools", "research", "communication", "other"];
+const assetVersion = "20260801-journey-v4";
 
 export function escapeHtml(value = "") {
   return String(value)
@@ -160,7 +161,7 @@ export function layout({ title, metaTitle, metaDescription, profile, active = ""
       theme: { extend: { colors: { sand: { 50: "#f8f4ee", 100: "#efe7db", 200: "#dcc5aa", 700: "#6e4e2e", 900: "#221c18" } }, boxShadow: { warm: "0 24px 60px rgba(67, 47, 27, 0.08)" } } }
     }
   </script>
-  <link rel="stylesheet" href="${assets}/css/styles.css">
+  <link rel="stylesheet" href="${assets}/css/styles.css?v=${assetVersion}">
 </head>
 <body class="shell antialiased">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -179,7 +180,6 @@ export function layout({ title, metaTitle, metaDescription, profile, active = ""
             <a href="${root}projects/" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link${activeAttr(active, "projects")}>Projects</a>
             <a href="${root}experience/" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link${activeAttr(active, "experience")}>Experience</a>
             <a href="${root}#education" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link>Education</a>
-            <a href="${root}timeline/" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link${activeAttr(active, "timeline")}>Timeline</a>
             <a href="${root}contact/" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link${activeAttr(active, "contact")}>Contact</a>
           </nav>
           <button type="button" class="theme-toggle self-start xl:self-end" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
@@ -204,7 +204,6 @@ export function layout({ title, metaTitle, metaDescription, profile, active = ""
         <a href="${root}projects/" class="hover:text-sand-900">Projects</a>
         <a href="${root}experience/" class="hover:text-sand-900">Experience</a>
         <a href="${root}#education" class="hover:text-sand-900">Education</a>
-        <a href="${root}timeline/" class="hover:text-sand-900">Timeline</a>
         <a href="${root}contact/" class="hover:text-sand-900">Contact</a>
       </div>
     </div>
@@ -223,7 +222,7 @@ export function layout({ title, metaTitle, metaDescription, profile, active = ""
       </div>
     </div>
   </div>
-  <script src="${assets}/js/site.js"></script>
+  <script src="${assets}/js/site.js?v=${assetVersion}"></script>
 </body>
 </html>
 `;

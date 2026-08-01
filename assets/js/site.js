@@ -180,17 +180,28 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll("[data-horizontal-timeline]").forEach((shell) => {
     const strip = shell.querySelector("[data-horizontal-timeline-strip]");
     const marker = shell.querySelector("[data-horizontal-timeline-marker]");
+    const prevButton = shell.querySelector("[data-horizontal-timeline-prev]");
+    const nextButton = shell.querySelector("[data-horizontal-timeline-next]");
     if (!strip || !marker) return;
 
+    const shouldAutoMove = shell.dataset.horizontalTimelineAuto !== "false";
+    const autoSpeed = shell.dataset.horizontalTimelineAuto === "true" ? 0.12 : 0.055;
     let direction = 1;
     let isInteracting = false;
     let idleTimer = 0;
     let lastFrame = performance.now();
 
     const maxScroll = () => Math.max(strip.scrollWidth - strip.clientWidth, 1);
+    const hasOverflow = () => strip.scrollWidth > strip.clientWidth + 2;
     const updateMarker = () => {
       const progress = strip.scrollLeft / maxScroll();
       marker.style.left = `${Math.max(0, Math.min(progress, 1)) * 100}%`;
+    };
+    const moveBy = (amount, behavior = "auto") => {
+      if (!hasOverflow()) return;
+      strip.scrollBy({ left: amount, behavior });
+      direction = amount >= 0 ? 1 : -1;
+      requestAnimationFrame(updateMarker);
     };
     const pause = () => {
       isInteracting = true;
@@ -206,8 +217,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const tick = (now) => {
       const delta = Math.min(now - lastFrame, 48);
       lastFrame = now;
-      if (!prefersReducedMotion && !isInteracting && strip.scrollWidth > strip.clientWidth) {
-        strip.scrollLeft += direction * delta * 0.045;
+      if (shouldAutoMove && !isInteracting && hasOverflow()) {
+        strip.scrollLeft += direction * delta * autoSpeed;
         if (strip.scrollLeft >= maxScroll() - 1) direction = -1;
         if (strip.scrollLeft <= 1) direction = 1;
         updateMarker();
@@ -217,22 +228,40 @@ document.addEventListener("DOMContentLoaded", () => {
 
     strip.addEventListener("scroll", updateMarker, { passive: true });
     shell.addEventListener("wheel", (event) => {
-      if (strip.scrollWidth <= strip.clientWidth) return;
+      if (!hasOverflow()) return;
       const delta = Math.abs(event.deltaX) > Math.abs(event.deltaY) ? event.deltaX : event.deltaY;
       if (!delta) return;
       event.preventDefault();
       pause();
-      strip.scrollLeft += delta;
-      direction = delta >= 0 ? 1 : -1;
-      updateMarker();
+      const unit = event.deltaMode === 1 ? 28 : event.deltaMode === 2 ? strip.clientWidth : 1;
+      moveBy(delta * unit, "auto");
       resumeSoon();
     }, { passive: false });
+    prevButton?.addEventListener("click", () => {
+      pause();
+      moveBy(-Math.max(strip.clientWidth * 0.72, 220), prefersReducedMotion ? "auto" : "smooth");
+      resumeSoon();
+    });
+    nextButton?.addEventListener("click", () => {
+      pause();
+      moveBy(Math.max(strip.clientWidth * 0.72, 220), prefersReducedMotion ? "auto" : "smooth");
+      resumeSoon();
+    });
     strip.addEventListener("touchstart", pause, { passive: true });
     strip.addEventListener("touchend", resumeSoon, { passive: true });
-    window.addEventListener("resize", updateMarker);
+    window.addEventListener("resize", () => requestAnimationFrame(updateMarker));
     window.addEventListener("timeline:update", () => requestAnimationFrame(updateMarker));
 
     updateMarker();
     requestAnimationFrame(tick);
+    if (shouldAutoMove) {
+      window.setInterval(() => {
+        if (isInteracting || !hasOverflow()) return;
+        strip.scrollLeft += direction * 1.6;
+        if (strip.scrollLeft >= maxScroll() - 1) direction = -1;
+        if (strip.scrollLeft <= 1) direction = 1;
+        updateMarker();
+      }, 48);
+    }
   });
 });

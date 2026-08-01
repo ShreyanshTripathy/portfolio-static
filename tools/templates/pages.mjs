@@ -104,7 +104,7 @@ export function homePage(data) {
 <section id="timeline" class="mx-auto max-w-7xl px-4 pb-8 pt-8 sm:px-6 lg:px-8">
   <div class="timeline-panel glass reveal px-5 py-5 sm:px-6 sm:py-6">
     <div class="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between"><p class="eyebrow">Journey</p><p class="text-xs uppercase tracking-[0.18em] text-sand-900/45">A chronological view of my academic and professional growth.</p></div>
-    ${timeline.length ? `<div class="timeline-strip-shell" data-horizontal-timeline><div class="timeline-strip" data-horizontal-timeline-strip>${timeline.map((entry) => `<article class="timeline-chip${entry.is_current ? " is-current" : ""}"><p>${escapeHtml(entry.kind_label)}</p><time datetime="${escapeAttr(entry.date)}">${formatMonthYear(entry.date)}</time><h4>${escapeHtml(entry.title)}</h4></article>`).join("")}</div><div class="timeline-position" aria-hidden="true"><span data-horizontal-timeline-marker></span></div></div>` : `<div class="mt-4 border border-dashed border-sand-900/10 p-4 text-sm text-sand-900/68">Timeline items appear automatically when education, internships, or featured projects are added.</div>`}
+    ${timeline.length ? `<div class="timeline-strip-shell timeline-strip-shell--journey" data-horizontal-timeline data-horizontal-timeline-auto="true"><div class="timeline-controls" aria-label="Journey controls"><button type="button" class="timeline-control" data-horizontal-timeline-prev aria-label="Scroll journey backward">&larr;</button><button type="button" class="timeline-control" data-horizontal-timeline-next aria-label="Scroll journey forward">&rarr;</button></div><div class="timeline-strip" data-horizontal-timeline-strip>${timeline.map((entry) => `<article class="timeline-chip${entry.is_current ? " is-current" : ""}"><p>${escapeHtml(entry.kind_label)}</p><time datetime="${escapeAttr(entry.date)}">${formatMonthYear(entry.date)}</time><h4>${escapeHtml(entry.title)}</h4></article>`).join("")}</div><div class="timeline-position" aria-hidden="true"><span data-horizontal-timeline-marker></span></div></div>` : `<div class="mt-4 border border-dashed border-sand-900/10 p-4 text-sm text-sand-900/68">Timeline items appear automatically when education, internships, or featured projects are added.</div>`}
   </div>
 </section></div>`,
   });
@@ -122,7 +122,7 @@ export function certificatesPage(data) {
 
 export function contactPage(data) {
   const profile = data.profile;
-  return layout({ title: "Contact", metaTitle: `Contact | ${profile.name}`, metaDescription: `Contact ${profile.name} for research, engineering, and collaboration opportunities.`, profile, active: "contact", depth: 1, content: `<section class="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8"><div class="grid gap-8 lg:grid-cols-[1.05fr_0.95fr]"><div class="glass rounded-[2rem] p-8 sm:p-10"><p class="eyebrow">Contact</p><h2 class="section-title mt-4">Open to research, engineering, and collaboration.</h2><p class="mt-5 max-w-2xl text-base leading-8 text-sand-900/72">Contact me via email or connect with me on LinkedIn or GitHub. I'm always open to discussing new projects, research opportunities, or potential collaborations. Whether you're interested in my work, have a question, or just want to say hello, feel free to reach out!</p></div><div class="glass rounded-[2rem] p-8"><dl class="space-y-6 text-sm"><div><dt class="uppercase tracking-[0.18em] text-sand-900/45">Email</dt><dd class="mt-2 text-base"><a href="mailto:${escapeAttr(profile.email)}" class="text-sand-900">${escapeHtml(profile.email)}</a></dd></div>${profile.location ? `<div><dt class="uppercase tracking-[0.18em] text-sand-900/45">Location</dt><dd class="mt-2 text-base text-sand-900">${escapeHtml(profile.location)}</dd></div>` : ""}${profile.linkedin ? `<div><dt class="uppercase tracking-[0.18em] text-sand-900/45">LinkedIn</dt><dd class="mt-2 text-base"><a href="${escapeAttr(profile.linkedin)}" target="_blank" rel="noreferrer" class="text-blue-600 underline underline-offset-4 hover:text-blue-800 transition">Professional profile ↗</a></dd></div>` : ""}${profile.github ? `<div><dt class="uppercase tracking-[0.18em] text-sand-900/45">GitHub</dt><dd class="mt-2 text-base"><a href="${escapeAttr(profile.github)}" target="_blank" rel="noreferrer" class="text-blue-600 underline underline-offset-4 hover:text-blue-800 transition">Code repositories ↗</a></dd></div>` : ""}</dl></div></div></section>` });
+  return layout({ title: "Contact", metaTitle: `Contact | ${profile.name}`, metaDescription: `Contact ${profile.name} for research, engineering, and collaboration opportunities.`, profile, active: "contact", depth: 1, content: `<section class="contact-page mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8"><div class="grid gap-8 lg:grid-cols-[1.05fr_0.95fr]"><div class="glass rounded-[2rem] p-8 sm:p-10"><p class="eyebrow">Contact</p><h2 class="section-title contact-title mt-4">Open to research, engineering, and collaboration.</h2><p class="mt-5 max-w-2xl text-base leading-8 text-sand-900/72">Contact me via email or connect with me on LinkedIn or GitHub. I'm always open to discussing new projects, research opportunities, or potential collaborations. Whether you're interested in my work, have a question, or just want to say hello, feel free to reach out!</p></div><div class="glass rounded-[2rem] p-8"><dl class="space-y-6 text-sm"><div><dt class="uppercase tracking-[0.18em] text-sand-900/45">Email</dt><dd class="mt-2 text-base"><a href="mailto:${escapeAttr(profile.email)}" class="text-sand-900">${escapeHtml(profile.email)}</a></dd></div>${profile.location ? `<div><dt class="uppercase tracking-[0.18em] text-sand-900/45">Location</dt><dd class="mt-2 text-base text-sand-900">${escapeHtml(profile.location)}</dd></div>` : ""}${profile.linkedin ? `<div><dt class="uppercase tracking-[0.18em] text-sand-900/45">LinkedIn</dt><dd class="mt-2 text-base"><a href="${escapeAttr(profile.linkedin)}" target="_blank" rel="noreferrer" class="text-blue-600 underline underline-offset-4 hover:text-blue-800 transition">Professional profile ↗</a></dd></div>` : ""}${profile.github ? `<div><dt class="uppercase tracking-[0.18em] text-sand-900/45">GitHub</dt><dd class="mt-2 text-base"><a href="${escapeAttr(profile.github)}" target="_blank" rel="noreferrer" class="text-blue-600 underline underline-offset-4 hover:text-blue-800 transition">Code repositories ↗</a></dd></div>` : ""}</dl></div></div></section>` });
 }
 
 export function projectsPage(data) {
@@ -156,65 +156,6 @@ export function educationDetailPage(data, education) {
 export function courseDetailPage(data, course) {
   const education = course.education_entry;
   return layout({ title: course.title, metaTitle: `${course.title} | ${data.profile.name}`, metaDescription: truncate(course.description || course.additional_description, 155), profile: data.profile, depth: 2, content: `<section class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8"><nav class="flex flex-wrap items-center gap-y-2 text-sm text-sand-900/55"><a href="../../" class="hover:text-sand-900">Home</a><span class="mx-2">/</span>${education ? `<a href="../../education/${escapeAttr(education.slug)}/" class="hover:text-sand-900">${escapeHtml(education.degree)}</a><span class="mx-2">/</span>` : ""}<span>${escapeHtml(course.title)}</span></nav><div class="mt-6 glass rounded-[2rem] p-8 sm:p-10"><p class="eyebrow">Course</p><h2 class="section-title mt-4">${escapeHtml(course.title)}</h2>${course.description || course.additional_description ? `<div class="mt-6 max-w-4xl space-y-4">${course.description ? `<p class="text-base leading-8 text-sand-900/72">${escapeHtml(course.description)}</p>` : ""}${course.additional_description ? `<p class="text-base leading-8 text-sand-900/65">${escapeHtml(course.additional_description)}</p>` : ""}</div>` : ""}</div>${course.experiments?.length ? `<div class="mt-8 glass overflow-hidden rounded-[2rem]"><div class="border-b border-sand-900/10 px-6 py-5"><h3 class="text-xl font-semibold text-sand-900">Experiments</h3></div><div class="overflow-x-auto"><table class="min-w-full text-left text-sm"><thead class="bg-sand-100/70 text-sand-900/70"><tr><th class="px-6 py-4 font-semibold">Experiment</th><th class="px-6 py-4 font-semibold">Description</th></tr></thead><tbody>${course.experiments.map((experiment) => `<tr class="border-t border-sand-900/10 align-top"><td class="px-6 py-4 font-semibold text-sand-900">${escapeHtml(experiment.name)}</td><td class="px-6 py-4 text-sand-900/72">${experiment.objective || experiment.method || experiment.results ? `<div class="space-y-2">${experiment.objective ? `<p>${escapeHtml(experiment.objective)}</p>` : ""}${experiment.method ? `<p>${escapeHtml(experiment.method)}</p>` : ""}${experiment.results ? `<p>${escapeHtml(experiment.results)}</p>` : ""}</div>` : `<p class="text-sand-900/55">Details can be added in admin when available.</p>`}</td></tr>`).join("")}</tbody></table></div></div>` : ""}</section>` });
-}
-
-export function timelinePage(data) {
-  const categories = [...new Set(data.timeline.map((entry) => entry.category).filter(Boolean))].sort((a, b) => a.localeCompare(b));
-  const figure = (entry) => {
-    if (!entry.image) return "";
-    return `<figure class="mt-5 max-w-2xl"><div class="figure-frame overflow-hidden"><img src="../assets/images/${escapeAttr(entry.image)}" alt="${escapeAttr(entry.caption || entry.title)}" loading="lazy" decoding="async" class="h-full w-full object-cover"></div>${entry.caption ? `<figcaption class="mt-3 text-xs uppercase tracking-[0.14em] text-sand-900/55">Fig. ${escapeHtml(entry.figure_number || "")} - ${escapeHtml(entry.caption)}</figcaption>` : ""}</figure>`;
-  };
-
-  return layout({
-    title: "Timeline",
-    metaTitle: `Timeline | ${data.profile.name}`,
-    metaDescription: `A chronological experimental log of ${data.profile.name}'s academic, research, project, and personal milestones.`,
-    profile: data.profile,
-    active: "timeline",
-    depth: 1,
-    content: `<section class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-  <div class="section-rule mb-10"><p class="eyebrow">Experimental Log</p></div>
-  <div class="max-w-4xl">
-    <h1 class="section-title">Life Timeline</h1>
-    <p class="mt-5 max-w-3xl text-base leading-8 text-sand-900/72">A measured record of academic work, research exposure, projects, and milestones. The axis marker tracks the current reading position like a value moving through an experimental plot.</p>
-  </div>
-  <div class="mt-8 flex flex-wrap gap-3" data-timeline-filters>
-    <button type="button" class="filter-chip rounded-full border border-sand-900/10 px-4 py-2 text-xs uppercase tracking-[0.16em]" data-filter-value="">All</button>
-    ${categories.map((category) => `<button type="button" class="filter-chip rounded-full border border-sand-900/10 px-4 py-2 text-xs uppercase tracking-[0.16em]" data-filter-value="${escapeAttr(category)}">${escapeHtml(category)}</button>`).join("")}
-  </div>
-  <div class="timeline-strip-shell timeline-strip-shell--page mt-12" data-horizontal-timeline>
-    <div class="timeline-strip timeline-strip--page" data-horizontal-timeline-strip>
-    ${data.timeline.map((entry, index) => `<article class="timeline-log-entry" data-timeline-category="${escapeAttr(entry.category || "")}">
-      <time class="timeline-date" datetime="${escapeAttr(entry.date)}">${formatMonthYear(entry.date)}</time>
-      <div class="paper-entry">
-        <p class="eyebrow">${escapeHtml(entry.category || "Milestone")}</p>
-        <h2 class="mt-2 text-3xl font-semibold text-sand-900">${escapeHtml(entry.title)}</h2>
-        <p class="mt-4 max-w-3xl text-base leading-8 text-sand-900/72">${escapeHtml(entry.body || "")}</p>
-        ${figure({ ...entry, figure_number: index + 1 })}
-      </div>
-    </article>`).join("")}
-    </div>
-    <div class="timeline-position" aria-hidden="true"><span data-horizontal-timeline-marker></span></div>
-  </div>
-</section>
-<script>
-(() => {
-  const buttons = [...document.querySelectorAll("[data-filter-value]")];
-  const entries = [...document.querySelectorAll("[data-timeline-category]")];
-  buttons.forEach((button) => {
-    button.addEventListener("click", () => {
-      const value = button.dataset.filterValue || "";
-      buttons.forEach((item) => item.toggleAttribute("data-active", item === button));
-      entries.forEach((entry) => {
-        entry.hidden = Boolean(value) && entry.dataset.timelineCategory !== value;
-      });
-      window.dispatchEvent(new Event("timeline:update"));
-    });
-  });
-  buttons[0]?.setAttribute("data-active", "");
-})();
-</script>`,
-  });
 }
 
 export function notFoundPage(data) {

@@ -1142,6 +1142,13 @@ a {
   filter: none !important;
 }
 
+:root[data-theme="dark"] .home-page .project-image:hover img,
+:root[data-theme="dark"] .home-page .project-image:focus-visible img,
+:root[data-theme="dark"] .home-page .figure-frame:hover img,
+:root[data-theme="dark"] .home-page .figure-frame:focus-within img {
+  filter: none !important;
+}
+
 .project-image:hover img,
 .project-image:focus-visible img,
 .figure-frame:hover img,
@@ -1285,6 +1292,35 @@ th,
 .timeline-strip-shell {
   position: relative;
   margin-top: 1rem;
+}
+
+.timeline-controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.4rem;
+  margin-bottom: 0.65rem;
+}
+
+.timeline-control {
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  border: 1px solid var(--rule);
+  background: color-mix(in srgb, var(--paper-panel) 80%, transparent);
+  color: var(--ink);
+  font-family: "Recursive", monospace;
+  font-size: 0.95rem;
+  line-height: 1;
+  transition: border-color var(--duration-fast) var(--ease-measure), color var(--duration-fast) var(--ease-measure), background-color var(--duration-fast) var(--ease-measure);
+}
+
+.timeline-control:hover,
+.timeline-control:focus-visible {
+  border-color: var(--oxide-blue);
+  background: color-mix(in srgb, var(--paper-panel) 78%, var(--oxide-blue) 8%);
+  color: var(--oxide-blue);
+  outline: none;
 }
 
 .timeline-strip {
@@ -1459,6 +1495,11 @@ svg {
 .masthead-id h1,
 .masthead-id p {
   overflow-wrap: anywhere;
+}
+
+.contact-title {
+  font-size: clamp(2.05rem, 5vw, 4.6rem);
+  line-height: 0.98;
 }
 
 @media (min-width: 1500px) {
