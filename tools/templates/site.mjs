@@ -122,7 +122,7 @@ export function layout({ title, metaTitle, metaDescription, profile, active = ""
   const siteName = profile?.name || "Portfolio";
   const headline = profile?.headline || "Academic and professional portfolio";
   return `<!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -138,18 +138,18 @@ export function layout({ title, metaTitle, metaDescription, profile, active = ""
   <title>${escapeHtml(title || "Portfolio")}</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Recursive:CASL,CRSV,MONO,slnt,wght@0..1,0..1,0..1,-15..0,300..1000&display=swap">
   <script>
     (() => {
       try {
         const savedTheme = localStorage.getItem("portfolio-theme");
-        const theme = savedTheme === "dark" ? "dark" : "light";
+        const theme = savedTheme === "light" ? "light" : "dark";
         const root = document.documentElement;
         root.dataset.theme = theme;
         root.classList.toggle("dark", theme === "dark");
         root.style.colorScheme = theme;
       } catch (error) {
-        document.documentElement.dataset.theme = "light";
+          document.documentElement.dataset.theme = "dark";
       }
     })();
   </script>
@@ -164,10 +164,10 @@ export function layout({ title, metaTitle, metaDescription, profile, active = ""
 </head>
 <body class="shell antialiased">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <header class="border-b border-sand-900/10 py-6">
-      <div class="flex flex-col gap-5 xl:flex-row xl:items-end xl:justify-between">
-        <a href="${root}" class="max-w-xl">
-          <p class="eyebrow">Portfolio</p>
+    <header class="site-masthead border-b border-sand-900/10 py-6">
+      <div class="flex flex-col gap-5 xl:flex-row xl:items-center xl:justify-between">
+        <a href="${root}" class="masthead-id max-w-xl">
+          <p class="eyebrow">S. Tripathy - Portfolio - Vol. 2026</p>
           <h1 class="font-display text-2xl font-semibold text-sand-900">${escapeHtml(siteName)}</h1>
           <p class="mt-2 text-sm text-sand-900/70">${escapeHtml(headline)}</p>
         </a>
@@ -179,12 +179,12 @@ export function layout({ title, metaTitle, metaDescription, profile, active = ""
             <a href="${root}projects/" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link${activeAttr(active, "projects")}>Projects</a>
             <a href="${root}experience/" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link${activeAttr(active, "experience")}>Experience</a>
             <a href="${root}#education" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link>Education</a>
-            <a href="${root}#timeline" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link>Timeline</a>
+            <a href="${root}timeline/" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link${activeAttr(active, "timeline")}>Timeline</a>
             <a href="${root}contact/" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link${activeAttr(active, "contact")}>Contact</a>
           </nav>
           <button type="button" class="theme-toggle self-start xl:self-end" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
-            <span class="theme-toggle__option">Light</span>
             <span class="theme-toggle__option">Dark</span>
+            <span class="theme-toggle__option">Light</span>
             <span class="theme-toggle__thumb" aria-hidden="true"></span>
           </button>
         </div>
@@ -204,7 +204,7 @@ export function layout({ title, metaTitle, metaDescription, profile, active = ""
         <a href="${root}projects/" class="hover:text-sand-900">Projects</a>
         <a href="${root}experience/" class="hover:text-sand-900">Experience</a>
         <a href="${root}#education" class="hover:text-sand-900">Education</a>
-        <a href="${root}#timeline" class="hover:text-sand-900">Timeline</a>
+        <a href="${root}timeline/" class="hover:text-sand-900">Timeline</a>
         <a href="${root}contact/" class="hover:text-sand-900">Contact</a>
       </div>
     </div>
@@ -218,7 +218,7 @@ export function layout({ title, metaTitle, metaDescription, profile, active = ""
         <button class="rounded-full border border-white/20 px-4 py-3 text-white" data-lightbox-close aria-label="Close lightbox">Close</button>
       </div>
       <div class="order-1 flex-1 overflow-hidden rounded-[2rem] bg-black/20 p-3 sm:p-4">
-        <img class="mx-auto max-h-[80vh] w-auto rounded-[1.5rem] object-contain" src="" alt="" data-lightbox-image>
+        <img class="mx-auto max-h-[80vh] w-auto rounded-[1.5rem] object-contain" src="" alt="Selected project image" data-lightbox-image>
         <p class="mt-4 text-center text-sm text-white/80" data-lightbox-caption></p>
       </div>
     </div>
@@ -265,7 +265,7 @@ export function projectCard(project, depth, reveal = false, searchable = false) 
   const tech = techStackList(project);
   const root = pagePrefix(depth);
   const searchText = [project.title, project.summary, project.description].join(" ").toLowerCase();
-  return `<article class="glass overflow-hidden rounded-[2rem]${reveal ? " reveal" : ""}"${searchable ? ` data-project-card data-project-text="${escapeAttr(searchText)}" data-project-tech="${escapeAttr(tech.join("|").toLowerCase())}"` : ""}>
+  return `<article class="paper-entry glass overflow-hidden rounded-[2rem]${reveal ? " reveal" : ""}"${searchable ? ` data-project-card data-project-text="${escapeAttr(searchText)}" data-project-tech="${escapeAttr(tech.join("|").toLowerCase())}"` : ""}>
   <a href="${root}projects/${escapeAttr(project.slug)}/" class="project-image block">
     ${firstImage ? `<img src="${escapeAttr(firstImage.display_url)}" alt="${escapeAttr(firstImage.caption || project.title)}" loading="lazy" decoding="async">` : `<div class="flex h-full items-end bg-gradient-to-br from-sand-200 via-white to-sand-100 p-5"><p class="font-display text-2xl text-sand-900/70">${escapeHtml(project.title)}</p></div>`}
   </a>
@@ -317,7 +317,7 @@ export function buildExperienceEntries(experience) {
 
 export function experienceEntry(entry, depth, heading = "h3") {
   const root = pagePrefix(depth);
-  return `<article class="experience-entry group relative rounded-[1.5rem] border border-sand-900/10 bg-white/50 p-5 transition"${entry.is_current ? ' data-current="true"' : ""}${entry.is_focus ? " data-timeline-focus" : ""}>
+  return `<article class="paper-entry experience-entry group relative rounded-[1.5rem] border border-sand-900/10 bg-white/50 p-5 transition"${entry.is_current ? ' data-current="true"' : ""}${entry.is_focus ? " data-timeline-focus" : ""}>
   <div class="flex flex-wrap items-start justify-between gap-4">
     <div class="min-w-0">
       <p class="text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-sand-700/70">${escapeHtml(entry.kind_label)}</p>

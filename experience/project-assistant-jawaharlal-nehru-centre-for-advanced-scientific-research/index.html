@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,18 +15,18 @@
   <title>Project Assistant</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Recursive:CASL,CRSV,MONO,slnt,wght@0..1,0..1,0..1,-15..0,300..1000&display=swap">
   <script>
     (() => {
       try {
         const savedTheme = localStorage.getItem("portfolio-theme");
-        const theme = savedTheme === "dark" ? "dark" : "light";
+        const theme = savedTheme === "light" ? "light" : "dark";
         const root = document.documentElement;
         root.dataset.theme = theme;
         root.classList.toggle("dark", theme === "dark");
         root.style.colorScheme = theme;
       } catch (error) {
-        document.documentElement.dataset.theme = "light";
+          document.documentElement.dataset.theme = "dark";
       }
     })();
   </script>
@@ -41,10 +41,10 @@
 </head>
 <body class="shell antialiased">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <header class="border-b border-sand-900/10 py-6">
-      <div class="flex flex-col gap-5 xl:flex-row xl:items-end xl:justify-between">
-        <a href="../../" class="max-w-xl">
-          <p class="eyebrow">Portfolio</p>
+    <header class="site-masthead border-b border-sand-900/10 py-6">
+      <div class="flex flex-col gap-5 xl:flex-row xl:items-center xl:justify-between">
+        <a href="../../" class="masthead-id max-w-xl">
+          <p class="eyebrow">S. Tripathy - Portfolio - Vol. 2026</p>
           <h1 class="font-display text-2xl font-semibold text-sand-900">Shreyansh Tripathy</h1>
           <p class="mt-2 text-sm text-sand-900/70">Physics graduate with an interest in applied physics and efficient systems</p>
         </a>
@@ -56,12 +56,12 @@
             <a href="../../projects/" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link>Projects</a>
             <a href="../../experience/" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link data-active="true" aria-current="page">Experience</a>
             <a href="../../#education" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link>Education</a>
-            <a href="../../#timeline" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link>Timeline</a>
+            <a href="../../timeline/" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link>Timeline</a>
             <a href="../../contact/" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link>Contact</a>
           </nav>
           <button type="button" class="theme-toggle self-start xl:self-end" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
-            <span class="theme-toggle__option">Light</span>
             <span class="theme-toggle__option">Dark</span>
+            <span class="theme-toggle__option">Light</span>
             <span class="theme-toggle__thumb" aria-hidden="true"></span>
           </button>
         </div>
@@ -81,7 +81,7 @@
         <a href="../../projects/" class="hover:text-sand-900">Projects</a>
         <a href="../../experience/" class="hover:text-sand-900">Experience</a>
         <a href="../../#education" class="hover:text-sand-900">Education</a>
-        <a href="../../#timeline" class="hover:text-sand-900">Timeline</a>
+        <a href="../../timeline/" class="hover:text-sand-900">Timeline</a>
         <a href="../../contact/" class="hover:text-sand-900">Contact</a>
       </div>
     </div>
@@ -95,7 +95,7 @@
         <button class="rounded-full border border-white/20 px-4 py-3 text-white" data-lightbox-close aria-label="Close lightbox">Close</button>
       </div>
       <div class="order-1 flex-1 overflow-hidden rounded-[2rem] bg-black/20 p-3 sm:p-4">
-        <img class="mx-auto max-h-[80vh] w-auto rounded-[1.5rem] object-contain" src="" alt="" data-lightbox-image>
+        <img class="mx-auto max-h-[80vh] w-auto rounded-[1.5rem] object-contain" src="" alt="Selected project image" data-lightbox-image>
         <p class="mt-4 text-center text-sm text-white/80" data-lightbox-caption></p>
       </div>
     </div>

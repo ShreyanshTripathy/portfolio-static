@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,18 +15,18 @@
   <title>Shreyansh Tripathy</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Recursive:CASL,CRSV,MONO,slnt,wght@0..1,0..1,0..1,-15..0,300..1000&display=swap">
   <script>
     (() => {
       try {
         const savedTheme = localStorage.getItem("portfolio-theme");
-        const theme = savedTheme === "dark" ? "dark" : "light";
+        const theme = savedTheme === "light" ? "light" : "dark";
         const root = document.documentElement;
         root.dataset.theme = theme;
         root.classList.toggle("dark", theme === "dark");
         root.style.colorScheme = theme;
       } catch (error) {
-        document.documentElement.dataset.theme = "light";
+          document.documentElement.dataset.theme = "dark";
       }
     })();
   </script>
@@ -41,10 +41,10 @@
 </head>
 <body class="shell antialiased">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <header class="border-b border-sand-900/10 py-6">
-      <div class="flex flex-col gap-5 xl:flex-row xl:items-end xl:justify-between">
-        <a href="./" class="max-w-xl">
-          <p class="eyebrow">Portfolio</p>
+    <header class="site-masthead border-b border-sand-900/10 py-6">
+      <div class="flex flex-col gap-5 xl:flex-row xl:items-center xl:justify-between">
+        <a href="./" class="masthead-id max-w-xl">
+          <p class="eyebrow">S. Tripathy - Portfolio - Vol. 2026</p>
           <h1 class="font-display text-2xl font-semibold text-sand-900">Shreyansh Tripathy</h1>
           <p class="mt-2 text-sm text-sand-900/70">Physics graduate with an interest in applied physics and efficient systems</p>
         </a>
@@ -56,33 +56,37 @@
             <a href="./projects/" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link>Projects</a>
             <a href="./experience/" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link>Experience</a>
             <a href="./#education" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link>Education</a>
-            <a href="./#timeline" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link>Timeline</a>
+            <a href="./timeline/" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link>Timeline</a>
             <a href="./contact/" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link>Contact</a>
           </nav>
           <button type="button" class="theme-toggle self-start xl:self-end" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
-            <span class="theme-toggle__option">Light</span>
             <span class="theme-toggle__option">Dark</span>
+            <span class="theme-toggle__option">Light</span>
             <span class="theme-toggle__thumb" aria-hidden="true"></span>
           </button>
         </div>
       </div>
     </header>
   </div>
-  <main><section id="about" class="mx-auto max-w-7xl px-4 pb-14 pt-10 sm:px-6 lg:px-8 lg:pb-20">
+  <main><div class="home-page"><section id="about" class="mx-auto max-w-7xl px-4 pb-14 pt-10 sm:px-6 lg:px-8 lg:pb-20">
   <div class="grid gap-8 lg:grid-cols-[1.15fr_0.85fr]">
     <div class="glass reveal rounded-[2rem] p-8 sm:p-10">
-      <p class="eyebrow">Applied physics portfolio</p>
+      <p class="eyebrow">Abstract / Applied Physics Portfolio</p>
       <h2 class="mt-4 section-title max-w-3xl">Shreyansh Tripathy</h2>
       <p class="mt-4 max-w-2xl text-lg leading-8 text-sand-900/75">I’m Shreyansh Tripathy, a Physics graduate with a B.Sc. (Honours) from Azim Premji University, Bangalore. My interest lies in applied physics, especially building and understanding efficient systems through experimentation, simulation, and careful analysis. Beyond academics, I enjoy basketball, reading comics, and continuing to learn coding.</p>
+      <p class="mt-5 text-xs uppercase tracking-[0.16em] text-sand-900/55"><span class="text-sand-700">keywords:</span> applied physics, experimental systems, simulation, materials, efficient design</p>
       <div class="mt-8 flex flex-wrap gap-3">
         
         <a href="projects/" class="rounded-full border border-sand-900/15 px-5 py-3 text-sm font-semibold text-sand-900">Browse projects</a>
         <a href="https://github.com/ShreyanshTripathy" target="_blank" rel="noreferrer" class="rounded-full border border-sand-900/15 px-5 py-3 text-sm font-semibold text-sand-900">GitHub</a>
       </div>
     </div>
-    <div class="reveal rounded-[2rem] border border-sand-900/10 bg-sand-100/70 p-5 shadow-warm">
-      <img src="assets/images/profile.jpg" alt="Shreyansh Tripathy" loading="eager" decoding="async" fetchpriority="high" class="h-full max-h-[34rem] w-full rounded-[1.6rem] object-cover">
-    </div>
+    <figure class="profile-figure reveal">
+      <div class="figure-frame overflow-hidden">
+        <img src="assets/images/profile.jpg" alt="Shreyansh Tripathy" loading="eager" decoding="async" fetchpriority="high" class="h-full max-h-[34rem] w-full object-cover">
+      </div>
+      <figcaption class="mt-3 text-xs uppercase tracking-[0.14em] text-sand-900/55">Fig. 0 - Profile portrait</figcaption>
+    </figure>
   </div>
 </section>
 <section class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
@@ -162,7 +166,7 @@
     </div>
     <div class="glass reveal rounded-[2rem] p-8">
       <div class="max-w-2xl"><p class="eyebrow">Experience</p><h3 class="section-title mt-4">Applied Experience</h3><p class="mt-4 text-base leading-7 text-sand-900/70">Hands-on experience applying physics, computation, and engineering in real-world settings.</p></div>
-      <div class="timeline-scroll-shell mt-8 is-at-top" data-scroll-fade><div class="timeline-scroll pr-1" data-timeline-scroll><div class="space-y-5 pb-2"><article class="experience-entry group relative rounded-[1.5rem] border border-sand-900/10 bg-white/50 p-5 transition" data-current="true" data-timeline-focus>
+      <div class="timeline-scroll-shell mt-8 is-at-top" data-scroll-fade><div class="timeline-scroll pr-1" data-timeline-scroll><div class="space-y-5 pb-2"><article class="paper-entry experience-entry group relative rounded-[1.5rem] border border-sand-900/10 bg-white/50 p-5 transition" data-current="true" data-timeline-focus>
   <div class="flex flex-wrap items-start justify-between gap-4">
     <div class="min-w-0">
       <p class="text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-sand-700/70">Internship</p>
@@ -176,7 +180,7 @@
   </div>
   <div class="mt-4 text-sm leading-7 text-sand-900/72"><p>I joined JNCASR as a Project Assistant under Prof. Shobhana Narasimhan, where I work on first-principles simulations of nanoscale materials using VASP. In<span data-expandable-ellipsis>...</span><span class="hidden" data-expandable-content> collaboration with researchers at IISER Thiruvananthapuram and a PhD researcher in the group, I am investigating the Ge/SiGe semiconductor interface to understand the formation of two-dimensional electron and hole gases at the junction. This work has strengthened my understanding of how atomic-scale variations influence emergent electronic properties relevant to next-generation device applications.</span></p><button type="button" class="mt-3 text-sm font-semibold text-sand-700 transition hover:text-sand-900" data-expandable-trigger data-expand-label="Read more" data-collapse-label="Show less">Read more</button></div>
   <div class="mt-4"><a href="./experience/project-assistant-jawaharlal-nehru-centre-for-advanced-scientific-research/" class="text-sm font-semibold text-sand-700 transition hover:text-sand-900">Open experience</a></div>
-</article><article class="experience-entry group relative rounded-[1.5rem] border border-sand-900/10 bg-white/50 p-5 transition">
+</article><article class="paper-entry experience-entry group relative rounded-[1.5rem] border border-sand-900/10 bg-white/50 p-5 transition">
   <div class="flex flex-wrap items-start justify-between gap-4">
     <div class="min-w-0">
       <p class="text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-sand-700/70">Internship</p>
@@ -190,7 +194,7 @@
   </div>
   <div class="mt-4 text-sm leading-7 text-sand-900/72"><p>During my SURC internship at JNCASR, I worked with VASP to perform Density Functional Theory (DFT) simulations. My main project focused on reproducing<span data-expandable-ellipsis>...</span><span class="hidden" data-expandable-content> published results for CsPbBr₃ and CsPbCl₃, ensuring consistency in structural and electronic properties. Alongside this, I explored WSe₂ systems, where I gained experience in SCF convergence, band structure calculations, density of states, and charge density analysis.</span></p><button type="button" class="mt-3 text-sm font-semibold text-sand-700 transition hover:text-sand-900" data-expandable-trigger data-expand-label="Read more" data-collapse-label="Show less">Read more</button></div>
   <div class="mt-4"><a href="./experience/summer-research-fellow-surc-jawaharlal-nehru-centre-for-advanced-scientific-research/" class="text-sm font-semibold text-sand-700 transition hover:text-sand-900">Open experience</a></div>
-</article><article class="experience-entry group relative rounded-[1.5rem] border border-sand-900/10 bg-white/50 p-5 transition">
+</article><article class="paper-entry experience-entry group relative rounded-[1.5rem] border border-sand-900/10 bg-white/50 p-5 transition">
   <div class="flex flex-wrap items-start justify-between gap-4">
     <div class="min-w-0">
       <p class="text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-sand-700/70">Internship</p>
@@ -252,7 +256,7 @@
 </section>
 <section id="projects" class="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
   <div class="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between"><div class="max-w-2xl"><p class="eyebrow">Projects</p><h3 class="section-title mt-4">Research and build work</h3><p class="mt-4 max-w-2xl text-base leading-7 text-sand-900/70">A showcase of my research endeavors and development projects.</p></div><a href="projects/" class="rounded-full bg-sand-900 px-5 py-3 text-sm font-semibold text-sand-50">View all projects</a></div>
-  <div class="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3"><article class="glass overflow-hidden rounded-[2rem] reveal">
+  <div class="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3"><article class="paper-entry glass overflow-hidden rounded-[2rem] reveal">
   <a href="./projects/building-michelson-interferometer/" class="project-image block">
     <img src="assets/images/Michelson_interferometer_setup.png" alt="Experimental Setup" loading="lazy" decoding="async">
   </a>
@@ -265,7 +269,7 @@
       
     </div>
   </div>
-</article><article class="glass overflow-hidden rounded-[2rem] reveal">
+</article><article class="paper-entry glass overflow-hidden rounded-[2rem] reveal">
   <a href="./projects/studying-standing-sound-waves-using-schlieren-imaging/" class="project-image block">
     <img src="assets/images/blowtorch.gif" alt="Observation of Blowtorch" loading="lazy" decoding="async">
   </a>
@@ -278,7 +282,7 @@
       
     </div>
   </div>
-</article><article class="glass overflow-hidden rounded-[2rem] reveal">
+</article><article class="paper-entry glass overflow-hidden rounded-[2rem] reveal">
   <a href="./projects/developing-soft-robotic-actuators/" class="project-image block">
     <img src="assets/images/DEA.png" alt="DEA" loading="lazy" decoding="async">
   </a>
@@ -298,7 +302,7 @@
     <div class="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between"><p class="eyebrow">Journey</p><p class="text-xs uppercase tracking-[0.18em] text-sand-900/45">A chronological view of my academic and professional growth.</p></div>
     <div class="timeline-strip mt-4 flex gap-3 overflow-x-auto pb-1"><article class="timeline-chip shrink-0 rounded-[1.1rem] border border-sand-900/10 bg-white/55 px-3.5 py-3 transition hover:-translate-y-0.5 hover:border-sand-900/18 hover:bg-white/75 is-current"><p class="text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-sand-700/68">Internship</p><p class="mt-1.5 text-xs font-medium text-sand-900/46">Aug 2025</p><h4 class="mt-1.5 max-w-[11rem] text-sm font-semibold leading-5 text-sand-900">Project Assistant</h4></article><article class="timeline-chip shrink-0 rounded-[1.1rem] border border-sand-900/10 bg-white/55 px-3.5 py-3 transition hover:-translate-y-0.5 hover:border-sand-900/18 hover:bg-white/75"><p class="text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-sand-700/68">Internship</p><p class="mt-1.5 text-xs font-medium text-sand-900/46">Jul 2025</p><h4 class="mt-1.5 max-w-[11rem] text-sm font-semibold leading-5 text-sand-900">Summer Research Fellow (SURC)</h4></article><article class="timeline-chip shrink-0 rounded-[1.1rem] border border-sand-900/10 bg-white/55 px-3.5 py-3 transition hover:-translate-y-0.5 hover:border-sand-900/18 hover:bg-white/75"><p class="text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-sand-700/68">Education</p><p class="mt-1.5 text-xs font-medium text-sand-900/46">May 2025</p><h4 class="mt-1.5 max-w-[11rem] text-sm font-semibold leading-5 text-sand-900">B.Sc. (Honours) in Physics</h4></article><article class="timeline-chip shrink-0 rounded-[1.1rem] border border-sand-900/10 bg-white/55 px-3.5 py-3 transition hover:-translate-y-0.5 hover:border-sand-900/18 hover:bg-white/75"><p class="text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-sand-700/68">Project</p><p class="mt-1.5 text-xs font-medium text-sand-900/46">Oct 2024</p><h4 class="mt-1.5 max-w-[11rem] text-sm font-semibold leading-5 text-sand-900">Developing Soft Robotic Actuators</h4></article><article class="timeline-chip shrink-0 rounded-[1.1rem] border border-sand-900/10 bg-white/55 px-3.5 py-3 transition hover:-translate-y-0.5 hover:border-sand-900/18 hover:bg-white/75"><p class="text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-sand-700/68">Project</p><p class="mt-1.5 text-xs font-medium text-sand-900/46">Mar 2024</p><h4 class="mt-1.5 max-w-[11rem] text-sm font-semibold leading-5 text-sand-900">Studying Standing Sound Waves using Schlieren Imaging</h4></article><article class="timeline-chip shrink-0 rounded-[1.1rem] border border-sand-900/10 bg-white/55 px-3.5 py-3 transition hover:-translate-y-0.5 hover:border-sand-900/18 hover:bg-white/75"><p class="text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-sand-700/68">Internship</p><p class="mt-1.5 text-xs font-medium text-sand-900/46">Aug 2023</p><h4 class="mt-1.5 max-w-[11rem] text-sm font-semibold leading-5 text-sand-900">Robotics Intern</h4></article><article class="timeline-chip shrink-0 rounded-[1.1rem] border border-sand-900/10 bg-white/55 px-3.5 py-3 transition hover:-translate-y-0.5 hover:border-sand-900/18 hover:bg-white/75"><p class="text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-sand-700/68">Project</p><p class="mt-1.5 text-xs font-medium text-sand-900/46">Mar 2023</p><h4 class="mt-1.5 max-w-[11rem] text-sm font-semibold leading-5 text-sand-900">Building Michelson Interferometer</h4></article></div>
   </div>
-</section></main>
+</section></div></main>
   <footer class="mx-auto mt-16 max-w-7xl px-4 pb-10 sm:px-6 lg:px-8">
     <div class="glass flex flex-col gap-4 rounded-[2rem] px-6 py-8 text-sm text-sand-900/70 md:flex-row md:items-center md:justify-between">
       <div>
@@ -311,7 +315,7 @@
         <a href="./projects/" class="hover:text-sand-900">Projects</a>
         <a href="./experience/" class="hover:text-sand-900">Experience</a>
         <a href="./#education" class="hover:text-sand-900">Education</a>
-        <a href="./#timeline" class="hover:text-sand-900">Timeline</a>
+        <a href="./timeline/" class="hover:text-sand-900">Timeline</a>
         <a href="./contact/" class="hover:text-sand-900">Contact</a>
       </div>
     </div>
@@ -325,7 +329,7 @@
         <button class="rounded-full border border-white/20 px-4 py-3 text-white" data-lightbox-close aria-label="Close lightbox">Close</button>
       </div>
       <div class="order-1 flex-1 overflow-hidden rounded-[2rem] bg-black/20 p-3 sm:p-4">
-        <img class="mx-auto max-h-[80vh] w-auto rounded-[1.5rem] object-contain" src="" alt="" data-lightbox-image>
+        <img class="mx-auto max-h-[80vh] w-auto rounded-[1.5rem] object-contain" src="" alt="Selected project image" data-lightbox-image>
         <p class="mt-4 text-center text-sm text-white/80" data-lightbox-caption></p>
       </div>
     </div>

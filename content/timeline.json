@@ -1,0 +1,47 @@
+[
+  {
+    "date": "2026-04-01",
+    "title": "Portfolio migration to static hosting",
+    "category": "Project",
+    "body": "Moved the portfolio away from a backend-heavy Django and database deployment toward plain static hosting on GitHub Pages.",
+    "image": "",
+    "caption": "",
+    "slug": "portfolio-migration-to-static-hosting"
+  },
+  {
+    "date": "2024-06-01",
+    "title": "Summer Research Fellowship Program",
+    "category": "Research",
+    "body": "Research experience at JNCASR focused on practical scientific work, experimental judgment, and communicating technical results.",
+    "image": "",
+    "caption": "",
+    "slug": "summer-research-fellowship-program"
+  },
+  {
+    "date": "2023-06-01",
+    "title": "B.Sc. Honours in Physics",
+    "category": "Academic",
+    "body": "Built an academic foundation in physics at Azim Premji University through coursework, experiments, computation, and research-oriented projects.",
+    "image": "profile.jpg",
+    "caption": "Academic portfolio portrait",
+    "slug": "bsc-honours-in-physics"
+  },
+  {
+    "date": "2023-03-01",
+    "title": "Michelson interferometer build",
+    "category": "Project",
+    "body": "Constructed a Michelson interferometer to observe interference due to controlled path differences.",
+    "image": "Michelson_interferometer_setup.png",
+    "caption": "Experimental setup for the interferometer build",
+    "slug": "michelson-interferometer-build"
+  },
+  {
+    "date": "2022-12-01",
+    "title": "National level championship finalist",
+    "category": "Milestone",
+    "body": "Reached finalist standing in the Vigyantram National Level Championship.",
+    "image": "",
+    "caption": "",
+    "slug": "national-level-championship-finalist"
+  }
+]

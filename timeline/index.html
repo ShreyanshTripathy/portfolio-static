@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="A chronological experimental log of Shreyansh Tripathy&#39;s academic, research, project, and personal milestones.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Shreyansh Tripathy">
+  <meta property="og:title" content="Timeline | Shreyansh Tripathy">
+  <meta property="og:description" content="A chronological experimental log of Shreyansh Tripathy&#39;s academic, research, project, and personal milestones.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Timeline | Shreyansh Tripathy">
+  <meta name="twitter:description" content="A chronological experimental log of Shreyansh Tripathy&#39;s academic, research, project, and personal milestones.">
+  <title>Timeline</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Recursive:CASL,CRSV,MONO,slnt,wght@0..1,0..1,0..1,-15..0,300..1000&display=swap">
+  <script>
+    (() => {
+      try {
+        const savedTheme = localStorage.getItem("portfolio-theme");
+        const theme = savedTheme === "light" ? "light" : "dark";
+        const root = document.documentElement;
+        root.dataset.theme = theme;
+        root.classList.toggle("dark", theme === "dark");
+        root.style.colorScheme = theme;
+      } catch (error) {
+          document.documentElement.dataset.theme = "dark";
+      }
+    })();
+  </script>
+  <script src="https://cdn.tailwindcss.com?plugins=typography,forms"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: { extend: { colors: { sand: { 50: "#f8f4ee", 100: "#efe7db", 200: "#dcc5aa", 700: "#6e4e2e", 900: "#221c18" } }, boxShadow: { warm: "0 24px 60px rgba(67, 47, 27, 0.08)" } } }
+    }
+  </script>
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body class="shell antialiased">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <header class="site-masthead border-b border-sand-900/10 py-6">
+      <div class="flex flex-col gap-5 xl:flex-row xl:items-center xl:justify-between">
+        <a href="../" class="masthead-id max-w-xl">
+          <p class="eyebrow">S. Tripathy - Portfolio - Vol. 2026</p>
+          <h1 class="font-display text-2xl font-semibold text-sand-900">Shreyansh Tripathy</h1>
+          <p class="mt-2 text-sm text-sand-900/70">Physics graduate with an interest in applied physics and efficient systems</p>
+        </a>
+        <div class="flex flex-col gap-4 xl:max-w-3xl xl:items-end">
+          <nav class="nav-scroll nav-scroll--enhanced -mx-1 flex flex-nowrap items-center gap-2 overflow-x-auto px-1 pb-2 text-sm text-sand-900/80 sm:mx-0 sm:px-0 sm:pb-0 xl:justify-end">
+            <a href="../#about" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link>About</a>
+            <a href="../skills/" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link>Skills</a>
+            <a href="../certificates/" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link>Certificates</a>
+            <a href="../projects/" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link>Projects</a>
+            <a href="../experience/" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link>Experience</a>
+            <a href="../#education" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link>Education</a>
+            <a href="../timeline/" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link data-active="true" aria-current="page">Timeline</a>
+            <a href="../contact/" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link>Contact</a>
+          </nav>
+          <button type="button" class="theme-toggle self-start xl:self-end" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
+            <span class="theme-toggle__option">Dark</span>
+            <span class="theme-toggle__option">Light</span>
+            <span class="theme-toggle__thumb" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+  </div>
+  <main><section class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+  <div class="section-rule mb-10"><p class="eyebrow">Experimental Log</p></div>
+  <div class="max-w-4xl">
+    <h1 class="section-title">Life Timeline</h1>
+    <p class="mt-5 max-w-3xl text-base leading-8 text-sand-900/72">A measured record of academic work, research exposure, projects, and milestones. The axis marker tracks the current reading position like a value moving through an experimental plot.</p>
+  </div>
+  <div class="mt-8 flex flex-wrap gap-3" data-timeline-filters>
+    <button type="button" class="filter-chip rounded-full border border-sand-900/10 px-4 py-2 text-xs uppercase tracking-[0.16em]" data-filter-value="">All</button>
+    <button type="button" class="filter-chip rounded-full border border-sand-900/10 px-4 py-2 text-xs uppercase tracking-[0.16em]" data-filter-value="Academic">Academic</button><button type="button" class="filter-chip rounded-full border border-sand-900/10 px-4 py-2 text-xs uppercase tracking-[0.16em]" data-filter-value="Milestone">Milestone</button><button type="button" class="filter-chip rounded-full border border-sand-900/10 px-4 py-2 text-xs uppercase tracking-[0.16em]" data-filter-value="Project">Project</button><button type="button" class="filter-chip rounded-full border border-sand-900/10 px-4 py-2 text-xs uppercase tracking-[0.16em]" data-filter-value="Research">Research</button>
+  </div>
+  <div class="timeline-axis mt-12" data-timeline-axis>
+    <span class="timeline-marker" data-timeline-marker aria-hidden="true"></span>
+    <article class="timeline-log-entry" data-timeline-category="Project">
+      <time class="timeline-date" datetime="2026-04-01">Apr 2026</time>
+      <div class="paper-entry border-l border-sand-900/10 pl-6">
+        <p class="eyebrow">Project</p>
+        <h2 class="mt-2 text-3xl font-semibold text-sand-900">Portfolio migration to static hosting</h2>
+        <p class="mt-4 max-w-3xl text-base leading-8 text-sand-900/72">Moved the portfolio away from a backend-heavy Django and database deployment toward plain static hosting on GitHub Pages.</p>
+        
+      </div>
+    </article><article class="timeline-log-entry" data-timeline-category="Research">
+      <time class="timeline-date" datetime="2024-06-01">Jun 2024</time>
+      <div class="paper-entry border-l border-sand-900/10 pl-6">
+        <p class="eyebrow">Research</p>
+        <h2 class="mt-2 text-3xl font-semibold text-sand-900">Summer Research Fellowship Program</h2>
+        <p class="mt-4 max-w-3xl text-base leading-8 text-sand-900/72">Research experience at JNCASR focused on practical scientific work, experimental judgment, and communicating technical results.</p>
+        
+      </div>
+    </article><article class="timeline-log-entry" data-timeline-category="Academic">
+      <time class="timeline-date" datetime="2023-06-01">Jun 2023</time>
+      <div class="paper-entry border-l border-sand-900/10 pl-6">
+        <p class="eyebrow">Academic</p>
+        <h2 class="mt-2 text-3xl font-semibold text-sand-900">B.Sc. Honours in Physics</h2>
+        <p class="mt-4 max-w-3xl text-base leading-8 text-sand-900/72">Built an academic foundation in physics at Azim Premji University through coursework, experiments, computation, and research-oriented projects.</p>
+        <figure class="mt-5 max-w-2xl"><div class="figure-frame overflow-hidden"><img src="../assets/images/profile.jpg" alt="Academic portfolio portrait" loading="lazy" decoding="async" class="h-full w-full object-cover"></div><figcaption class="mt-3 text-xs uppercase tracking-[0.14em] text-sand-900/55">Fig. 3 - Academic portfolio portrait</figcaption></figure>
+      </div>
+    </article><article class="timeline-log-entry" data-timeline-category="Project">
+      <time class="timeline-date" datetime="2023-03-01">Mar 2023</time>
+      <div class="paper-entry border-l border-sand-900/10 pl-6">
+        <p class="eyebrow">Project</p>
+        <h2 class="mt-2 text-3xl font-semibold text-sand-900">Michelson interferometer build</h2>
+        <p class="mt-4 max-w-3xl text-base leading-8 text-sand-900/72">Constructed a Michelson interferometer to observe interference due to controlled path differences.</p>
+        <figure class="mt-5 max-w-2xl"><div class="figure-frame overflow-hidden"><img src="../assets/images/Michelson_interferometer_setup.png" alt="Experimental setup for the interferometer build" loading="lazy" decoding="async" class="h-full w-full object-cover"></div><figcaption class="mt-3 text-xs uppercase tracking-[0.14em] text-sand-900/55">Fig. 4 - Experimental setup for the interferometer build</figcaption></figure>
+      </div>
+    </article><article class="timeline-log-entry" data-timeline-category="Milestone">
+      <time class="timeline-date" datetime="2022-12-01">Dec 2022</time>
+      <div class="paper-entry border-l border-sand-900/10 pl-6">
+        <p class="eyebrow">Milestone</p>
+        <h2 class="mt-2 text-3xl font-semibold text-sand-900">National level championship finalist</h2>
+        <p class="mt-4 max-w-3xl text-base leading-8 text-sand-900/72">Reached finalist standing in the Vigyantram National Level Championship.</p>
+        
+      </div>
+    </article>
+  </div>
+</section>
+<script>
+(() => {
+  const buttons = [...document.querySelectorAll("[data-filter-value]")];
+  const entries = [...document.querySelectorAll("[data-timeline-category]")];
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const value = button.dataset.filterValue || "";
+      buttons.forEach((item) => item.toggleAttribute("data-active", item === button));
+      entries.forEach((entry) => {
+        entry.hidden = Boolean(value) && entry.dataset.timelineCategory !== value;
+      });
+      window.dispatchEvent(new Event("resize"));
+    });
+  });
+  buttons[0]?.setAttribute("data-active", "");
+})();
+</script></main>
+  <footer class="mx-auto mt-16 max-w-7xl px-4 pb-10 sm:px-6 lg:px-8">
+    <div class="glass flex flex-col gap-4 rounded-[2rem] px-6 py-8 text-sm text-sand-900/70 md:flex-row md:items-center md:justify-between">
+      <div>
+        <p class="font-display text-xl text-sand-900">Shreyansh Tripathy</p>
+        <p class="mt-1">Thank you for visiting!</p>
+      </div>
+      <div class="flex flex-wrap gap-4">
+        <a href="../skills/" class="hover:text-sand-900">Skills</a>
+        <a href="../certificates/" class="hover:text-sand-900">Certificates</a>
+        <a href="../projects/" class="hover:text-sand-900">Projects</a>
+        <a href="../experience/" class="hover:text-sand-900">Experience</a>
+        <a href="../#education" class="hover:text-sand-900">Education</a>
+        <a href="../timeline/" class="hover:text-sand-900">Timeline</a>
+        <a href="../contact/" class="hover:text-sand-900">Contact</a>
+      </div>
+    </div>
+  </footer>
+  <div class="lightbox fixed inset-0 z-50 bg-sand-900/85 px-4 py-6 sm:py-8" data-lightbox role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="lightbox-title" hidden>
+    <h2 id="lightbox-title" class="sr-only">Project image viewer</h2>
+    <div class="mx-auto flex h-full max-w-6xl flex-col gap-4 lg:flex-row lg:items-center" data-lightbox-dialog>
+      <div class="order-2 flex justify-center gap-3 lg:order-1 lg:flex-col">
+        <button class="rounded-full border border-white/20 px-4 py-3 text-white" data-lightbox-prev aria-label="Previous image">Prev</button>
+        <button class="rounded-full border border-white/20 px-4 py-3 text-white" data-lightbox-next aria-label="Next image">Next</button>
+        <button class="rounded-full border border-white/20 px-4 py-3 text-white" data-lightbox-close aria-label="Close lightbox">Close</button>
+      </div>
+      <div class="order-1 flex-1 overflow-hidden rounded-[2rem] bg-black/20 p-3 sm:p-4">
+        <img class="mx-auto max-h-[80vh] w-auto rounded-[1.5rem] object-contain" src="" alt="Selected project image" data-lightbox-image>
+        <p class="mt-4 text-center text-sm text-white/80" data-lightbox-caption></p>
+      </div>
+    </div>
+  </div>
+  <script src="../assets/js/site.js"></script>
+</body>
+</html>

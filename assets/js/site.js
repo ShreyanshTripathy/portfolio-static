@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const applyTheme = (theme, shouldPersist = false) => {
-    const isDark = theme === "dark";
+    const isDark = theme !== "light";
     root.dataset.theme = isDark ? "dark" : "light";
     root.classList.toggle("dark", isDark);
     root.style.colorScheme = isDark ? "dark" : "light";
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  applyTheme(root.dataset.theme === "dark" ? "dark" : "light");
+  applyTheme(root.dataset.theme === "light" ? "light" : "dark");
   themeToggle?.addEventListener("click", () => {
     applyTheme(root.dataset.theme === "dark" ? "light" : "dark", true);
   });
@@ -160,4 +160,20 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   });
+
+  const timelineMarker = document.querySelector("[data-timeline-marker]");
+  const timelineAxis = document.querySelector("[data-timeline-axis]");
+
+  if (timelineMarker && timelineAxis) {
+    const updateTimelineMarker = () => {
+      const rect = timelineAxis.getBoundingClientRect();
+      const viewportAnchor = window.innerHeight * 0.38;
+      const progress = Math.min(Math.max((viewportAnchor - rect.top) / Math.max(rect.height, 1), 0), 1);
+      timelineMarker.style.setProperty("--timeline-progress", String(progress));
+    };
+
+    updateTimelineMarker();
+    window.addEventListener("scroll", updateTimelineMarker, { passive: true });
+    window.addEventListener("resize", updateTimelineMarker);
+  }
 });

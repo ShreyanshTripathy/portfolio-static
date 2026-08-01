@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://shreyanshtripathy.github.io/portfolio-static/sitemap.xml

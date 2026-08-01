@@ -9,5 +9,18 @@
   "linkedin": "http://www.linkedin.com/in/shreyansh-tripathy-41a3b2282",
   "github": "https://github.com/ShreyanshTripathy",
   "location": "Bangalore, India",
-  "profile_image": null
+  "profile_image": null,
+  "keywords": [
+    "applied physics",
+    "experimental systems",
+    "simulation",
+    "materials",
+    "efficient design"
+  ],
+  "figure": {
+    "src": "profile.jpg",
+    "alt": "Shreyansh Tripathy",
+    "caption": "Profile portrait",
+    "credit": ""
+  }
 }
