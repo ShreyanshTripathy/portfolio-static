@@ -37,37 +37,56 @@
       theme: { extend: { colors: { sand: { 50: "#f8f4ee", 100: "#efe7db", 200: "#dcc5aa", 700: "#6e4e2e", 900: "#221c18" } }, boxShadow: { warm: "0 24px 60px rgba(67, 47, 27, 0.08)" } } }
     }
   </script>
-  <link rel="stylesheet" href="../../assets/css/styles.css?v=20260801-journey-v4">
+  <link rel="stylesheet" href="../../assets/css/styles.css?v=20260804-responsive-pass-v6">
 </head>
 <body class="shell antialiased">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <header class="site-masthead border-b border-sand-900/10 py-6">
-      <div class="flex flex-col gap-5 xl:flex-row xl:items-center xl:justify-between">
-        <a href="../../" class="masthead-id max-w-xl">
-          <p class="eyebrow">S. Tripathy - Portfolio - Vol. 2026</p>
-          <h1 class="font-display text-2xl font-semibold text-sand-900">Shreyansh Tripathy</h1>
-          <p class="mt-2 text-sm text-sand-900/70">Physics graduate with an interest in applied physics and efficient systems</p>
-        </a>
-        <div class="flex flex-col gap-4 xl:max-w-3xl xl:items-end">
-          <nav class="nav-scroll nav-scroll--enhanced -mx-1 flex flex-nowrap items-center gap-2 overflow-x-auto px-1 pb-2 text-sm text-sand-900/80 sm:mx-0 sm:px-0 sm:pb-0 xl:justify-end">
-            <a href="../../#about" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link>About</a>
-            <a href="../../skills/" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link>Skills</a>
-            <a href="../../certificates/" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link>Certificates</a>
-            <a href="../../projects/" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link data-active="true" aria-current="page">Projects</a>
-            <a href="../../experience/" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link>Experience</a>
-            <a href="../../#education" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link>Education</a>
-            <a href="../../contact/" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link>Contact</a>
-          </nav>
-          <button type="button" class="theme-toggle self-start xl:self-end" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
+    <header class="site-masthead">
+      <div class="site-masthead__frame">
+        <div class="masthead-primary">
+          <a href="../../" class="masthead-id" aria-label="Shreyansh Tripathy — home">
+            <span class="masthead-monogram" aria-hidden="true">ST</span>
+            <span class="masthead-copy">
+              <span class="masthead-name">Shreyansh Tripathy</span>
+              <span class="masthead-role">Physics · Technology · Experiments</span>
+            </span>
+          </a>
+          <button type="button" class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
             <span class="theme-toggle__option">Dark</span>
             <span class="theme-toggle__option">Light</span>
             <span class="theme-toggle__thumb" aria-hidden="true"></span>
           </button>
         </div>
+        <div class="masthead-secondary">
+          <p class="masthead-register" aria-hidden="true"><span>Portfolio index</span><span>Vol. 2026</span></p>
+          <button type="button" class="masthead-menu-toggle" data-menu-toggle aria-controls="primary-navigation" aria-expanded="false" hidden>Menu <span data-menu-state>Open</span></button>
+          <nav id="primary-navigation" class="nav-scroll masthead-navigation" aria-label="Primary navigation">
+            <a href="../../#about" class="masthead-link" data-nav-link><span aria-hidden="true">01</span>About</a>
+            <a href="../../skills/" class="masthead-link" data-nav-link><span aria-hidden="true">02</span>Skills</a>
+            <a href="../../certificates/" class="masthead-link" data-nav-link><span aria-hidden="true">03</span>Certificates</a>
+            <a href="../../projects/" class="masthead-link" data-nav-link data-active="true" aria-current="page"><span aria-hidden="true">04</span>Projects</a>
+            <a href="../../experience/" class="masthead-link" data-nav-link><span aria-hidden="true">05</span>Experience</a>
+            <a href="../../#education" class="masthead-link" data-nav-link><span aria-hidden="true">06</span>Education</a>
+            <a href="../../#timeline" class="masthead-link" data-nav-link><span aria-hidden="true">07</span>Timeline</a>
+            <a href="../../contact/" class="masthead-link masthead-link--contact" data-nav-link><span aria-hidden="true">08</span>Contact</a>
+          </nav>
+        </div>
       </div>
     </header>
   </div>
-  <main><section class="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8"><nav class="flex flex-wrap items-center gap-y-2 text-sm text-sand-900/55"><a href="../../" class="hover:text-sand-900">Home</a><span class="mx-2">/</span><a href="../" class="hover:text-sand-900">Projects</a><span class="mx-2">/</span><span>Constructing Cloud Chamber with Peltier Disks</span></nav><div class="mt-6 glass rounded-[2rem] p-8 sm:p-10"><div class="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between"><div class="max-w-4xl"><p class="eyebrow">Project</p><h2 class="section-title mt-4 max-w-4xl">Constructing Cloud Chamber with Peltier Disks</h2></div></div><p class="mt-6 max-w-3xl text-lg leading-8 text-sand-900/70">Built a cloud chamber for observing ionizing radiation using Peltier-based cooling.</p><div class="prose prose-stone prose-portfolio mt-8 max-w-none"><p>This project focused on designing and testing a compact cloud chamber using Peltier disks to achieve the temperature gradient needed for particle track visualization.</p></div><div class="mt-8 flex flex-wrap gap-2"><span class="rounded-full bg-sand-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-sand-700">Experimental Physics</span><span class="rounded-full bg-sand-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-sand-700">Radiation Detection</span><span class="rounded-full bg-sand-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-sand-700">Thermals</span></div></div><div class="mt-8 grid gap-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(18rem,0.8fr)]"><section class="glass rounded-[1.8rem] p-6"><div class="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between"><div><p class="eyebrow">Gallery</p><h3 class="mt-2 text-xl font-semibold text-sand-900">Project images</h3></div><p class="text-sm text-sand-900/55">Tap or click to enlarge.</p></div><div class="mt-6 grid gap-5 sm:grid-cols-2"><button type="button" class="project-image overflow-hidden rounded-[1.5rem] border border-sand-900/10 bg-white/35 text-left" data-gallery-item data-image-src="../../assets/images/cloud chamber temperature.png" data-image-caption="Cloud Chamber Temperature"><img src="../../assets/images/cloud chamber temperature.png" alt="Cloud Chamber Temperature" loading="lazy" decoding="async"></button><button type="button" class="project-image overflow-hidden rounded-[1.5rem] border border-sand-900/10 bg-white/35 text-left" data-gallery-item data-image-src="../../assets/images/cloud chamber top.jpg" data-image-caption="Cloud Chamber Top"><img src="../../assets/images/cloud chamber top.jpg" alt="Cloud Chamber Top" loading="lazy" decoding="async"></button></div></section><section class="glass rounded-[1.8rem] p-6"><p class="eyebrow">Team</p><h3 class="mt-2 text-xl font-semibold text-sand-900">Team members</h3><div class="mt-6 space-y-4"><article class="rounded-[1.2rem] border border-sand-900/10 bg-white/35 px-4 py-4"><p class="font-semibold text-sand-900">Shreyansh Tripathy</p></article><article class="rounded-[1.2rem] border border-sand-900/10 bg-white/35 px-4 py-4"><p class="font-semibold text-sand-900">Sourabh Subhasish Panda</p></article><article class="rounded-[1.2rem] border border-sand-900/10 bg-white/35 px-4 py-4"><p class="font-semibold text-sand-900">Suktija</p></article></div></section></div></section></main>
+  <main><section class="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8"><nav class="flex flex-wrap items-center gap-y-2 text-sm text-sand-900/55"><a href="../../" class="hover:text-sand-900">Home</a><span class="mx-2">/</span><a href="../" class="hover:text-sand-900">Projects</a><span class="mx-2">/</span><span>Constructing Cloud Chamber with Peltier Disks</span></nav><div class="mt-6 glass rounded-[2rem] p-8 sm:p-10"><div class="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between"><div class="max-w-4xl"><p class="eyebrow">Project</p><h2 class="section-title mt-4 max-w-4xl">Constructing Cloud Chamber with Peltier Disks</h2></div></div><p class="mt-6 max-w-3xl text-lg leading-8 text-sand-900/70">Built a cloud chamber for observing ionizing radiation using Peltier-based cooling.</p><div class="prose prose-stone prose-portfolio mt-8 max-w-none"><p>This project focused on designing and testing a compact cloud chamber using Peltier disks to achieve the temperature gradient needed for particle track visualization.</p></div><div class="mt-8 flex flex-wrap gap-2"><span class="rounded-full bg-sand-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-sand-700">Experimental Physics</span><span class="rounded-full bg-sand-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-sand-700">Radiation Detection</span><span class="rounded-full bg-sand-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-sand-700">Thermals</span></div></div><div class="mt-8 grid gap-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(18rem,0.8fr)]"><section class="project-gallery glass rounded-[1.8rem] p-6" data-project-gallery data-gallery-count="2" data-gallery-expanded="false">
+  <div class="project-gallery__header">
+    <div><p class="eyebrow">Gallery</p><h3>Project images</h3><p class="project-gallery__count">2 figures</p></div>
+    <div class="project-gallery__actions">
+      <div class="project-gallery__arrows" aria-label="Gallery scroll controls"><button type="button" data-gallery-scroll-prev aria-label="Scroll gallery backward">&larr;</button><button type="button" data-gallery-scroll-next aria-label="Scroll gallery forward">&rarr;</button></div>
+      
+    </div>
+  </div>
+  <div class="project-gallery__viewport" data-gallery-scroll tabindex="0" aria-label="Scrollable project image gallery">
+    <div class="project-gallery__track"><button type="button" class="project-image project-gallery__item" data-gallery-item data-image-src="../../assets/images/cloud chamber temperature.png" data-image-caption="Cloud Chamber Temperature"><img src="../../assets/images/cloud chamber temperature.png" alt="Cloud Chamber Temperature" loading="lazy" decoding="async"></button><button type="button" class="project-image project-gallery__item" data-gallery-item data-image-src="../../assets/images/cloud chamber top.jpg" data-image-caption="Cloud Chamber Top"><img src="../../assets/images/cloud chamber top.jpg" alt="Cloud Chamber Top" loading="lazy" decoding="async"></button></div>
+  </div>
+  <p class="project-gallery__hint">Scroll to explore. Select an image to enlarge.</p>
+</section><section class="glass rounded-[1.8rem] p-6"><p class="eyebrow">Team</p><h3 class="mt-2 text-xl font-semibold text-sand-900">Team members</h3><div class="mt-6 space-y-4"><article class="rounded-[1.2rem] border border-sand-900/10 bg-white/35 px-4 py-4"><p class="font-semibold text-sand-900">Shreyansh Tripathy</p></article><article class="rounded-[1.2rem] border border-sand-900/10 bg-white/35 px-4 py-4"><p class="font-semibold text-sand-900">Sourabh Subhasish Panda</p></article><article class="rounded-[1.2rem] border border-sand-900/10 bg-white/35 px-4 py-4"><p class="font-semibold text-sand-900">Suktija</p></article></div></section></div></section></main>
   <footer class="mx-auto mt-16 max-w-7xl px-4 pb-10 sm:px-6 lg:px-8">
     <div class="glass flex flex-col gap-4 rounded-[2rem] px-6 py-8 text-sm text-sand-900/70 md:flex-row md:items-center md:justify-between">
       <div>
@@ -98,6 +117,7 @@
       </div>
     </div>
   </div>
-  <script src="../../assets/js/site.js?v=20260801-journey-v4"></script>
+  <script src="../../assets/js/site.js?v=20260804-responsive-pass-v6"></script>
+  <script type="module" src="../../assets/js/pretext-layout.js?v=20260804-responsive-pass-v6"></script>
 </body>
 </html>

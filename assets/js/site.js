@@ -32,6 +32,39 @@ document.addEventListener("DOMContentLoaded", () => {
     applyTheme(root.dataset.theme === "dark" ? "light" : "dark", true);
   });
 
+  const masthead = document.querySelector(".site-masthead");
+  const menuToggle = document.querySelector("[data-menu-toggle]");
+  const menuState = menuToggle?.querySelector("[data-menu-state]");
+  const primaryNavigation = document.querySelector("#primary-navigation");
+
+  if (masthead && menuToggle && primaryNavigation) {
+    const mobileMenu = window.matchMedia("(max-width: 600px)");
+    const setMenuOpen = (open, restoreFocus = false) => {
+      masthead.dataset.menuOpen = String(open);
+      menuToggle.setAttribute("aria-expanded", String(open));
+      if (menuState) menuState.textContent = open ? "Close" : "Open";
+      if (!open && restoreFocus) menuToggle.focus();
+    };
+
+    masthead.dataset.menuReady = "true";
+    menuToggle.hidden = false;
+    setMenuOpen(false);
+    menuToggle.addEventListener("click", () => {
+      setMenuOpen(masthead.dataset.menuOpen !== "true");
+    });
+    primaryNavigation.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => setMenuOpen(false));
+    });
+    mobileMenu.addEventListener("change", (event) => {
+      if (!event.matches) setMenuOpen(false);
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && masthead.dataset.menuOpen === "true") {
+        setMenuOpen(false, true);
+      }
+    });
+  }
+
   const syncScrollableFade = (shell) => {
     const scrollable = shell.querySelector("[data-timeline-scroll]");
     if (!scrollable) return;
@@ -77,6 +110,48 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       window.location.href = row.dataset.rowLink;
     });
+  });
+
+  document.querySelectorAll("[data-project-gallery]").forEach((gallery) => {
+    const viewport = gallery.querySelector("[data-gallery-scroll]");
+    const toggle = gallery.querySelector("[data-gallery-toggle]");
+    const previous = gallery.querySelector("[data-gallery-scroll-prev]");
+    const next = gallery.querySelector("[data-gallery-scroll-next]");
+    const count = Number(gallery.dataset.galleryCount || 0);
+    if (!viewport) return;
+
+    const isExpanded = () => gallery.dataset.galleryExpanded === "true";
+    const hasOverflow = () => viewport.scrollWidth > viewport.clientWidth + 2;
+    const updateControls = () => {
+      const expanded = isExpanded();
+      const overflow = hasOverflow();
+      if (previous) previous.disabled = expanded || !overflow || viewport.scrollLeft <= 2;
+      if (next) next.disabled = expanded || !overflow || viewport.scrollLeft + viewport.clientWidth >= viewport.scrollWidth - 2;
+    };
+    const moveGallery = (direction) => {
+      viewport.scrollBy({
+        left: direction * Math.max(viewport.clientWidth * 0.78, 220),
+        behavior: prefersReducedMotion ? "auto" : "smooth",
+      });
+    };
+
+    previous?.addEventListener("click", () => moveGallery(-1));
+    next?.addEventListener("click", () => moveGallery(1));
+    viewport.addEventListener("scroll", updateControls, { passive: true });
+    window.addEventListener("resize", () => requestAnimationFrame(updateControls));
+
+    toggle?.addEventListener("click", () => {
+      const expanded = !isExpanded();
+      gallery.dataset.galleryExpanded = String(expanded);
+      toggle.setAttribute("aria-expanded", String(expanded));
+      toggle.textContent = expanded ? "Show fewer" : `View all ${count}`;
+      if (!expanded) {
+        viewport.scrollTo({ left: 0, behavior: prefersReducedMotion ? "auto" : "smooth" });
+      }
+      requestAnimationFrame(updateControls);
+    });
+
+    updateControls();
   });
 
   const lightbox = document.querySelector("[data-lightbox]");

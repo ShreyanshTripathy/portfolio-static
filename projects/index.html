@@ -37,117 +37,136 @@
       theme: { extend: { colors: { sand: { 50: "#f8f4ee", 100: "#efe7db", 200: "#dcc5aa", 700: "#6e4e2e", 900: "#221c18" } }, boxShadow: { warm: "0 24px 60px rgba(67, 47, 27, 0.08)" } } }
     }
   </script>
-  <link rel="stylesheet" href="../assets/css/styles.css?v=20260801-journey-v4">
+  <link rel="stylesheet" href="../assets/css/styles.css?v=20260804-responsive-pass-v6">
 </head>
 <body class="shell antialiased">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <header class="site-masthead border-b border-sand-900/10 py-6">
-      <div class="flex flex-col gap-5 xl:flex-row xl:items-center xl:justify-between">
-        <a href="../" class="masthead-id max-w-xl">
-          <p class="eyebrow">S. Tripathy - Portfolio - Vol. 2026</p>
-          <h1 class="font-display text-2xl font-semibold text-sand-900">Shreyansh Tripathy</h1>
-          <p class="mt-2 text-sm text-sand-900/70">Physics graduate with an interest in applied physics and efficient systems</p>
-        </a>
-        <div class="flex flex-col gap-4 xl:max-w-3xl xl:items-end">
-          <nav class="nav-scroll nav-scroll--enhanced -mx-1 flex flex-nowrap items-center gap-2 overflow-x-auto px-1 pb-2 text-sm text-sand-900/80 sm:mx-0 sm:px-0 sm:pb-0 xl:justify-end">
-            <a href="../#about" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link>About</a>
-            <a href="../skills/" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link>Skills</a>
-            <a href="../certificates/" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link>Certificates</a>
-            <a href="../projects/" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link data-active="true" aria-current="page">Projects</a>
-            <a href="../experience/" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link>Experience</a>
-            <a href="../#education" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link>Education</a>
-            <a href="../contact/" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link>Contact</a>
-          </nav>
-          <button type="button" class="theme-toggle self-start xl:self-end" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
+    <header class="site-masthead">
+      <div class="site-masthead__frame">
+        <div class="masthead-primary">
+          <a href="../" class="masthead-id" aria-label="Shreyansh Tripathy — home">
+            <span class="masthead-monogram" aria-hidden="true">ST</span>
+            <span class="masthead-copy">
+              <span class="masthead-name">Shreyansh Tripathy</span>
+              <span class="masthead-role">Physics · Technology · Experiments</span>
+            </span>
+          </a>
+          <button type="button" class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
             <span class="theme-toggle__option">Dark</span>
             <span class="theme-toggle__option">Light</span>
             <span class="theme-toggle__thumb" aria-hidden="true"></span>
           </button>
         </div>
+        <div class="masthead-secondary">
+          <p class="masthead-register" aria-hidden="true"><span>Portfolio index</span><span>Vol. 2026</span></p>
+          <button type="button" class="masthead-menu-toggle" data-menu-toggle aria-controls="primary-navigation" aria-expanded="false" hidden>Menu <span data-menu-state>Open</span></button>
+          <nav id="primary-navigation" class="nav-scroll masthead-navigation" aria-label="Primary navigation">
+            <a href="../#about" class="masthead-link" data-nav-link><span aria-hidden="true">01</span>About</a>
+            <a href="../skills/" class="masthead-link" data-nav-link><span aria-hidden="true">02</span>Skills</a>
+            <a href="../certificates/" class="masthead-link" data-nav-link><span aria-hidden="true">03</span>Certificates</a>
+            <a href="../projects/" class="masthead-link" data-nav-link data-active="true" aria-current="page"><span aria-hidden="true">04</span>Projects</a>
+            <a href="../experience/" class="masthead-link" data-nav-link><span aria-hidden="true">05</span>Experience</a>
+            <a href="../#education" class="masthead-link" data-nav-link><span aria-hidden="true">06</span>Education</a>
+            <a href="../#timeline" class="masthead-link" data-nav-link><span aria-hidden="true">07</span>Timeline</a>
+            <a href="../contact/" class="masthead-link masthead-link--contact" data-nav-link><span aria-hidden="true">08</span>Contact</a>
+          </nav>
+        </div>
       </div>
     </header>
   </div>
-  <main><section class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8"><nav class="flex flex-wrap items-center gap-y-2 text-sm text-sand-900/55"><a href="../" class="hover:text-sand-900">Home</a><span class="mx-2">/</span><span>Projects</span></nav><div class="mt-6 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between"><div><p class="eyebrow">Projects</p><h2 class="section-title mt-4">Full research and build archive</h2><p class="mt-4 max-w-2xl text-base leading-7 text-sand-900/70">These are all the projects I've worked on, from concept to completion or failure.</p></div><form method="get" class="glass flex flex-col gap-3 rounded-[1.6rem] p-4 sm:flex-row sm:flex-wrap lg:max-w-2xl lg:items-center" data-project-filter-form><input type="text" name="q" placeholder="Search projects" class="w-full rounded-full border-sand-900/10 bg-white/70 px-4 py-3 text-sm sm:min-w-[16rem] sm:flex-1" data-project-search><select name="tech" class="w-full rounded-full border-sand-900/10 bg-white/70 px-4 py-3 text-sm sm:w-auto" data-project-tech-filter><option value="">All technologies</option><option value="Actuation">Actuation</option><option value="Coding">Coding</option><option value="Experimental Physics">Experimental Physics</option><option value="Imaging">Imaging</option><option value="Interferometry">Interferometry</option><option value="Materials">Materials</option><option value="micro-controllers">micro-controllers</option><option value="Optics">Optics</option><option value="Python">Python</option><option value="Radiation Detection">Radiation Detection</option><option value="Rapid Prototyping">Rapid Prototyping</option><option value="Simulation">Simulation</option><option value="Soft Robotics">Soft Robotics</option><option value="Stochastic Modeling">Stochastic Modeling</option><option value="Thermals">Thermals</option><option value="Wave Physics">Wave Physics</option></select><button type="submit" class="w-full rounded-full bg-sand-900 px-5 py-3 text-sm font-semibold text-sand-50 sm:w-auto">Search</button></form></div><p class="mt-5 hidden text-sm text-sand-900/60" data-project-results></p><div class="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3" data-project-grid><article class="paper-entry glass overflow-hidden rounded-[2rem]" data-project-card data-project-text="building michelson interferometer built a michelson interferometer to observe interference due to controlled path differences. the aim of the project was to build a michelson interferometer in which a beamsplitter divides light into two perpendicular beams that reflect off mirrors and recombine, producing interference from the path difference between the two arms." data-project-tech="optics|experimental physics|interferometry">
-  <a href="../projects/building-michelson-interferometer/" class="project-image block">
-    <img src="../assets/images/Michelson_interferometer_setup.png" alt="Experimental Setup" loading="lazy" decoding="async">
-  </a>
-  <div class="p-6">
-    <div class="flex flex-wrap gap-2"><span class="rounded-full bg-sand-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-sand-700">Optics</span><span class="rounded-full bg-sand-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-sand-700">Experimental Physics</span><span class="rounded-full bg-sand-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-sand-700">Interferometry</span></div>
-    <h3 class="mt-4 text-xl font-semibold">Building Michelson Interferometer</h3>
-    <p class="mt-3 text-sm leading-7 text-sand-900/72">Built a Michelson interferometer to observe interference due to controlled path differences.</p>
-    <div class="mt-5 flex items-center justify-between gap-3">
-      <a href="../projects/building-michelson-interferometer/" class="text-sm font-semibold text-sand-700">Open project</a>
+  <main><section class="editorial-index mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8"><nav class="flex flex-wrap items-center gap-y-2 text-sm text-sand-900/55"><a href="../" class="hover:text-sand-900">Home</a><span class="mx-2">/</span><span>Projects</span></nav><div class="mt-6 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between"><div><p class="eyebrow">Projects</p><h2 class="section-title mt-4">Full research and build archive</h2><p class="mt-4 max-w-2xl text-base leading-7 text-sand-900/70">These are all the projects I've worked on, from concept to completion or failure.</p></div><form method="get" class="editorial-filter flex flex-col gap-3 sm:flex-row sm:flex-wrap lg:max-w-2xl lg:items-center" data-project-filter-form><input type="text" name="q" placeholder="Search projects" class="w-full rounded-full border-sand-900/10 bg-white/70 px-4 py-3 text-sm sm:min-w-[16rem] sm:flex-1" data-project-search><select name="tech" class="w-full rounded-full border-sand-900/10 bg-white/70 px-4 py-3 text-sm sm:w-auto" data-project-tech-filter><option value="">All technologies</option><option value="Actuation">Actuation</option><option value="Coding">Coding</option><option value="Experimental Physics">Experimental Physics</option><option value="Imaging">Imaging</option><option value="Interferometry">Interferometry</option><option value="Materials">Materials</option><option value="micro-controllers">micro-controllers</option><option value="Optics">Optics</option><option value="Python">Python</option><option value="Radiation Detection">Radiation Detection</option><option value="Rapid Prototyping">Rapid Prototyping</option><option value="Simulation">Simulation</option><option value="Soft Robotics">Soft Robotics</option><option value="Stochastic Modeling">Stochastic Modeling</option><option value="Thermals">Thermals</option><option value="Wave Physics">Wave Physics</option></select><button type="submit" class="w-full rounded-full bg-sand-900 px-5 py-3 text-sm font-semibold text-sand-50 sm:w-auto">Search</button></form></div><p class="mt-5 hidden text-sm text-sand-900/60" data-project-results></p><div class="editorial-list mt-10" data-project-grid><article class="paper-entry editorial-entry editorial-project" data-project-card data-project-text="building michelson interferometer built a michelson interferometer to observe interference due to controlled path differences. the aim of the project was to build a michelson interferometer in which a beamsplitter divides light into two perpendicular beams that reflect off mirrors and recombine, producing interference from the path difference between the two arms." data-project-tech="optics|experimental physics|interferometry">
+  <div class="editorial-project__body">
+    <div class="editorial-entry__meta">
+      <span>Mar 2023</span>
+      <span>3 methods</span>
+    </div>
+    <h3 data-pretext-measure><a href="../projects/building-michelson-interferometer/">Building Michelson Interferometer</a></h3>
+    <p class="editorial-entry__abstract">Built a Michelson interferometer to observe interference due to controlled path differences.</p>
+    <div class="editorial-tag-row"><span class="editorial-tag">Optics</span><span class="editorial-tag">Experimental Physics</span><span class="editorial-tag">Interferometry</span></div>
+    <div class="editorial-entry__links">
+      <a href="../projects/building-michelson-interferometer/">Open project <span aria-hidden="true">-&gt;</span></a>
       
     </div>
   </div>
-</article><article class="paper-entry glass overflow-hidden rounded-[2rem]" data-project-card data-project-text="studying standing sound waves using schlieren imaging used schlieren imaging to visualize sound waves, heat, smoke, and related density changes in air. schlieren imaging is an optical method that reveals refractive-index fluctuations in transparent media such as air. this project focused on using that method to visualize standing sound waves and related flow and temperature phenomena." data-project-tech="optics|imaging|wave physics|python">
-  <a href="../projects/studying-standing-sound-waves-using-schlieren-imaging/" class="project-image block">
-    <img src="../assets/images/blowtorch.gif" alt="Observation of Blowtorch" loading="lazy" decoding="async">
-  </a>
-  <div class="p-6">
-    <div class="flex flex-wrap gap-2"><span class="rounded-full bg-sand-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-sand-700">Optics</span><span class="rounded-full bg-sand-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-sand-700">Imaging</span><span class="rounded-full bg-sand-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-sand-700">Wave Physics</span><span class="rounded-full bg-sand-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-sand-700">Python</span></div>
-    <h3 class="mt-4 text-xl font-semibold">Studying Standing Sound Waves using Schlieren Imaging</h3>
-    <p class="mt-3 text-sm leading-7 text-sand-900/72">Used schlieren imaging to visualize sound waves, heat, smoke, and related density changes in air.</p>
-    <div class="mt-5 flex items-center justify-between gap-3">
-      <a href="../projects/studying-standing-sound-waves-using-schlieren-imaging/" class="text-sm font-semibold text-sand-700">Open project</a>
+  <a href="../projects/building-michelson-interferometer/" class="project-image editorial-project__figure"><img src="../assets/images/Michelson_interferometer_setup.png" alt="Experimental Setup" loading="lazy" decoding="async"></a>
+</article><article class="paper-entry editorial-entry editorial-project" data-project-card data-project-text="studying standing sound waves using schlieren imaging used schlieren imaging to visualize sound waves, heat, smoke, and related density changes in air. schlieren imaging is an optical method that reveals refractive-index fluctuations in transparent media such as air. this project focused on using that method to visualize standing sound waves and related flow and temperature phenomena." data-project-tech="optics|imaging|wave physics|python">
+  <div class="editorial-project__body">
+    <div class="editorial-entry__meta">
+      <span>Mar 2024</span>
+      <span>4 methods</span>
+    </div>
+    <h3 data-pretext-measure><a href="../projects/studying-standing-sound-waves-using-schlieren-imaging/">Studying Standing Sound Waves using Schlieren Imaging</a></h3>
+    <p class="editorial-entry__abstract">Used schlieren imaging to visualize sound waves, heat, smoke, and related density changes in air.</p>
+    <div class="editorial-tag-row"><span class="editorial-tag">Optics</span><span class="editorial-tag">Imaging</span><span class="editorial-tag">Wave Physics</span><span class="editorial-tag">Python</span></div>
+    <div class="editorial-entry__links">
+      <a href="../projects/studying-standing-sound-waves-using-schlieren-imaging/">Open project <span aria-hidden="true">-&gt;</span></a>
       
     </div>
   </div>
-</article><article class="paper-entry glass overflow-hidden rounded-[2rem]" data-project-card data-project-text="developing soft robotic actuators explored electrically, magnetically, hydraulically, and osmotically responsive soft actuators. this project focused on designing and building soft robotic actuators including dielectric elastomer actuators, electrochemical actuators, magnetic actuators, hydraulic systems, and water-sensitive actuation mechanisms." data-project-tech="soft robotics|materials|actuation|experimental physics">
-  <a href="../projects/developing-soft-robotic-actuators/" class="project-image block">
-    <img src="../assets/images/DEA.png" alt="DEA" loading="lazy" decoding="async">
-  </a>
-  <div class="p-6">
-    <div class="flex flex-wrap gap-2"><span class="rounded-full bg-sand-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-sand-700">Soft Robotics</span><span class="rounded-full bg-sand-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-sand-700">Materials</span><span class="rounded-full bg-sand-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-sand-700">Actuation</span><span class="rounded-full bg-sand-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-sand-700">Experimental Physics</span></div>
-    <h3 class="mt-4 text-xl font-semibold">Developing Soft Robotic Actuators</h3>
-    <p class="mt-3 text-sm leading-7 text-sand-900/72">Explored electrically, magnetically, hydraulically, and osmotically responsive soft actuators.</p>
-    <div class="mt-5 flex items-center justify-between gap-3">
-      <a href="../projects/developing-soft-robotic-actuators/" class="text-sm font-semibold text-sand-700">Open project</a>
+  <a href="../projects/studying-standing-sound-waves-using-schlieren-imaging/" class="project-image editorial-project__figure"><img src="../assets/images/blowtorch.gif" alt="Observation of Blowtorch" loading="lazy" decoding="async"></a>
+</article><article class="paper-entry editorial-entry editorial-project" data-project-card data-project-text="developing soft robotic actuators explored electrically, magnetically, hydraulically, and osmotically responsive soft actuators. this project focused on designing and building soft robotic actuators including dielectric elastomer actuators, electrochemical actuators, magnetic actuators, hydraulic systems, and water-sensitive actuation mechanisms." data-project-tech="soft robotics|materials|actuation|experimental physics">
+  <div class="editorial-project__body">
+    <div class="editorial-entry__meta">
+      <span>Oct 2024</span>
+      <span>4 methods</span>
+    </div>
+    <h3 data-pretext-measure><a href="../projects/developing-soft-robotic-actuators/">Developing Soft Robotic Actuators</a></h3>
+    <p class="editorial-entry__abstract">Explored electrically, magnetically, hydraulically, and osmotically responsive soft actuators.</p>
+    <div class="editorial-tag-row"><span class="editorial-tag">Soft Robotics</span><span class="editorial-tag">Materials</span><span class="editorial-tag">Actuation</span><span class="editorial-tag">Experimental Physics</span></div>
+    <div class="editorial-entry__links">
+      <a href="../projects/developing-soft-robotic-actuators/">Open project <span aria-hidden="true">-&gt;</span></a>
       
     </div>
   </div>
-</article><article class="paper-entry glass overflow-hidden rounded-[2rem]" data-project-card data-project-text="star tracker a microcontroller-based motorized star tracker designed to locate and follow celestial objects using equatorial coordinates. the system combines real-time sensor data, time synchronization, and stepper motor control to achieve automated astronomical track this project involves designing and building a two-stage star tracking system: a prototype and a full-scale motorized telescope mount. the esp32 collects orientation data from sensors (mpu6050/mpu9250), synchronizes time using ntp, and computes astronomical coordinates such as right ascension and declination. these values are transmitted to an arduino mega, which controls stepper motors to physically align the system with target celestial objects. the project integrates concepts from embedded systems, sensor fusion, celestial mechanics, and mechanical design, while addressing challenges like sensor noise, motor torque limitations, and system stability.
+  <a href="../projects/developing-soft-robotic-actuators/" class="project-image editorial-project__figure"><img src="../assets/images/DEA.png" alt="DEA" loading="lazy" decoding="async"></a>
+</article><article class="paper-entry editorial-entry editorial-project" data-project-card data-project-text="star tracker a microcontroller-based motorized star tracker designed to locate and follow celestial objects using equatorial coordinates. the system combines real-time sensor data, time synchronization, and stepper motor control to achieve automated astronomical track this project involves designing and building a two-stage star tracking system: a prototype and a full-scale motorized telescope mount. the esp32 collects orientation data from sensors (mpu6050/mpu9250), synchronizes time using ntp, and computes astronomical coordinates such as right ascension and declination. these values are transmitted to an arduino mega, which controls stepper motors to physically align the system with target celestial objects. the project integrates concepts from embedded systems, sensor fusion, celestial mechanics, and mechanical design, while addressing challenges like sensor noise, motor torque limitations, and system stability.
 
 despite a working prototype, the final implementation faced unresolved challenges and could not be completed within the project timeline." data-project-tech="micro-controllers|rapid prototyping|coding">
-  <a href="../projects/star-tracker/" class="project-image block">
-    <div class="flex h-full items-end bg-gradient-to-br from-sand-200 via-white to-sand-100 p-5"><p class="font-display text-2xl text-sand-900/70">Star Tracker</p></div>
-  </a>
-  <div class="p-6">
-    <div class="flex flex-wrap gap-2"><span class="rounded-full bg-sand-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-sand-700">micro-controllers</span><span class="rounded-full bg-sand-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-sand-700">Rapid Prototyping</span><span class="rounded-full bg-sand-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-sand-700">Coding</span></div>
-    <h3 class="mt-4 text-xl font-semibold">Star Tracker</h3>
-    <p class="mt-3 text-sm leading-7 text-sand-900/72">A microcontroller-based motorized star tracker designed to locate and follow celestial objects using equatorial coordinates. The system combines real-time sensor data, time synchronization, and stepper motor control to achieve automated astronomical track</p>
-    <div class="mt-5 flex items-center justify-between gap-3">
-      <a href="../projects/star-tracker/" class="text-sm font-semibold text-sand-700">Open project</a>
-      <a href="https://bloggers.pythonanywhere.com/" target="_blank" rel="noreferrer" class="text-sm text-sand-900/65">GitHub</a>
+  <div class="editorial-project__body">
+    <div class="editorial-entry__meta">
+      <span>Apr 2025</span>
+      <span>3 methods</span>
+    </div>
+    <h3 data-pretext-measure><a href="../projects/star-tracker/">Star Tracker</a></h3>
+    <p class="editorial-entry__abstract">A microcontroller-based motorized star tracker designed to locate and follow celestial objects using equatorial coordinates. The system combines real-time sensor data, time synchronization, and stepper motor control to achieve automated astronomical track</p>
+    <div class="editorial-tag-row"><span class="editorial-tag">micro-controllers</span><span class="editorial-tag">Rapid Prototyping</span><span class="editorial-tag">Coding</span></div>
+    <div class="editorial-entry__links">
+      <a href="../projects/star-tracker/">Open project <span aria-hidden="true">-&gt;</span></a>
+      <a href="https://bloggers.pythonanywhere.com/" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
     </div>
   </div>
-</article><article class="paper-entry glass overflow-hidden rounded-[2rem]" data-project-card data-project-text="constructing cloud chamber with peltier disks built a cloud chamber for observing ionizing radiation using peltier-based cooling. this project focused on designing and testing a compact cloud chamber using peltier disks to achieve the temperature gradient needed for particle track visualization." data-project-tech="experimental physics|radiation detection|thermals">
-  <a href="../projects/constructing-cloud-chamber-with-peltier-disks/" class="project-image block">
-    <img src="../assets/images/cloud chamber temperature.png" alt="Cloud Chamber Temperature" loading="lazy" decoding="async">
-  </a>
-  <div class="p-6">
-    <div class="flex flex-wrap gap-2"><span class="rounded-full bg-sand-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-sand-700">Experimental Physics</span><span class="rounded-full bg-sand-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-sand-700">Radiation Detection</span><span class="rounded-full bg-sand-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-sand-700">Thermals</span></div>
-    <h3 class="mt-4 text-xl font-semibold">Constructing Cloud Chamber with Peltier Disks</h3>
-    <p class="mt-3 text-sm leading-7 text-sand-900/72">Built a cloud chamber for observing ionizing radiation using Peltier-based cooling.</p>
-    <div class="mt-5 flex items-center justify-between gap-3">
-      <a href="../projects/constructing-cloud-chamber-with-peltier-disks/" class="text-sm font-semibold text-sand-700">Open project</a>
+  
+</article><article class="paper-entry editorial-entry editorial-project" data-project-card data-project-text="constructing cloud chamber with peltier disks built a cloud chamber for observing ionizing radiation using peltier-based cooling. this project focused on designing and testing a compact cloud chamber using peltier disks to achieve the temperature gradient needed for particle track visualization." data-project-tech="experimental physics|radiation detection|thermals">
+  <div class="editorial-project__body">
+    <div class="editorial-entry__meta">
+      <span>Sep 2023</span>
+      <span>3 methods</span>
+    </div>
+    <h3 data-pretext-measure><a href="../projects/constructing-cloud-chamber-with-peltier-disks/">Constructing Cloud Chamber with Peltier Disks</a></h3>
+    <p class="editorial-entry__abstract">Built a cloud chamber for observing ionizing radiation using Peltier-based cooling.</p>
+    <div class="editorial-tag-row"><span class="editorial-tag">Experimental Physics</span><span class="editorial-tag">Radiation Detection</span><span class="editorial-tag">Thermals</span></div>
+    <div class="editorial-entry__links">
+      <a href="../projects/constructing-cloud-chamber-with-peltier-disks/">Open project <span aria-hidden="true">-&gt;</span></a>
       
     </div>
   </div>
-</article><article class="paper-entry glass overflow-hidden rounded-[2rem]" data-project-card data-project-text="stochastic modeling for elevator systems efficiency used stochastic modeling in python to study and improve elevator efficiency in large buildings. this project used python-based stochastic modeling to optimize elevator-system efficiency. it remains an evolving project with continuous improvements and updates." data-project-tech="python|stochastic modeling|simulation">
-  <a href="../projects/stochastic-modeling-for-elevator-systems-efficiency/" class="project-image block">
-    <div class="flex h-full items-end bg-gradient-to-br from-sand-200 via-white to-sand-100 p-5"><p class="font-display text-2xl text-sand-900/70">Stochastic Modeling for Elevator Systems Efficiency</p></div>
-  </a>
-  <div class="p-6">
-    <div class="flex flex-wrap gap-2"><span class="rounded-full bg-sand-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-sand-700">Python</span><span class="rounded-full bg-sand-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-sand-700">Stochastic Modeling</span><span class="rounded-full bg-sand-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-sand-700">Simulation</span></div>
-    <h3 class="mt-4 text-xl font-semibold">Stochastic Modeling for Elevator Systems Efficiency</h3>
-    <p class="mt-3 text-sm leading-7 text-sand-900/72">Used stochastic modeling in Python to study and improve elevator efficiency in large buildings.</p>
-    <div class="mt-5 flex items-center justify-between gap-3">
-      <a href="../projects/stochastic-modeling-for-elevator-systems-efficiency/" class="text-sm font-semibold text-sand-700">Open project</a>
-      <a href="https://github.com/ShreyanshTripathy/Honours_completed" target="_blank" rel="noreferrer" class="text-sm text-sand-900/65">GitHub</a>
+  <a href="../projects/constructing-cloud-chamber-with-peltier-disks/" class="project-image editorial-project__figure"><img src="../assets/images/cloud chamber temperature.png" alt="Cloud Chamber Temperature" loading="lazy" decoding="async"></a>
+</article><article class="paper-entry editorial-entry editorial-project" data-project-card data-project-text="stochastic modeling for elevator systems efficiency used stochastic modeling in python to study and improve elevator efficiency in large buildings. this project used python-based stochastic modeling to optimize elevator-system efficiency. it remains an evolving project with continuous improvements and updates." data-project-tech="python|stochastic modeling|simulation">
+  <div class="editorial-project__body">
+    <div class="editorial-entry__meta">
+      <span>Jan 2025</span>
+      <span>3 methods</span>
+    </div>
+    <h3 data-pretext-measure><a href="../projects/stochastic-modeling-for-elevator-systems-efficiency/">Stochastic Modeling for Elevator Systems Efficiency</a></h3>
+    <p class="editorial-entry__abstract">Used stochastic modeling in Python to study and improve elevator efficiency in large buildings.</p>
+    <div class="editorial-tag-row"><span class="editorial-tag">Python</span><span class="editorial-tag">Stochastic Modeling</span><span class="editorial-tag">Simulation</span></div>
+    <div class="editorial-entry__links">
+      <a href="../projects/stochastic-modeling-for-elevator-systems-efficiency/">Open project <span aria-hidden="true">-&gt;</span></a>
+      <a href="https://github.com/ShreyanshTripathy/Honours_completed" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
     </div>
   </div>
-</article><div class="glass col-span-full hidden rounded-[2rem] p-8 text-sand-900/70" data-project-empty>No projects matched the current search. Try a different keyword or clear the technology filter.</div></div></section><script>(()=>{const form=document.querySelector("[data-project-filter-form]"),searchInput=document.querySelector("[data-project-search]"),techSelect=document.querySelector("[data-project-tech-filter]"),resultLine=document.querySelector("[data-project-results]"),emptyState=document.querySelector("[data-project-empty]"),cards=[...document.querySelectorAll("[data-project-card]")];if(!form||!searchInput||!techSelect||!resultLine)return;const sync=()=>{const params=new URLSearchParams(window.location.search);searchInput.value=params.get("q")||"";techSelect.value=params.get("tech")||""};const apply=()=>{const query=searchInput.value.trim().toLowerCase(),tech=techSelect.value.trim().toLowerCase();let visibleCount=0;cards.forEach(card=>{const text=card.dataset.projectText||"",techList=card.dataset.projectTech||"",visible=(!query||text.includes(query))&&(!tech||techList.split("|").includes(tech));card.hidden=!visible;if(visible)visibleCount+=1});const hasFilter=Boolean(query||tech);resultLine.classList.toggle("hidden",!hasFilter);emptyState?.classList.toggle("hidden",!hasFilter||visibleCount>0);if(hasFilter){const pieces=[`Showing ${visibleCount} result${visibleCount===1?"":"s"}`];if(query)pieces.push(`for "${searchInput.value.trim()}"`);if(tech)pieces.push(`in ${techSelect.value}`);resultLine.textContent=`${pieces.join(" ")}.`}};form.addEventListener("submit",event=>{event.preventDefault();const url=new URL(window.location.href),query=searchInput.value.trim(),tech=techSelect.value.trim();query?url.searchParams.set("q",query):url.searchParams.delete("q");tech?url.searchParams.set("tech",tech):url.searchParams.delete("tech");window.history.replaceState({},"",url);apply()});techSelect.addEventListener("change",()=>form.requestSubmit());sync();apply()})();</script></main>
+  
+</article><div class="editorial-empty hidden text-sand-900/70" data-project-empty>No projects matched the current search. Try a different keyword or clear the technology filter.</div></div></section><script>(()=>{const form=document.querySelector("[data-project-filter-form]"),searchInput=document.querySelector("[data-project-search]"),techSelect=document.querySelector("[data-project-tech-filter]"),resultLine=document.querySelector("[data-project-results]"),emptyState=document.querySelector("[data-project-empty]"),cards=[...document.querySelectorAll("[data-project-card]")];if(!form||!searchInput||!techSelect||!resultLine)return;const sync=()=>{const params=new URLSearchParams(window.location.search);searchInput.value=params.get("q")||"";techSelect.value=params.get("tech")||""};const apply=()=>{const query=searchInput.value.trim().toLowerCase(),tech=techSelect.value.trim().toLowerCase();let visibleCount=0;cards.forEach(card=>{const text=card.dataset.projectText||"",techList=card.dataset.projectTech||"",visible=(!query||text.includes(query))&&(!tech||techList.split("|").includes(tech));card.hidden=!visible;if(visible)visibleCount+=1});const hasFilter=Boolean(query||tech);resultLine.classList.toggle("hidden",!hasFilter);emptyState?.classList.toggle("hidden",!hasFilter||visibleCount>0);if(hasFilter){const pieces=[`Showing ${visibleCount} result${visibleCount===1?"":"s"}`];if(query)pieces.push(`for "${searchInput.value.trim()}"`);if(tech)pieces.push(`in ${techSelect.value}`);resultLine.textContent=`${pieces.join(" ")}.`}};form.addEventListener("submit",event=>{event.preventDefault();const url=new URL(window.location.href),query=searchInput.value.trim(),tech=techSelect.value.trim();query?url.searchParams.set("q",query):url.searchParams.delete("q");tech?url.searchParams.set("tech",tech):url.searchParams.delete("tech");window.history.replaceState({},"",url);apply()});techSelect.addEventListener("change",()=>form.requestSubmit());sync();apply()})();</script></main>
   <footer class="mx-auto mt-16 max-w-7xl px-4 pb-10 sm:px-6 lg:px-8">
     <div class="glass flex flex-col gap-4 rounded-[2rem] px-6 py-8 text-sm text-sand-900/70 md:flex-row md:items-center md:justify-between">
       <div>
@@ -178,6 +197,7 @@ despite a working prototype, the final implementation faced unresolved challenge
       </div>
     </div>
   </div>
-  <script src="../assets/js/site.js?v=20260801-journey-v4"></script>
+  <script src="../assets/js/site.js?v=20260804-responsive-pass-v6"></script>
+  <script type="module" src="../assets/js/pretext-layout.js?v=20260804-responsive-pass-v6"></script>
 </body>
 </html>

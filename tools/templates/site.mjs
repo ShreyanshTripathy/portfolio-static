@@ -7,7 +7,7 @@ export const skillCategoryLabels = {
 };
 
 const skillCategoryOrder = ["programming", "tools", "research", "communication", "other"];
-const assetVersion = "20260801-journey-v4";
+const assetVersion = "20260804-responsive-pass-v6";
 
 export function escapeHtml(value = "") {
   return String(value)
@@ -165,28 +165,35 @@ export function layout({ title, metaTitle, metaDescription, profile, active = ""
 </head>
 <body class="shell antialiased">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <header class="site-masthead border-b border-sand-900/10 py-6">
-      <div class="flex flex-col gap-5 xl:flex-row xl:items-center xl:justify-between">
-        <a href="${root}" class="masthead-id max-w-xl">
-          <p class="eyebrow">S. Tripathy - Portfolio - Vol. 2026</p>
-          <h1 class="font-display text-2xl font-semibold text-sand-900">${escapeHtml(siteName)}</h1>
-          <p class="mt-2 text-sm text-sand-900/70">${escapeHtml(headline)}</p>
-        </a>
-        <div class="flex flex-col gap-4 xl:max-w-3xl xl:items-end">
-          <nav class="nav-scroll nav-scroll--enhanced -mx-1 flex flex-nowrap items-center gap-2 overflow-x-auto px-1 pb-2 text-sm text-sand-900/80 sm:mx-0 sm:px-0 sm:pb-0 xl:justify-end">
-            <a href="${root}#about" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link>About</a>
-            <a href="${root}skills/" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link${activeAttr(active, "skills")}>Skills</a>
-            <a href="${root}certificates/" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link${activeAttr(active, "certificates")}>Certificates</a>
-            <a href="${root}projects/" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link${activeAttr(active, "projects")}>Projects</a>
-            <a href="${root}experience/" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link${activeAttr(active, "experience")}>Experience</a>
-            <a href="${root}#education" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link>Education</a>
-            <a href="${root}contact/" class="filter-chip shrink-0 rounded-full border border-sand-900/10 px-4 py-2" data-nav-link${activeAttr(active, "contact")}>Contact</a>
-          </nav>
-          <button type="button" class="theme-toggle self-start xl:self-end" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
+    <header class="site-masthead">
+      <div class="site-masthead__frame">
+        <div class="masthead-primary">
+          <a href="${root}" class="masthead-id" aria-label="${escapeAttr(siteName)} — home">
+            <span class="masthead-monogram" aria-hidden="true">ST</span>
+            <span class="masthead-copy">
+              <span class="masthead-name">${escapeHtml(siteName)}</span>
+              <span class="masthead-role">Physics · Technology · Experiments</span>
+            </span>
+          </a>
+          <button type="button" class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
             <span class="theme-toggle__option">Dark</span>
             <span class="theme-toggle__option">Light</span>
             <span class="theme-toggle__thumb" aria-hidden="true"></span>
           </button>
+        </div>
+        <div class="masthead-secondary">
+          <p class="masthead-register" aria-hidden="true"><span>Portfolio index</span><span>Vol. 2026</span></p>
+          <button type="button" class="masthead-menu-toggle" data-menu-toggle aria-controls="primary-navigation" aria-expanded="false" hidden>Menu <span data-menu-state>Open</span></button>
+          <nav id="primary-navigation" class="nav-scroll masthead-navigation" aria-label="Primary navigation">
+            <a href="${root}#about" class="masthead-link" data-nav-link><span aria-hidden="true">01</span>About</a>
+            <a href="${root}skills/" class="masthead-link" data-nav-link${activeAttr(active, "skills")}><span aria-hidden="true">02</span>Skills</a>
+            <a href="${root}certificates/" class="masthead-link" data-nav-link${activeAttr(active, "certificates")}><span aria-hidden="true">03</span>Certificates</a>
+            <a href="${root}projects/" class="masthead-link" data-nav-link${activeAttr(active, "projects")}><span aria-hidden="true">04</span>Projects</a>
+            <a href="${root}experience/" class="masthead-link" data-nav-link${activeAttr(active, "experience")}><span aria-hidden="true">05</span>Experience</a>
+            <a href="${root}#education" class="masthead-link" data-nav-link><span aria-hidden="true">06</span>Education</a>
+            <a href="${root}#timeline" class="masthead-link" data-nav-link><span aria-hidden="true">07</span>Timeline</a>
+            <a href="${root}contact/" class="masthead-link masthead-link--contact" data-nav-link${activeAttr(active, "contact")}><span aria-hidden="true">08</span>Contact</a>
+          </nav>
         </div>
       </div>
     </header>
@@ -223,6 +230,7 @@ export function layout({ title, metaTitle, metaDescription, profile, active = ""
     </div>
   </div>
   <script src="${assets}/js/site.js?v=${assetVersion}"></script>
+  <script type="module" src="${assets}/js/pretext-layout.js?v=${assetVersion}"></script>
 </body>
 </html>
 `;
@@ -247,7 +255,7 @@ export function skillCategory(group, summary = false) {
 }
 
 export function certificateItem(certificate) {
-  return `<article class="skill-line-item rounded-[1.1rem] px-1 py-1.5">
+  return `<article class="skill-line-item editorial-entry editorial-entry--certificate px-1 py-5">
   <div class="flex items-start justify-between gap-4">
     <div>
       <h4 class="text-sm font-semibold tracking-[0.01em] text-sand-900 sm:text-base">${escapeHtml(certificate.title)}</h4>
@@ -264,19 +272,21 @@ export function projectCard(project, depth, reveal = false, searchable = false) 
   const tech = techStackList(project);
   const root = pagePrefix(depth);
   const searchText = [project.title, project.summary, project.description].join(" ").toLowerCase();
-  return `<article class="paper-entry glass overflow-hidden rounded-[2rem]${reveal ? " reveal" : ""}"${searchable ? ` data-project-card data-project-text="${escapeAttr(searchText)}" data-project-tech="${escapeAttr(tech.join("|").toLowerCase())}"` : ""}>
-  <a href="${root}projects/${escapeAttr(project.slug)}/" class="project-image block">
-    ${firstImage ? `<img src="${escapeAttr(firstImage.display_url)}" alt="${escapeAttr(firstImage.caption || project.title)}" loading="lazy" decoding="async">` : `<div class="flex h-full items-end bg-gradient-to-br from-sand-200 via-white to-sand-100 p-5"><p class="font-display text-2xl text-sand-900/70">${escapeHtml(project.title)}</p></div>`}
-  </a>
-  <div class="p-6">
-    <div class="flex flex-wrap gap-2">${tech.map((item) => `<span class="rounded-full bg-sand-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-sand-700">${escapeHtml(item)}</span>`).join("")}</div>
-    <h3 class="mt-4 text-xl font-semibold">${escapeHtml(project.title)}</h3>
-    ${project.summary ? `<p class="mt-3 text-sm leading-7 text-sand-900/72">${escapeHtml(project.summary)}</p>` : ""}
-    <div class="mt-5 flex items-center justify-between gap-3">
-      <a href="${root}projects/${escapeAttr(project.slug)}/" class="text-sm font-semibold text-sand-700">${searchable ? "Open project" : "View project"}</a>
-      ${project.github_link ? `<a href="${escapeAttr(project.github_link)}" target="_blank" rel="noreferrer" class="text-sm text-sand-900/65">GitHub</a>` : ""}
+  return `<article class="paper-entry editorial-entry editorial-project${reveal ? " reveal" : ""}"${searchable ? ` data-project-card data-project-text="${escapeAttr(searchText)}" data-project-tech="${escapeAttr(tech.join("|").toLowerCase())}"` : ""}>
+  <div class="editorial-project__body">
+    <div class="editorial-entry__meta">
+      <span>${project.start_date ? formatMonthYear(project.start_date) : "Field note"}</span>
+      <span>${tech.length} ${tech.length === 1 ? "method" : "methods"}</span>
+    </div>
+    <h3 data-pretext-measure><a href="${root}projects/${escapeAttr(project.slug)}/">${escapeHtml(project.title)}</a></h3>
+    ${project.summary ? `<p class="editorial-entry__abstract">${escapeHtml(project.summary)}</p>` : ""}
+    <div class="editorial-tag-row">${tech.map((item) => `<span class="editorial-tag">${escapeHtml(item)}</span>`).join("")}</div>
+    <div class="editorial-entry__links">
+      <a href="${root}projects/${escapeAttr(project.slug)}/">${searchable ? "Open project" : "View project"} <span aria-hidden="true">-&gt;</span></a>
+      ${project.github_link ? `<a href="${escapeAttr(project.github_link)}" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>` : ""}
     </div>
   </div>
+  ${firstImage ? `<a href="${root}projects/${escapeAttr(project.slug)}/" class="project-image editorial-project__figure"><img src="${escapeAttr(firstImage.display_url)}" alt="${escapeAttr(firstImage.caption || project.title)}" loading="lazy" decoding="async"></a>` : ""}
 </article>`;
 }
 
@@ -316,7 +326,7 @@ export function buildExperienceEntries(experience) {
 
 export function experienceEntry(entry, depth, heading = "h3") {
   const root = pagePrefix(depth);
-  return `<article class="paper-entry experience-entry group relative rounded-[1.5rem] border border-sand-900/10 bg-white/50 p-5 transition"${entry.is_current ? ' data-current="true"' : ""}${entry.is_focus ? " data-timeline-focus" : ""}>
+  return `<article class="paper-entry experience-entry editorial-entry group relative px-1 py-6"${entry.is_current ? ' data-current="true"' : ""}${entry.is_focus ? " data-timeline-focus" : ""}>
   <div class="flex flex-wrap items-start justify-between gap-4">
     <div class="min-w-0">
       <p class="text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-sand-700/70">${escapeHtml(entry.kind_label)}</p>
@@ -324,7 +334,7 @@ export function experienceEntry(entry, depth, heading = "h3") {
       <p class="mt-1 text-sm text-sand-900/62">${escapeHtml(entry.organization)}</p>
     </div>
     <div class="flex items-center gap-2">
-      ${entry.is_current ? `<span class="rounded-full border border-sky-400/30 bg-sky-400/12 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-sky-700">Current</span>` : ""}
+      ${entry.is_current ? `<span class="editorial-status">Current</span>` : ""}
       <span class="text-sm font-medium text-sand-900/48">${formatMonthYear(entry.date)}</span>
     </div>
   </div>
@@ -335,9 +345,9 @@ export function experienceEntry(entry, depth, heading = "h3") {
 
 export function buildTimelineEntries(education, experience, projects) {
   const entries = [
-    ...education.map((item) => ({ kind_label: "Education", date: timelineDate(item), title: item.degree, is_current: Boolean(item.start_date) && !item.end_date })),
-    ...experience.map((item) => ({ kind_label: "Internship", date: item.end_date || item.start_date, title: item.role, is_current: Boolean(item.start_date) && !item.end_date })),
-    ...projects.filter((item) => timelineDate(item)).map((item) => ({ kind_label: "Project", date: timelineDate(item), title: item.title, is_current: false })),
+    ...education.map((item) => ({ kind_label: "Education", date: timelineDate(item), title: item.degree, summary: item.description || "", image: item.figure || null, is_current: Boolean(item.start_date) && !item.end_date })),
+    ...experience.map((item) => ({ kind_label: "Internship", date: item.end_date || item.start_date, title: item.role, summary: item.description || "", image: item.figure || null, is_current: Boolean(item.start_date) && !item.end_date })),
+    ...projects.filter((item) => timelineDate(item)).map((item) => ({ kind_label: "Project", date: timelineDate(item), title: item.title, summary: item.summary || "", image: (item.images || [])[0] || null, is_current: false })),
   ].sort((a, b) => new Date(`${b.date}T00:00:00Z`) - new Date(`${a.date}T00:00:00Z`));
   return entries;
 }
