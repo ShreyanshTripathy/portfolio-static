@@ -3268,3 +3268,117 @@ svg {
     --type-section-title: clamp(1.9rem, 1.85vw, 2.35rem);
   }
 }
+
+/* Session quote intro and permanent footer colophon. */
+.site-content {
+  opacity: 1;
+}
+
+.splash-intro {
+  contain: layout paint style;
+}
+
+.splash-intro__quotes {
+  width: min(100%, 56rem);
+  text-align: left;
+}
+
+.splash-intro__quote p,
+.splash-intro__quote cite {
+  margin: 0;
+}
+
+.splash-intro__quote p {
+  color: var(--ink);
+  font-family: "Recursive", "IBM Plex Sans", sans-serif;
+  font-size: clamp(1.85rem, 5vw, 3.7rem);
+  font-variation-settings: "MONO" 0.12, "CASL" 0.2, "CRSV" 0, "slnt" 0;
+  font-style: normal;
+  font-weight: 620;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+.splash-intro__quote cite {
+  display: block;
+  margin-top: 0.65rem;
+  color: var(--ink-soft);
+  font-family: "Recursive", monospace;
+  font-size: 0.62rem;
+  font-variation-settings: "MONO" 1, "CASL" 0, "CRSV" 0, "slnt" 0;
+  font-style: normal;
+  font-weight: 620;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.splash-intro__quote--secondary {
+  margin-top: clamp(1.6rem, 4vw, 2.5rem);
+}
+
+.splash-intro__quote--secondary p {
+  max-width: 42ch;
+  color: var(--ink-soft);
+  font-size: clamp(1rem, 2.1vw, 1.35rem);
+  font-variation-settings: "MONO" 0.08, "CASL" 0.08, "CRSV" 0, "slnt" 0;
+  font-weight: 480;
+  letter-spacing: 0;
+  line-height: 1.5;
+}
+
+.footer-colophon {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 0.7rem;
+  margin: 0.8rem 0 0;
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--rule);
+  color: var(--ink-soft);
+  font-family: "Recursive", monospace;
+  font-size: 0.62rem;
+  font-variation-settings: "MONO" 1, "CASL" 0, "CRSV" 0, "slnt" 0;
+  letter-spacing: 0.035em;
+  line-height: 1.65;
+}
+
+.footer-colophon cite {
+  color: color-mix(in srgb, var(--ink-soft) 76%, var(--wafer-gold));
+  font-style: normal;
+}
+
+.footer-colophon__separator {
+  color: var(--wafer-gold);
+}
+
+@media (max-width: 600px) {
+  .splash-intro__quotes {
+    width: min(100%, 30rem);
+  }
+
+  .splash-intro__quote p {
+    font-size: clamp(1.65rem, 8.5vw, 2.45rem);
+  }
+
+  .splash-intro__quote--secondary p {
+    font-size: clamp(0.95rem, 4.5vw, 1.15rem);
+  }
+
+  .footer-colophon {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .footer-colophon__separator {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.intro-pending .site-content,
+  html.intro-pending .splash-intro {
+    transition: none !important;
+  }
+}

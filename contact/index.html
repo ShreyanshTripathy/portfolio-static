@@ -18,18 +18,57 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Recursive:CASL,CRSV,MONO,slnt,wght@0..1,0..1,0..1,-15..0,300..1000&display=swap">
   <script>
     (() => {
+      const root = document.documentElement;
       try {
         const savedTheme = localStorage.getItem("portfolio-theme");
         const theme = savedTheme === "light" ? "light" : "dark";
-        const root = document.documentElement;
         root.dataset.theme = theme;
         root.classList.toggle("dark", theme === "dark");
         root.style.colorScheme = theme;
       } catch (error) {
-          document.documentElement.dataset.theme = "dark";
+        root.dataset.theme = "dark";
+      }
+
+      try {
+        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const shouldShowIntro = !reduceMotion && sessionStorage.getItem("seenIntro") !== "true";
+        if (shouldShowIntro) {
+          sessionStorage.setItem("seenIntro", "true");
+          root.classList.add("intro-pending");
+        }
+      } catch (error) {
+        root.classList.remove("intro-pending");
       }
     })();
   </script>
+  <style>
+    .splash-intro { display: none; }
+    html.intro-pending body { overflow: hidden; }
+    html.intro-pending .site-content { opacity: 0; }
+    html.intro-pending .splash-intro {
+      position: fixed;
+      z-index: 100;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: 1.5rem;
+      background: var(--paper, #101214);
+      color: var(--ink, #eceae2);
+      opacity: 0;
+    }
+    html.intro-pending.intro-visible .splash-intro {
+      opacity: 1;
+      transition: opacity 520ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    html.intro-pending.intro-revealing .site-content {
+      opacity: 1;
+      transition: opacity 520ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    html.intro-pending.intro-revealing .splash-intro {
+      opacity: 0;
+      transition: opacity 500ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+  </style>
   <script src="https://cdn.tailwindcss.com?plugins=typography,forms"></script>
   <script>
     tailwind.config = {
@@ -37,9 +76,22 @@
       theme: { extend: { colors: { sand: { 50: "#f8f4ee", 100: "#efe7db", 200: "#dcc5aa", 700: "#6e4e2e", 900: "#221c18" } }, boxShadow: { warm: "0 24px 60px rgba(67, 47, 27, 0.08)" } } }
     }
   </script>
-  <link rel="stylesheet" href="../assets/css/styles.css?v=20260804-responsive-pass-v6">
+  <link rel="stylesheet" href="../assets/css/styles.css?v=20260804-quote-intro-v9">
 </head>
 <body class="shell antialiased">
+  <div class="splash-intro" data-splash-intro aria-hidden="true">
+    <div class="splash-intro__quotes">
+      <div class="splash-intro__quote splash-intro__quote--primary">
+        <p lang="hi">वरदान माँगूँगा नहीं।</p>
+        <cite>Harivansh Rai Bachchan</cite>
+      </div>
+      <div class="splash-intro__quote splash-intro__quote--secondary">
+        <p>A man can be destroyed but not defeated.</p>
+        <cite>Ernest Hemingway</cite>
+      </div>
+    </div>
+  </div>
+  <div class="site-content" data-site-content>
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <header class="site-masthead">
       <div class="site-masthead__frame">
@@ -90,7 +142,13 @@
         <a href="../contact/" class="hover:text-sand-900">Contact</a>
       </div>
     </div>
+    <p class="footer-colophon">
+      <span class="footer-colophon__quote"><span lang="hi">वरदान माँगूँगा नहीं।</span> <cite>— Harivansh Rai Bachchan</cite></span>
+      <span class="footer-colophon__separator" aria-hidden="true">/</span>
+      <span class="footer-colophon__quote"><span>A man can be destroyed but not defeated.</span> <cite>— Ernest Hemingway</cite></span>
+    </p>
   </footer>
+  </div>
   <div class="lightbox fixed inset-0 z-50 bg-sand-900/85 px-4 py-6 sm:py-8" data-lightbox role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="lightbox-title" hidden>
     <h2 id="lightbox-title" class="sr-only">Project image viewer</h2>
     <div class="mx-auto flex h-full max-w-6xl flex-col gap-4 lg:flex-row lg:items-center" data-lightbox-dialog>
@@ -105,7 +163,19 @@
       </div>
     </div>
   </div>
-  <script src="../assets/js/site.js?v=20260804-responsive-pass-v6"></script>
-  <script type="module" src="../assets/js/pretext-layout.js?v=20260804-responsive-pass-v6"></script>
+  <script>
+    if (document.documentElement.classList.contains("intro-pending")) {
+      window.__portfolioIntroReadyAt = performance.now();
+      window.__portfolioIntroFallback = window.setTimeout(() => {
+        const root = document.documentElement;
+        root.classList.remove("intro-pending", "intro-visible", "intro-revealing");
+        root.classList.add("intro-complete");
+        const intro = document.querySelector("[data-splash-intro]");
+        if (intro) intro.hidden = true;
+      }, 3800);
+    }
+  </script>
+  <script src="../assets/js/site.js?v=20260804-quote-intro-v9"></script>
+  <script type="module" src="../assets/js/pretext-layout.js?v=20260804-quote-intro-v9"></script>
 </body>
 </html>

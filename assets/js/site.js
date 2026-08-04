@@ -2,6 +2,36 @@ document.addEventListener("DOMContentLoaded", () => {
   const root = document.documentElement;
   const themeToggle = document.querySelector("[data-theme-toggle]");
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const splashIntro = document.querySelector("[data-splash-intro]");
+  const introEnterDuration = 520;
+  const introHoldDuration = 1700;
+  const introExitDuration = 520;
+
+  const finishIntro = () => {
+    window.clearTimeout(window.__portfolioIntroFallback);
+    root.classList.remove("intro-pending", "intro-visible", "intro-revealing");
+    root.classList.add("intro-complete");
+    if (splashIntro) splashIntro.hidden = true;
+  };
+
+  if (root.classList.contains("intro-pending") && splashIntro) {
+    if (prefersReducedMotion) {
+      finishIntro();
+    } else {
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          root.classList.add("intro-visible");
+          window.setTimeout(() => {
+            splashIntro.setAttribute("aria-hidden", "true");
+            root.classList.add("intro-revealing");
+            window.setTimeout(finishIntro, introExitDuration + 40);
+          }, introEnterDuration + introHoldDuration);
+        });
+      });
+    }
+  } else if (splashIntro) {
+    splashIntro.hidden = true;
+  }
 
   const persistTheme = (theme) => {
     try {
@@ -97,7 +127,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const focusEntry = scrollable.querySelector("[data-timeline-focus]");
     if (focusEntry) {
       requestAnimationFrame(() => {
-        focusEntry.scrollIntoView({ block: "nearest", behavior: prefersReducedMotion ? "auto" : "smooth" });
+        const scrollableRect = scrollable.getBoundingClientRect();
+        const focusRect = focusEntry.getBoundingClientRect();
+        const targetTop = scrollable.scrollTop
+          + (focusRect.top - scrollableRect.top)
+          - Math.max((scrollable.clientHeight - focusRect.height) / 2, 0);
+        scrollable.scrollTo({ top: Math.max(targetTop, 0), behavior: prefersReducedMotion ? "auto" : "smooth" });
         syncScrollableFade(shell);
       });
     }
