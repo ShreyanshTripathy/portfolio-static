@@ -82,7 +82,7 @@ function blankFrom(value, key = "") {
     return Object.fromEntries(Object.entries(value).map(([childKey, childValue]) => [childKey, blankFrom(childValue, childKey)]));
   }
   if (typeof value === "boolean") return false;
-  if (typeof value === "number") return key === "proficiency_level" ? 50 : 0;
+  if (typeof value === "number") return 0;
   return "";
 }
 

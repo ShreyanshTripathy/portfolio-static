@@ -7,7 +7,7 @@ export const skillCategoryLabels = {
 };
 
 const skillCategoryOrder = ["programming", "tools", "research", "communication", "other"];
-const assetVersion = "20260804-quote-intro-v9";
+const assetVersion = "20260805-skill-evidence-v10";
 
 export function escapeHtml(value = "") {
   return String(value)
@@ -308,10 +308,7 @@ export function layout({ title, metaTitle, metaDescription, profile, active = ""
 
 export function skillItem(skill) {
   return `<article class="skill-line-item rounded-[1.1rem] px-1 py-1">
-  <div class="flex items-start justify-between gap-2.5">
-    <h4 class="text-sm font-semibold tracking-[0.01em] text-sand-900 sm:text-base">${escapeHtml(skill.name)}</h4>
-    <span class="shrink-0 pt-0.5 text-xs font-semibold uppercase tracking-[0.18em] text-sand-700/80">${escapeHtml(skill.proficiency_level)}%</span>
-  </div>
+  <h4 class="text-sm font-semibold tracking-[0.01em] text-sand-900 sm:text-base">${escapeHtml(skill.name)}</h4>
   ${skill.highlight ? `<p class="mt-1 text-sm leading-5 text-sand-900/62">${escapeHtml(skill.highlight)}</p>` : ""}
 </article>`;
 }
