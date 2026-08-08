@@ -7,7 +7,7 @@ export const skillCategoryLabels = {
 };
 
 const skillCategoryOrder = ["programming", "tools", "research", "communication", "other"];
-const assetVersion = "20260805-skill-evidence-v10";
+const assetVersion = "20260809-experience-dates-v11";
 
 export function escapeHtml(value = "") {
   return String(value)
@@ -373,8 +373,10 @@ export function buildExperienceEntries(experience) {
     .map((item) => {
       const split = splitTimelineCopy(item.description);
       return {
-        kind_label: "Internship",
+        kind_label: "Experience",
         date: item.end_date || item.start_date,
+        start_date: item.start_date,
+        end_date: item.end_date,
         title: item.role,
         organization: item.company,
         summary_preview: split.preview,
@@ -402,7 +404,7 @@ export function experienceEntry(entry, depth, heading = "h3") {
     </div>
     <div class="flex items-center gap-2">
       ${entry.is_current ? `<span class="editorial-status">Current</span>` : ""}
-      <span class="text-sm font-medium text-sand-900/48">${formatMonthYear(entry.date)}</span>
+      <span class="text-sm font-medium text-sand-900/48">${formatDateRange(entry.start_date, entry.end_date)}</span>
     </div>
   </div>
   ${entry.summary_preview ? `<div class="mt-4 text-sm leading-7 text-sand-900/72"><p>${escapeHtml(entry.summary_preview)}${entry.has_long_summary ? "..." : ""}</p></div>` : ""}
