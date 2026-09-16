@@ -7,7 +7,7 @@ export const skillCategoryLabels = {
 };
 
 const skillCategoryOrder = ["programming", "tools", "research", "communication", "other"];
-const assetVersion = "20260809-experience-dates-v11";
+const assetVersion = "20260916-quote-attribution-v12";
 
 export function escapeHtml(value = "") {
   return String(value)
@@ -207,7 +207,7 @@ export function layout({ title, metaTitle, metaDescription, profile, active = ""
     <div class="splash-intro__quotes">
       <div class="splash-intro__quote splash-intro__quote--primary">
         <p lang="hi">वरदान माँगूँगा नहीं।</p>
-        <cite>Harivansh Rai Bachchan</cite>
+        <cite>Shivmangal Singh ‘Suman’</cite>
       </div>
       <div class="splash-intro__quote splash-intro__quote--secondary">
         <p>A man can be destroyed but not defeated.</p>
